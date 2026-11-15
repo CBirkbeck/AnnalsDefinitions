@@ -1,6 +1,6 @@
 # Needs roadmap review
 
-Snapshot 2026-11-14 (Tau Ceti `c56184862`, Mathlib `e8ba86fa9744`, roadmaps `e1cd6a508`, 467 open roadmap PRs).
+Snapshot 2026-11-15 (Tau Ceti `b0afcaa7e`, Mathlib `e8ba86fa9744`, roadmaps `1a19c9fca`, 517 open roadmap PRs).
 
 Every one of the 100 definitions is in exactly one of four files: [ready-to-write-statements.md](ready-to-write-statements.md), [ready-to-formalize-in-tau-ceti.md](ready-to-formalize-in-tau-ceti.md), [needs-roadmap-review.md](needs-roadmap-review.md), [needs-roadmap-written.md](needs-roadmap-written.md). A definition is placed in the furthest-along file whose condition holds for the definition as Kevin Buzzard's text states it; gaps that matter only for a particular paper are noted on the entry.
 
@@ -67,10 +67,11 @@ A definition appears under every PR that specifies it.
 - InverseGaloisAndArithmeticFundamentalGroupsPartII: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2263: #59
 - MappingClassGroupsAndCanonicalRepresentations: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266: #58, #59, #61
 - GaloisActionOnEtaleCohomology: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2271: #22
+- SpectralSequencesAndConvergence: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2302: #6
 
 ## By definition
 
-55 definitions.
+56 definitions.
 
 
 ### Algebra, representation theory & homotopy theory
@@ -85,6 +86,8 @@ A definition appears under every PR that specifies it.
   Papers: [2022·196(3)·1] Zimmer's conjecture: Subexponential growth, measure rigidity, and strong property (T); [2022·196(3)·2] Invariant measures and measurable projective factors for actions of higher-rank lattices on manifolds; [2024·200(3)·1] A general Cayley correspondence and higher rank Teichmüller spaces. [census](../census/004.md)
 - **#5 Infinitesimal character (and Casimir eigenvalue) of a representation of a real reductive group.** Code: `harishChandraIso`, `centralCharacterModules`, `UniversalEnvelopingAlgebra.centralCharacter` (semisimple, alg. closed); the reductive Harish-Chandra isomorphism in merged [LieHighestWeight](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieHighestWeight/README.md) §9.2; the group level in PR [#1037](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1037) §2.2.  
   Papers: [2024·200(3)·2] Doubling constructions: Global functoriality for non-generic cuspidal representations; [2026·203(3)·3] Quantum variance on quaternion algebras, III. [census](../census/005.md)
+- **#6 Convergence of a spectral sequence.** Code: spectral sequence of a filtered complex, its abutment filtration, strong convergence for finite filtrations, and for module complexes exhaustive and complete filtrations. Partly in code (the finite-filtration case the cited paper uses); the general convergence notions of Definition 6.2 are PR [#2302](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2302) §3.2 (weak, ordinary and strong convergence in a set of degrees) and §4.4 (convergence in a range of degrees).  
+  Papers: [2020·191(3)·4] A geometric version of the circle method. [census](../census/006.md)
 - **#7 Discrete series representations of $\mathrm{GL}_2(\mathbb{R})$.** PR [#1037](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1037) §§2.3–2.6; PR [#931](https://github.com/TauCetiProject/TauCetiRoadmap/pull/931) R16.2.13.  
   Papers: [2026·203(1)·4] Symmetric power functoriality for Hilbert modular forms; [2026·203(3)·3] Quantum variance on quaternion algebras, III. [census](../census/007.md)
 
@@ -135,13 +138,13 @@ A definition appears under every PR that specifies it.
   Papers: [2025·202(2)·2] On the stability of multi-dimensional rarefaction waves I: the energy estimates; [2025·202(2)·3] On the stability of multi-dimensional rarefaction waves II: existence of solutions and applications to the Riemann problem. [census](../census/051.md)
 - **#58 MCG-finite representation of a surface group.** PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §2.1 (`HasFiniteConjugacyOrbitUnder`, MCG-finite), §0.2 (PMod and its based action on π₁); PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9 (Mod(S)).  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/058.md)
-- **#59 Mapping class group of a punctured surface.** PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9; PRs [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169), [#1728](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1728), [#271](https://github.com/TauCetiProject/TauCetiRoadmap/pull/271); merged [GeometricTopology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md) 1.7.2 (compact case); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §0.2 (PMod); PR [#2263](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2263) §2.1 (marked disc).  
+- **#59 Mapping class group of a punctured surface.** Code: the smooth `TauCeti.MappingClassGroup` = π₀ Diff(M, ∂M) of a compact manifold, with `Mod⁺`. Partly in code (compact surfaces with boundary fixed, not punctures); PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9; PRs [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169), [#1728](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1728), [#271](https://github.com/TauCetiProject/TauCetiRoadmap/pull/271); merged [GeometricTopology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md) 1.7.2 (compact case); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §0.2 (PMod); PR [#2263](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2263) §2.1 (marked disc).  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/059.md)
 - **#61 Outer action of the mapping class group on the fundamental group.** PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9; PR [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169) (`OuterAut`, Dehn–Nielsen–Baer); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §§0.1–0.2 (based and outer action of PMod, `pureMappingClassAut`).  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/061.md)
 - **#62 Riemannian symmetric space of a semisimple Lie group.** PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) §§0.1–0.2, §2.2, §§5.2–5.4, §5.6 (Cartan involutions, `G/K` with the Killing metric, distance, maximal compacts, injectivity radius of `Λ\X`); inputs [LieGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieGroups/README.md) L7, L9, [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R1.3, R4.  
   Papers: [2023·197(1)·6] Infinite volume and infinite injectivity radius. [census](../census/062.md)
-- **#64 Spin$^c$ structure on an oriented manifold.** Code: the group `CliffordAlgebra.spinCGroup`. [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) §6.2 (3-manifolds, Turaev model); general definition in PR [#936](https://github.com/TauCetiProject/TauCetiRoadmap/pull/936) F4.1. General definition: PR [#936](https://github.com/TauCetiProject/TauCetiRoadmap/pull/936) F4.1. Merged [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) §6.2 has the 3-manifold case.  
+- **#64 Spin$^c$ structure on an oriented manifold.** Code: the group `CliffordAlgebra.spinCGroup`; Spin structures `TauCeti.SpinStructure` (the Spin analogue of 64.2); the canonical lift `U(2) → Spinᶜ(4)`. [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) §6.2 (3-manifolds, Turaev model); general definition in PR [#936](https://github.com/TauCetiProject/TauCetiRoadmap/pull/936) F4.1. General definition: PR [#936](https://github.com/TauCetiProject/TauCetiRoadmap/pull/936) F4.1. Merged [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) §6.2 has the 3-manifold case.  
   Papers: [2025·201(1)·1] Grid diagrams and Heegaard Floer invariants. [census](../census/064.md)
 
 ### Number theory

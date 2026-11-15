@@ -1,7 +1,7 @@
 # Merged-roadmap work on the prerequisite chains of the 100 Annals definitions
 
-Specified in a merged roadmap (`TauCetiRoadmap/<Name>/` at roadmap commit e1cd6a5, 2026-11-13), not
-yet (fully) implemented in Tau Ceti main (c561848, 2026-11-13), and on the prerequisite chain of at
+Specified in a merged roadmap (`TauCetiRoadmap/<Name>/` at roadmap commit 1a19c9f, 2026-11-15), not
+yet (fully) implemented in Tau Ceti main (b0afcaa, 2026-11-15), and on the prerequisite chain of at
 least one definition. Each item was checked against the README section, STATUS.md (snapshot date
 given per roadmap; several are stale) and a grep of Tau Ceti code. Item format: status
 (NOT-STARTED / PARTIAL with what exists), ready now (yes / no: needs X), definitions served,
@@ -27,13 +27,13 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | GeometricCurrents | 3 | 3 (2 / 1) | 0 | 53, 57, 65 |
 | GeometricMeasureTheory | 3 | 2 (0 / 2) | 2 | 53, 55, 57 |
 | HeegaardFloer | 3 | 5 (3 / 2) | 0 | 56, 60, 64 |
-| OperatorTheory/UnboundedOperators | 3 | 5 (5 / 0) | 2 | 35, 40, 45 |
+| OperatorTheory/UnboundedOperators | 3 | 5 (4 / 1) | 2 | 35, 40, 45 |
 | SobolevMapsBetweenManifolds | 3 | 5 (5 / 0) | 1 | 41, 42, 47 |
 | CStarAlgebras | 2 | 7 (5 / 2) | 2 | 36, 46 |
 | ComplexKahlerGeometry | 2 | 4 (2 / 2) | 1 | 38, 40 |
 | DerivedModuleAlgebra | 2 | 2 (2 / 0) | 0 | 27, 81 |
 | EnhancedDerivedSheaves | 2 | 2 (1 / 1) | 0 | 18, 27 |
-| GeometricTopology | 2 | 2 (2 / 0) | 1 | 59, 66 |
+| GeometricTopology | 2 | 2 (1 / 1) | 1 | 59, 66 |
 | OperatorTheory/SelfAdjointSpectralTheory | 2 | 1 (1 / 0) | 1 | 35, 45 |
 | PseudodifferentialOperators | 2 | 2 (1 / 1) | 1 | 32, 40 |
 | PseudoholomorphicCurveAnalysis | 2 | 4 (1 / 3) | 0 | 56, 60 |
@@ -48,7 +48,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | PerfectoidSpaces | 1 | 1 (0 / 1) | 0 | 81 |
 | RepresentationTheory/LieHighestWeight | 1 | 1 (1 / 0) | 1 | 5 |
 | RiemannianGeometry/MinimalSurfaces | 1 | 1 (1 / 0) | 0 | 52 |
-| SpinGeometry | 1 | 1 (1 / 0) | 0 | 64 |
+| SpinGeometry | 1 | 1 (0 / 1) | 0 | 64 |
 | StableReduction | 1 | 2 (0 / 2) | 1 | 24 |
 | SymplecticGeometry/CotangentLagrangian | 1 | 1 (0 / 1) | 1 | 92 |
 | TaubesGromov | 1 | 1 (1 / 0) | 0 | 60 |
@@ -61,7 +61,8 @@ Distinct definitions served: 67. Items: see per-roadmap sections.
 
 - SchemeAndStackFoundations §4.14 (Hilbert/Quot) is the choke point for the whole Jacobian cluster
   (defs 19, 24, 30, 71, 80, 84, 85). Required order: JacobianChallenge Layer C coherence and base
-  change, then §4.12 (generic flatness), then §4.14, then Layer C `Sym^d`, then Layer D Picard scheme.
+  change, then §4.12 (generic flatness and Chow's lemma; only Chow's graph-closure construction is in
+  code), then §4.14, then Layer C `Sym^d`, then Layer D Picard scheme.
 - SSF Layer 1 is a linear chain: §1.3 (done), then §1.5, §1.6, §1.7/§1.8, §1.9, then §1.19, §1.20,
   §1.21, §1.22, §1.23. §1.18 has `StackInGroupoids` in code; its stackification and 2-fibre
   products, which §1.19 needs, can proceed now in parallel with §1.5.
@@ -76,7 +77,7 @@ Distinct definitions served: 67. Items: see per-roadmap sections.
   R5a.2, then R5b, then R5c, then MinimalSurfaces MS6, for defs 49, 52, 65, 66.
 
 ## TauCetiRoadmap/SchemeAndStackFoundations
-STATUS.md snapshot: af32451 2026-11-11, generated against Tau Ceti a6027b1 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: af32451 2026-11-11, generated against Tau Ceti a6027b1 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### §1.4 AlgSpace.overEquiv (algebraic spaces over a base)
 - Status: PARTIAL: §1.3 is complete in code: the predicates `SchemePresheaf`, `Spaces.RepresentableDiagonal`, `Spaces.EtaleAtlas`, `Spaces.IsAlgebraicSpace` (TauCeti/AlgebraicGeometry/AlgebraicSpace/Basic.lean), `Spaces.isAlgebraicSpace_of_etale_cover` with `EtaleAtlas.of_sigma` (AlgebraicSpace/EtaleCover.lean) and `IsAlgebraicSpace.diagonal_locallyQuasiFinite` with `EtaleAtlas.locallyOfFiniteType_diag` (AlgebraicSpace/Diagonal.lean). §1.4 has `Spaces.AlgSpace`, `toPresheaf`, `ofScheme` (Full/Faithful), `homFromSchemeEquiv`, terminal `Spec ℤ`, initial `∅` (AlgebraicSpace/Category.lean). Missing: `AlgSpace.overEquiv` (algebraic spaces over `h_S` ≃ algebraic spaces with a map to `S`).
@@ -176,7 +177,7 @@ STATUS.md snapshot: af32451 2026-11-11, generated against Tau Ceti a6027b1 (Tau 
 
 ### §4.14 Hilbert/Quot/Hom/Isom schemes
 - Status: NOT-STARTED for Hilbert/Quot/Hom/Isom (no `hilbert_quot_schemes`, Quot or Hilb functor anywhere in Tau Ceti)
-- Ready now: no: needs §2.6 (partial), §4.12 (not started: no `generic_flatness`, `chow_lemma`), StableReduction Layer 2 (partial: "coherent cohomology and base change ... ampleness criterion and openness" remaining), JacobianChallenge Layer C (partial: "coherence of R^q f_* for proper f ... cohomology and base change" remaining). JacobianChallenge Layer C's Sym^d in turn consumes §4.14, so the order must be Layer C coherence, then §4.14, then Sym^d
+- Ready now: no: needs §2.6 (partial), §4.12 (partial: the graph-closure construction of Chow's lemma, `TauCeti.AlgebraicGeometry.graphClosure` with `isModification_graphClosureFst` and `isImmersion_graphClosureSnd`, Morphisms/Modification/GraphClosure.lean; no `generic_flatness`, `chow_lemma`), StableReduction Layer 2 (partial: "coherent cohomology and base change ... ampleness criterion and openness" remaining), JacobianChallenge Layer C (partial: "coherence of R^q f_* for proper f ... cohomology and base change" remaining). JacobianChallenge Layer C's Sym^d in turn consumes §4.14, so the order must be Layer C coherence, then §4.14, then Sym^d
 - Serves defs: 24, 30 (and, through JacobianChallenge Layers C/D, 19, 71, 80, 84, 85)
 - Evidence: README l.7025 "### 4.14 Hilbert and Quot schemes", Needs l.7042 "§2.6, §4.12; StableReduction Layer 2; JacobianChallenge Layer C". STATUS's Layer 4 "remaining" list (lifting criterion 4.1, deformation functors 4.3, formal functions and algebraization 4.9–4.10, strict transforms 4.11, Bertini 4.13) only names sections that have started; §4.14 is untouched, not done.
 
@@ -247,7 +248,7 @@ STATUS.md snapshot: af32451 2026-11-11, generated against Tau Ceti a6027b1 (Tau 
 - Evidence: README l.8649 "**Numerical Néron–Severi finiteness.** *Num.free_finiteRank*". It is stated only for smooth projective surfaces over algebraically closed fields.
 
 ## TauCetiRoadmap/ReductiveGroupsPartII
-STATUS.md snapshot: d92acc5 2026-11-09 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: d92acc5 2026-11-09 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### RG2.0 Topologies on rational points (local and adelic G(F_v))
 - Status: PARTIAL. Exists: the affine point topology and topological group (Topology/Algebra/PointTopology/Basic.lean, Group.lean, Separation.lean); compact open integral points `isOpenEmbedding_integralPoints` (Topology/Algebra/PointTopology/IntegralPoints.lean); congruence subgroups (Algebra/AlgebraicGroup/CongruenceSubgroup/Topology.lean, ProP.lean); scheme point topology with closed immersions and separation (PointTopology/Scheme/, including ClosedImmersion.lean, Separation.lean); Frobenius fixed points of Ĕ, `TauCeti.MaxUnramifiedCompletion.fixedPoints_frobenius`, `fixedPoints_integerFrobenius`, `frobenius_congr` (NumberTheory/LocalField/Unramified/Frobenius.lean). Missing: smooth maps open on points, analytic charts and Haar Jacobians (the archimedean charts are here), `G(E) = G(Ĕ)^σ` on points, and scheme-level functoriality.
@@ -274,7 +275,7 @@ STATUS.md snapshot: d92acc5 2026-11-09 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.6704 "## Layer RG2.5: integral dual data", l.6724 "### RG2.5.1 the dual group and its Galois action", l.6931 "### RG2.5.2 the L-group and its functoriality"; STATUS RG2.5 "untouched".
 
 ## TauCetiRoadmap/AdelicAlgebraicGroups
-No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at c561848, 2026-11-13). No Suggested.lean declaration (`Reduction.IsSArithmetic`, `Reduction.levelArithmetic`, `Neat.IsNeatLevel`, adelic points) exists in Tau Ceti.
+No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at b0afcaa7e, 2026-11-15). No Suggested.lean declaration (`Reduction.IsSArithmetic`, `Reduction.levelArithmetic`, `Neat.IsNeatLevel`, adelic points) exists in Tau Ceti.
 
 ### AA.0 Restricted products of Haar measures; Haar measures of the adeles and ideles
 - Status: NOT-STARTED. Suppliers in code: `TauCeti.awayDecomposition` (Topology/Algebra/RestrictedProduct/Away/Decomposition.lean), `InfiniteAdeleRing.homeomorphMixedSpace` (NumberTheory/NumberField/Global/Adeles/Basic.lean), `restrictedProductCongr`.
@@ -325,7 +326,7 @@ No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at c561848, 2026-11-13
 - Evidence: README l.4262 "### 4.2 Strong approximation and arithmetic closures", l.5410 "### 5.2 `GL₂` over `ℚ` and principal levels" ("**The `GL_2/ℚ` quotient and the upper half-plane.**").
 
 ## TauCetiRoadmap/SmoothRepresentationsOfLocalGroups
-No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at c561848, 2026-11-13). None of the Suggested.lean declarations (`SmoothRep`, `smoothVectors`, `IsAdmissible`, `HeckeAlgebraLevel`, `isAdmissible_of_isIrreducible`, `WeilDeligneParameter`) exists in Tau Ceti for this purpose.
+No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at b0afcaa7e, 2026-11-15). None of the Suggested.lean declarations (`SmoothRep`, `smoothVectors`, `IsAdmissible`, `HeckeAlgebraLevel`, `isAdmissible_of_isIrreducible`, `WeilDeligneParameter`) exists in Tau Ceti for this purpose.
 
 ### SR.0.1–SR.0.4 The smooth category over any ring: smoothness, the abelian category, invariants and averaging, admissibility, smooth characters, the centre
 - Status: NOT-STARTED. Suppliers in code: the smooth discrete carrier `TauCeti.SmoothDiscreteTopRep` and `discreteRepEquivSmoothTopRep` (RepresentationTheory/Homological/ContCohomology/SmoothDiscrete/Basic.lean).
@@ -358,7 +359,7 @@ No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at c561848, 2026-11-13
 - Evidence: README l.4475 "#### WD raw parameters", l.4513 "#### Nilpotent exp-log", l.4561 "#### WD parameter operations", *wd-algebraic-composition* l.4590 ("**Composition with an algebraic representation and symmetric powers**").
 
 ## TauCetiRoadmap/RepresentationTheory/LieGroups
-STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer 7 (first bullet) Compact real form of a complex semisimple Lie algebra; Cartan involution θ of a real semisimple 𝔤₀
 - Status: PARTIAL. Exists: the conjugate-linear involution τ of the Serre-presented algebra, `TauCeti.serreCompactInvolution` (τHᵢ = −Hᵢ, τEᵢ = −Fᵢ, τFᵢ = −Eᵢ, `serreCompactInvolution_lie`, `serreCompactInvolution_involutive`, uniqueness `eq_serreCompactInvolution`, agreement with `serreChevalleyInvolution` for a trivial star; Algebra/Lie/Presentation/Serre/CompactInvolution.lean), on the conjugate Lie algebra `TauCeti.ConjLieAlgebra` (Algebra/Lie/Conjugate.lean). Other ingredients: `serreLiftEquiv` (Serre/Injective.lean), `serreChevalleyInvolution` (Serre/Automorphism.lean), Chevalley involution and structure-constant normalization (Algebra/Lie/Weights/Chevalley/Involution.lean, Algebra/Lie/Weights/StructureConstant/Normalization.lean). Missing: the Hermitian form H_τ(x, y) = −B(x, τy) and its positivity, the compact real form 𝔲 = Fix τ, real-form descent, and θ = στ|𝔤₀ (grep `compactRealForm|CartanInvolution` empty).
@@ -385,7 +386,7 @@ STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md;
 - Evidence: README l.1078 "### Layer 8: Borel-Weil, flag manifolds, and Bruhat"; the minimal parabolics are complex algebraic P_α ⊂ G_ℂ (l.1155 "minimal-parabolic map pα:G/B+→G/Pα+"), not real parabolics; STATUS Layer 8 "untouched".
 
 ## TauCetiRoadmap/RepresentationTheory/LieHighestWeight
-STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md; Tau Ceti checked at c56184862, 2026-11-13; README at roadmap e1cd6a5, after PR #1220)
+STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md; Tau Ceti checked at b0afcaa7e, 2026-11-15; README at roadmap 1a19c9f, after PR #1220)
 
 ### §9.2 Reductive enveloping centers and the reductive Harish-Chandra isomorphism
 - Status: NOT-STARTED. No `productEnveloping`, `productCenterEquiv` or reductive HC isomorphism (grep empty). The inputs exist: `TauCeti.UniversalEnvelopingAlgebra.mapEquiv` (Algebra/Lie/UniversalEnveloping/Functoriality.lean), `prodEquivTensor` (UniversalEnveloping/Prod.lean), `symmetricAlgebraEquiv` (UniversalEnveloping/Abelian.lean), `pbwSymmetrization_mem_center_iff` (UniversalEnveloping/PBW/Symmetrization/Basic.lean), the semisimple `TauCeti.harishChandraIso`/`harishChandraLinearIso` (Algebra/Lie/HighestWeight/CentralCharacter/Isomorphism.lean), `LieSubalgebra.lieChevalleyRestrictionIso` (HighestWeight/ChevalleyRestriction.lean), and the reductive structure with `centralWeight` (Algebra/Lie/Reductive/Basic.lean, Algebra/Lie/Weights/Central.lean).
@@ -394,7 +395,7 @@ STATUS.md snapshot: a6027b1 2026-11-11 (umbrella RepresentationTheory/STATUS.md;
 - Evidence: README l.2695 "## Layer 9: reductive Lie algebras and `gl_n`", l.2819 "### 9.2 Reductive enveloping centers and the actual invariant maps" ("Tensor the derived algebra's native **raw** HC isomorphism `TauCeti.harishChandraIso` with the identity on `Sym(z(L))`"); this is the gap open PR #1037 records as `gap:reductive-enveloping-centers`.
 
 ## TauCetiRoadmap/JacobianChallenge
-STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer C Sym^d X = Hilb^d
 - Status: PARTIAL: the functor `Div_{X/S}` of relative effective Cartier divisors and its degree subfunctor (EffectiveCartierDivisor/Functor.lean, Degree/), representability for d = 0 and d = 1 (`graphDivisorDegreeOne`, EffectiveCartierDivisor/Representable.lean). On the cohomology side: flat base change `H^q(X,F) ⊗_A B ≅ H^q(X_B,F_B)` for qcqs `X` (`TauCeti.AlgebraicGeometry.bijective_cohomologyBaseChange`, Cohomology/FlatBaseChange.lean), quasi-coherence of `R^q f_*` for qcqs `f` (`Scheme.Hom.isQuasicoherent_higherDirectImage`, Cohomology/HigherDirectImage/Quasicoherent.lean), semicontinuity and cohomology and base change for two-affine covers. No coherence of `R^q f_*` for proper `f`, no `Sym^d X` for d ≥ 2.
@@ -421,7 +422,7 @@ STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.448 "### Layer F, Abel–Jacobi and the universal property"; STATUS "Layer F states the Albanese property, and has Abel–Jacobi on functors of points, but no Abel–Jacobi morphism of schemes".
 
 ## TauCetiRoadmap/ReductiveGroups
-STATUS.md snapshot: bb8823c 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13; README at roadmap e1cd6a5)
+STATUS.md snapshot: bb8823c 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15; README at roadmap 1a19c9f)
 
 ### Layer 5 (solvable groups) Structure of smooth connected solvable groups, G = G_u ⋊ T
 - Status: PARTIAL. Exists: `torus_coinvariants_unipotentRadical` (G/G_u is a torus). Missing: that a maximal torus T meets G_u trivially and maps isomorphically onto G/G_u, the decomposition G = G_u ⋊ T, and conjugacy of subgroups of multiplicative type into T by G_u(k̄) (Milne, Theorem 16.33(b),(d)). STATUS lists Layer 5 as done.
@@ -454,7 +455,7 @@ STATUS.md snapshot: bb8823c 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.1914 "**3A.5e The complex Lie group `G(ℂ)`.**" ("By 3A.5c–3A.5d, `G(ℂ)` is a Hausdorff, second-countable complex manifold"); STATUS 3A "remaining: complex-point comparison, restriction to O(1) sections and remaining worked tests"; supplier contract l.1058 "The library does not state that an affine open chart is an open embedding…".
 
 ## TauCetiRoadmap/RiemannianGeometry
-STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### R5a Immersion geometry: pullback connection, normal bundle, B, S, ∇⊥
 - Status: PARTIAL: flat-ambient case and projections only: `TauCeti.secondFundamentalForm` (Analysis/InnerProductSpace/SecondFundamentalForm.lean), `shapeOperator` (Analysis/InnerProductSpace/ShapeOperator.lean), on manifold sources `TauCeti.manifoldSecondFundamentalForm` and `TauCeti.manifoldShapeOperator` (Geometry/Manifold/Immersion/{SecondFundamentalForm,ShapeOperator}.lean), smooth tangent and normal projections along immersions into a Riemannian manifold (Geometry/Manifold/Riemannian/Immersion/Projection.lean), Gauss formula along curves (Geometry/Manifold/VectorBundle/CovariantDerivative/AlongCurve/Immersion.lean), embedding normal spaces (Geometry/Manifold/SmoothEmbedding/NormalSpace/), pullback metric along immersions (Geometry/Manifold/Riemannian/Pullback/Basic.lean). Nothing for a Riemannian ambient beyond the projections: no pullback ambient connection, normal bundle ν_f as a bundle, intrinsic B, S, ∇⊥, or Gauss/Codazzi/Ricci
@@ -505,16 +506,16 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.2565 "4. Cartan–Hadamard (`cartanHadamard_isCoveringMap`)", *Needs* l.2577 "R4.3 (covering criterion), HopfRinow (Completed) Layer 4"; STATUS "R4 has its models, the nonpositive-curvature exponential bound ... but no comparison theorem"
 
 ## TauCetiRoadmap/RiemannianGeometry/MinimalSurfaces
-No STATUS.md; sub-roadmap from roadmap PR #2226 (Tau Ceti checked at c56184862, 2026-11-13)
+No STATUS.md; sub-roadmap from roadmap PR #2226 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### MS6.1–MS6.3 Morse index and nullity of minimal submanifolds (compact, by exhaustion, hypersurfaces)
 - Status: NOT-STARTED (grep for a Morse index of minimal immersions, Jacobi operator or nullity: no hits; the only index form is along curves, Geometry/Manifold/Riemannian/IndexForm/Basic.lean)
 - Ready now: no: needs R5b (index form, Dirichlet realization of `−J^⊥`) and R5c (closed case, index on smooth sections); MS6.3's one-sided case needs R7.9's normal double cover
 - Serves defs: 52
-- Evidence: README l.1124 "### 6.1 Morse index on compact minimal submanifolds and negative eigenvalues of `−J^⊥`" ("the nullity `null(Σ) = dim ker(−J^⊥)`"), l.1160 "### 6.2 Morse index of minimal submanifolds in `ℝ^m` via exhaustions" ("independent of the choice of smooth exhaustion and equals the supremum of `dim E` over finite-dimensional subspaces `E ⊂ C^∞_c(Σ ∖ ∂Σ;ν_f)`"), l.1198 "### 6.3 Specialization to hypersurfaces and two-sided hypersurfaces"; *Needs* l.1157, l.1196, l.1239
+- Evidence: README l.1181 "### 6.1 Morse index on compact minimal submanifolds and negative eigenvalues of `−J^⊥`" ("the nullity `null(Σ) = dim ker(−J^⊥)`"), l.1217 "### 6.2 Morse index of minimal submanifolds in `ℝ^m` via exhaustions" ("independent of the choice of smooth exhaustion and equals the supremum of `dim E` over finite-dimensional subspaces `E ⊂ C^∞_c(Σ ∖ ∂Σ;ν_f)`"), l.1255 "### 6.3 Specialization to hypersurfaces and two-sided hypersurfaces"; *Needs* l.1214, l.1253, l.1296
 
 ## TauCetiRoadmap/EtaleCohomologyFoundations
-STATUS.md snapshot: 3150404 2026-10-23 (no coverage JSON; prose only. Tau Ceti checked at c561848, 2026-11-13, which is well ahead of this STATUS for §§F.0.1–F.0.2)
+STATUS.md snapshot: 3150404 2026-10-23 (no coverage JSON; prose only. Tau Ceti checked at b0afcaa7e, 2026-11-15, which is well ahead of this STATUS for §§F.0.1–F.0.2)
 
 ### §F.0.2 Finite étale Galois categories and the étale fundamental groupoid
 - Status: PARTIAL, and enough for def 84's use of π₁. In code: `PreGaloisCategory (FiniteEtaleScheme S)` for every S (AlgebraicGeometry/FiniteEtale/Quotient.lean:339); `FiberFunctor (fiber x)` and `GaloisCategory (FiniteEtaleScheme S)` for connected S, plus any two geometric points joined by a path (FiniteEtale/Galois/Category.lean:111); π₁(T,x) := `Aut (FiniteEtaleScheme.fiber x)` (profinite), with functoriality `mapAutFiber`/`mapFiberIso` and change of basepoint `mapAutFiber_conjAut` (Galois/Functoriality.lean); paths on disconnected bases versus connected components (Galois/Component.lean); `galContinuousMulEquivAutFiber : Gal(Ω/K) ≃ₜ* π₁(Spec K,x)` (Galois/FundamentalGroup.lean); finite étale K-group schemes ≃ finite Gal-modules (Galois/Basic.lean). Missing: a named `π₁` definition (it is used as `Aut (fiber x)`), `VanishingCycles.lisseMonodromyEquiv`, `VanishingCycles.fieldSheavesEquiv`, the `Spec(k[x₁,x₂,…])` check.
@@ -553,7 +554,7 @@ STATUS.md snapshot: 3150404 2026-10-23 (no coverage JSON; prose only. Tau Ceti c
 - Evidence: README l.1041 "## F.4.5 Rational realization and finite-dimensional cohomology". It proves "`RΓ_(c)(X,K_Qℓ)≅RΓ_(c)(X,K_Zℓ)⊗ᴸℚ_ℓ`, finite-dimensional `Hⁱ_(c)`" for separated finite-type X over separably closed k, which is what b₂ needs. STATUS: adic realization "not started".
 
 ## TauCetiRoadmap/ComplexKahlerGeometry
-STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### K1 + K2 type calculus, T^{1,0}, (1,1)-forms, Dolbeault, i∂∂̄
 - Status: PARTIAL: the pieces def 38 needs are in place: eigenbundles T^{1,0}/T^{0,1} (Geometry/Symplectic/Manifold/AlmostComplex/Eigenbundle/), type projections and `IsOfType φ J p q` (Geometry/Manifold/DifferentialForm/AlmostComplexType.lean:205), ∂, ∂̄, d=∂+∂̄, ∂̄²=0 (Geometry/Manifold/DifferentialForm/Dolbeault/{Basic,ComplexManifold}.lean), `dC` with ddᶜ=2i∂∂̄ (Dolbeault/DC.lean), Dolbeault complex and cohomology with pullback, wedge product and `H^(p,0)` (Dolbeault/{Complex,Cohomology,Wedge}.lean), the `(0,q)` polydisc Dolbeault–Grothendieck lemma on smaller concentric polydiscs (`exists_contDiffOn_delBarCoeff_eq_of_polydisc`, Analysis/Complex/Wirtinger/Polydisc.lean). Missing: Newlander–Nirenberg, parametrized submanifolds, the whole-polydisc `(p,q)` lemma, Dolbeault theorem; i∂∂̄ only for smooth forms (no C² version, which is not a target either)
@@ -580,7 +581,7 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.1948 "### 5.7 Laplace-type estimates, spectral theory and the real Hodge theorem (K5a)", l.2013 "For every formally self-adjoint nonnegative Laplace-type system P on a compact boundaryless base, build its geometric H² realization", l.2038 "satisfies `LinearPMap.HasCompactResolvent`"; *Needs* l.2075; STATUS "K5a is partial: ... Hodge Laplacian ... chart `C^k` seminorms and the topology on smooth sections ... but not the orientation line, density bundle, bundle distributions or Sobolev scale"
 
 ## TauCetiRoadmap/HeegaardFloer
-STATUS.md snapshot: 5e00f18 2026-11-11, describing Tau Ceti to a6027b1 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 5e00f18 2026-11-11, describing Tau Ceti to a6027b1 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### F0.5 (§2.7) finite-C^ℓ almost-complex parameter spaces and regularity-loss comparisons
 - Status: PARTIAL: finite-regularity carriers `ContMDiffAlmostComplexStructure`, families `ContMDiffAlmostComplexStructureFamily`, chart reading/reconstruction `chartEquiv`, `inChart` (…/Manifold/AlmostComplex/{ContMDiff,Family,Chart,Family/Chart}.lean). Missing: the Banach manifold of C^ℓ tame/compatible J (conjugation charts, openness, Nemytskii estimates), universal CR section, derivative-budget comparisons.
@@ -601,7 +602,7 @@ STATUS.md snapshot: 5e00f18 2026-11-11, describing Tau Ceti to a6027b1 (Tau Ceti
 - Evidence: README l.2688 "### 4.4 Transversality (F2.4)", *Needs* l.2711; l.2975 "### 4.6d Transversality and degree (F2.6d)", *Needs* l.3027; STATUS Layer 2 remaining "sharp Sard and Sard-Smale in higher codimension and index", Layer 4 "transversality and gluing".
 
 ### F2.6e (§4.6e) normal operator of embedded spheres, four-dimensional regularity
-- Status: PARTIAL (local only): `normalCauchyRiemannLinearization`, descent of the linearization to `V ⧸ range du` in TauCeti/Geometry/Symplectic/JHolomorphic/Normal/Linearization.lean; normal rescaling of J along a pseudoholomorphic curve (JHolomorphic/Normal/Rescaling.lean). Missing: normal bundle real CR operator, intersection multiplicities, Micallef–White, adjunction, automatic surjectivity for d ≥ −1.
+- Status: PARTIAL (local only): `normalCauchyRiemannLinearization`, descent of the linearization to `V ⧸ range du` in TauCeti/Geometry/Symplectic/JHolomorphic/Normal/Linearization.lean, with target-coordinate covariance (`normalFDerivMap`, Normal/Naturality.lean); normal rescaling of J along a pseudoholomorphic curve (JHolomorphic/Normal/Rescaling.lean). Missing: normal bundle real CR operator, intersection multiplicities, Micallef–White, adjunction, automatic surjectivity for d ≥ −1.
 - Ready now: no: needs F2.2, F2.6b, F1.5 line Riemann–Roch, F1.2 Hölder/Beltrami package.
 - Serves defs: 60
 - Evidence: README l.3029 "### 4.6e Four-dimensional curves and regularity (F2.6e)", "For an embedded sphere construct the quotient real CR operator on its normal" (l.3140), *Needs* l.3172.
@@ -613,7 +614,7 @@ STATUS.md snapshot: 5e00f18 2026-11-11, describing Tau Ceti to a6027b1 (Tau Ceti
 - Evidence: README l.3646 "### 6.2 Spinᶜ, periodic surfaces and the grading carrier (F4.B)", *Needs* l.3744; STATUS Layer 6 remaining "spin^c structures in general"; SpincAdmissibility.lean: "identification ... with the Chern class pairing is geometric and is not formalized here".
 
 ## TauCetiRoadmap/ModularCurves
-STATUS.md snapshot: 7ca783d 2026-11-09, written against the layer numbering before the README reorganisation of roadmap PR #2140 (old 0G is §0.7, old 2B is §2.2, old Layer 9 coarse schemes is Layer 6; Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 7ca783d 2026-11-09, written against the layer numbering before the README reorganisation of roadmap PR #2140 (old 0G is §0.7, old 2B is §2.2, old Layer 9 coarse schemes is Layer 6; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### §0.7 relative finite-locally-free Grassmannian, Plücker
 - Status: PARTIAL: affine case fully in Tau Ceti (TauCeti/AlgebraicGeometry/Grassmannian/*: `scheme`, `glueData`, `chartι`, `schemeHomEquiv`, `isProper_toSpec`, `schemeUniversalIdeal`, Hopf-ideal locus, `FiniteLocallyFree.lean`), with base change along `Spec R' → Spec R`, `G(k, R' ⊗[R] M) ≅ Spec R' ×_{Spec R} G(k, M)` (`Module.Grassmannian.isPullback_baseChangeHom`, `baseChangeHom`, Grassmannian/BaseChange.lean), the comparison used to glue over a non-affine base. Missing: gluing over a non-affine base with independence of trivialisations, universal quotient and kernel there, the universal property over arbitrary `S`, subbundle/dual comparisons, `Grass_1(F) ≅ Proj_S(Sym F)`, the Plücker closed immersion.
@@ -627,7 +628,7 @@ STATUS.md snapshot: 7ca783d 2026-11-09, written against the layer numbering befo
 - Serves defs: 69, 71
 - Evidence: README l.4030 "## Layer 10: compactified coarse curves over `ℤ[1/N]`, cusps, and the Shimura covering", Dependencies l.4266; README l.4399 "Dependency order and parallel work" ("Layer 10 uses nothing from Layers 7–9"); STATUS "Layer 10 has not begun".
 ## TauCetiRoadmap/SmoothBundlesConnections
-STATUS.md snapshot: d137fc6 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: d137fc6 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### B1.4 Slices, quotients and homogeneous spaces G/H
 - Status: PARTIAL: Haar-averaged invariant Riemannian metrics for compact group actions (`exists_contMDiffRiemannianMetric_inner_mfderiv`, Geometry/Manifold/Riemannian/Invariant.lean), compact stabilizers and closed orbits of proper actions (`ProperSMul.isCompact_stabilizer`, `ProperSMul.isClosed_orbit`, Topology/Algebra/ProperAction/Orbit.lean), orbit maps of free points as closed smooth embeddings (`isSmoothEmbedding_smul_const`, Geometry/Manifold/GroupAction/Orbit.lean), transverse slice maps `(g, s) ↦ g • σ s` as local diffeomorphisms (`isLocalDiffeomorphAt_smul_slice_iff`, Geometry/Manifold/GroupAction/TransverseSlice.lean), equivariant charts for finite groups only (GroupAction/Linearization.lean), quotients by discrete groups (Geometry/Manifold/Instances/Quotient.lean), orbit-space charts from slices with `C^n` transitions (`TauCeti.MulAction.isOpenEmbedding_quotientMk_slice`, `TauCeti.exists_contMDiffAt_quotientMk_slice_eq_iff`, Geometry/Manifold/GroupAction/SliceChart.lean, Topology/Algebra/GroupAction/SliceChart.lean), and smooth functions on orbit spaces as invariant smooth functions (Geometry/Manifold/GroupAction/SmoothFunctions.lean, Geometry/Manifold/Quotient/). Missing: the free proper quotient theorem `exists_freeProperQuotient_isSubmersion`, the compact-isotropy equivariant exponential chart and slice theorem `G ×_H B`, and smooth G/H for closed H
@@ -648,7 +649,7 @@ STATUS.md snapshot: d137fc6 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at
 - Evidence: README l.871 "### B3.1 Principal connections" (*Needs* l.904 "B1.5, B2.5; DifferentialGeometry Layer 0, Layer 1; LieGroups Layer 1"), l.979 "### B4.1 Curvature and the exterior covariant derivative", l.1010 "### B4.2 The gauge group"; STATUS coverage Layer 3/4 "state":"untouched"
 
 ## TauCetiRoadmap/GeometricCurrents
-STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### G1–G2 Mass and pushforward of Lipschitz images
 - Status: PARTIAL, Euclidean only: mass/local mass (Analysis/Distribution/Mass/Basic.lean), the Radon mass measure (Mass/Measure.lean), L¹ extension and Borel restriction (Mass/Extension.lean), normal currents (Mass/Normal.lean), weak compactness (Mass/Compactness.lean), smooth pushforward of compactly supported currents (Analysis/Distribution/CutoffPushforward.lean), integration and simplex currents, the cone operator with mass bounds (Mass/Cone.lean), slicing of locally normal currents by a smooth function (Mass/Slice.lean). Missing: the manifold `TestForm`/`Current` carrier, integer-rectifiable currents, Lipschitz pushforward (G2)
@@ -669,7 +670,7 @@ STATUS.md snapshot: 941bb58 2026-11-12 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.668 "## G6. First variation, normal stability and interior regularity", l.679 "Give the auxiliary rectifiable varifold's restriction, weight, integer multiplicity ...", l.688 "Develop density, monotonicity"; dependency graph l.973
 
 ## TauCetiRoadmap/GeometricMeasureTheory
-STATUS.md snapshot: 385ec2d 2026-11-06 (stale; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 385ec2d 2026-11-06 (stale; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### G2 Rectifiable sets, approximate tangents, area formula
 - Status: PARTIAL: `CountablyRectifiable`, the density theorem, a.e. existence of approximate tangent planes (Geometry/MeasureTheory/Rectifiable/ApproximateTangent.lean) and a measurable choice of tangent projections (Rectifiable/MeasurableTangent.lean), and the cone condition for the classical tangent plane of a differentiable normal graph (Rectifiable/Graph.lean). The Lipschitz area formula ℝᵐ→ℝⁿ with multiplicity is in MeasureTheory/Function/AreaFormula/{Basic,Lipschitz,Multiplicity}.lean, and the coarea formula for locally Lipschitz maps with a.e. countably rectifiable fibres is in MeasureTheory/Function/Coarea/Lipschitz.lean and Geometry/MeasureTheory/Rectifiable/Coarea.lean. Missing: a.e. uniqueness of tangent planes, tangential differentiation, and the tangential area formula on rectifiable sets
@@ -684,7 +685,7 @@ STATUS.md snapshot: 385ec2d 2026-11-06 (stale; Tau Ceti checked at c56184862, 20
 - Evidence: README l.248 "## G5: Finite perimeter and boundary structure", "Prove ... De Giorgi's structure theorem"; STATUS coverage G5 remaining "assembled blow-up, De Giorgi rectifiability and perimeter measure as Hausdorff measure on the reduced boundary ..."
 
 ## TauCetiRoadmap/CStarAlgebras
-STATUS.md snapshot: 3930ad9 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13). The CStarAlgebras items also feed open PR #2260 (AmenableTracesOnCStarAlgebras), which specifies #36.
+STATUS.md snapshot: 3930ad9 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15). The CStarAlgebras items also feed open PR #2260 (AmenableTracesOnCStarAlgebras), which specifies #36.
 
 ### C2.1 State extension
 - Status: PARTIAL: the unital case is in code: along an injective unital star homomorphism every state extends (`TauCeti.surjOn_pullbackFunctional_stateSpace`), and every state of a closed unital star subalgebra is the restriction of a state (`StarSubalgebra.exists_mem_stateSpace_forall_apply_coe_eq`), TauCeti/Analysis/CStarAlgebra/State/Extension.lean, on the state space API of TauCeti/Analysis/CStarAlgebra/State/Space.lean. Missing: pure extensions of pure states (the face of extensions), functorial restriction, the nonunital case.
@@ -729,7 +730,7 @@ STATUS.md snapshot: 3930ad9 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.1455 "### 7.1 Exactness (C7.1)"; grep empty.
 
 ## TauCetiRoadmap/DerivedModuleAlgebra
-STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### §0.4 The full cotangent complex and §0.8 transitivity triangle
 - Status: NOT-STARTED. `Algebra.CotangentComplex` is absent. Only Mathlib's naive `Extension.cotangentComplex` is used. Inputs: the standard polynomial resolution stages and their varying-base maps exist (Algebra/Category/CommAlgCat/PolynomialResolution/{Basic,Map,Simplicial}.lean), but the resolution property does not.
@@ -744,7 +745,7 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.2024 "### 1.2 Derived ideal completeness", l.2064 "### 1.3 The derived completion reflector", l.2359 "### 1.7 Complete flatness and complete faithful flatness". STATUS Layer 3 remaining (stale on the cohomology criterion, which is in code): "exactness of the derived limit, tensor–Hom adjunction, cohomology criterion for completeness, §§1.3–1.9".
 
 ## TauCetiRoadmap/EnhancedDerivedSheaves
-STATUS.md snapshot: 385ec2d 2026-11-06 (Tau Ceti checked at c561848, 2026-11-13; no change to these items)
+STATUS.md snapshot: 385ec2d 2026-11-06 (Tau Ceti checked at b0afcaa7e, 2026-11-15; no change to these items)
 
 ### §0.3 Derived tensor and internal Hom `ClassicalDerived.tensorHom` (with §0.4 functorCoherence)
 - Status: PARTIAL, inputs only. The K-flat half of §0.2 exists: every unbounded complex of sheaves of modules has a K-flat resolution by flat terms (`CochainComplex.exists_quasiIso_isKFlat_sheafOfModules`, Algebra/Category/ModuleCat/Sheaf/TensorProduct/KFlat.lean). Tensoring with a fixed K-flat complex descends to the derived category (`CochainComplex.kFlatTensor`, Algebra/Homology/Monoidal/KFlat/DerivedTensor.lean). Missing: the derived tensor bifunctor on sheaves, internal RHom, the tensor–Hom adjunction, K-injective replacement on ringed sites, the enhanced category (§0.1) and all of §0.4.
@@ -759,7 +760,7 @@ STATUS.md snapshot: 385ec2d 2026-11-06 (Tau Ceti checked at c561848, 2026-11-13;
 - Evidence: README l.2865 "## Layer E5:cotangent-export: The cotangent complex of animated rings". STATUS coverage: "Layer E5 ... untouched".
 
 ## TauCetiRoadmap/GeometricTopology
-STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer 1.1 Smooth collars
 - Status: NOT-STARTED for smooth collars. Local smooth product collar charts `TauCeti.IsProductCollarChart` (Geometry/Manifold/Boundary/Collar/Local.lean) and topological collars exist: `IsCollar`/`IsCollared` (Collar/Global.lean), Brown's collaring theorem (Collar/Brown.lean), `boundaryCollar` (Collar/Euclidean.lean), and the topological collar of a compact boundary with its retraction and deformation (Collar/{Topological,Retraction,Deformation}.lean). There is no global smooth collar, no existence theorem, and no uniqueness up to isotopy
@@ -768,13 +769,13 @@ STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.788 "### 1.1 Smooth collars"; STATUS coverage Layer 1 remaining "general boundary collars, gluing along boundary pieces and handle attachment"
 
 ### 1.7 / 1.7.2 Compact smooth surfaces, Mod(F)
-- Status: NOT-STARTED (no mapping class group or surface Dehn twists; the `DehnTwist` hits are group-theoretic HNN/pushout and limit-group files). The relative diffeomorphism group `TauCeti.RelativeDiff` (Geometry/Diffeomorphism/FixingSubgroup/Basic.lean) and `TauCeti.Diffeotopy` exist
-- Ready now: the Mod(F) definition alone: yes, since Layer 3.1 (Diff(M) topology, Layer 3 done) is all it needs. The 1.7.2 theorems: no, they need 1.7, and 1.7 needs Layer 11.2.1 (partial), 1.2, 1.3 (missing), 1.3.1, 1.4 and 11.3
+- Status: PARTIAL: the mapping class group is in code, in every dimension: `TauCeti.MappingClassGroup I M` = `Diff(M, ∂M)` modulo the path component of the identity for compact `M`, with `mk`, `mk_eq_mk_iff`, `lift`, `mk_final_eq_one` and `Mod⁺` as `MappingClassGroup.orientationPreserving` (Geometry/Diffeomorphism/MappingClassGroup.lean), on `TauCeti.RelativeDiff` (Geometry/Diffeomorphism/FixingSubgroup/Basic.lean) and `TauCeti.Diffeotopy`. Missing: compact smooth surfaces (1.7), Dehn twists (the `DehnTwist` hits are group-theoretic HNN/pushout and limit-group files), `Mod(T²) ≅ GL₂(ℤ)`, Lickorish generation
+- Ready now: no: the 1.7.2 theorems need 1.7, and 1.7 needs Layer 11.2.1 (partial), 1.2, 1.3 (missing), 1.3.1, 1.4 and 11.3
 - Serves defs: 59
 - Evidence: README l.1049 "### 1.7 Compact smooth surfaces" (*Needs* l.1096), l.1212 "### 1.7.2 Mapping class groups of compact surfaces and Dehn twists" (*Needs* l.1279 "Layer 1.5 ..., Layer 1.7 ..., Layer 3.1 ..., Layer 3.3 ..., Layer 3.4")
 
 ## TauCetiRoadmap/OperatorTheory/SelfAdjointSpectralTheory
-STATUS.md snapshot: 0af4e55 2026-11-11 (umbrella OperatorTheory/STATUS.md, to Tau Ceti a6027b1; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 0af4e55 2026-11-11 (umbrella OperatorTheory/STATUS.md, to Tau Ceti a6027b1; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### SA-E01, SA-E03–E07 Spectral PVM of an unbounded self-adjoint operator, projections, resolvent formula
 - Status: NOT-STARTED (no `ProjValMeasure ℝ` built from a `LinearPMap`). Inputs present: unitary Cayley transform `IsSelfAdjoint.cayley_mem_unitary` (Analysis/InnerProductSpace/LinearPMap/Cayley.lean), bounded normal `ContinuousLinearMap.spectralPVM` (Analysis/InnerProductSpace/BorelCalculus/Basic.lean), reindexing `ProjValMeasure.map` (ProjValMeasure/Map.lean), resolvent API (LinearPMap/Resolvent.lean).
@@ -784,7 +785,7 @@ STATUS.md snapshot: 0af4e55 2026-11-11 (umbrella OperatorTheory/STATUS.md, to Ta
 
 
 ## TauCetiRoadmap/OperatorTheory/UnboundedOperators
-No STATUS.md coverage for this sub-roadmap (umbrella OperatorTheory/STATUS.md 0af4e55 covers Parts A–B only); Tau Ceti checked at c56184862, 2026-11-13. Nothing of it is in code: grep for `exists_spectralType_decomposition`, `essentialSpectrum`, `discreteSpectrum`, `existsUnique_maximal_multiplier`, Friedrichs/closed forms in TauCeti: no hits.
+No STATUS.md coverage for this sub-roadmap (umbrella OperatorTheory/STATUS.md 0af4e55 covers Parts A–B only); Tau Ceti checked at b0afcaa7e, 2026-11-15. Only the scalar-measure step of UO-C03 is in code (below): grep for `exists_spectralType_decomposition`, `essentialSpectrum`, `discreteSpectrum`, `existsUnique_maximal_multiplier`, Friedrichs/closed forms in TauCeti: no hits.
 
 ### UO-A01 (§1.1) Unbounded spectral integral
 - Status: NOT-STARTED. Inputs present: `TauCeti.ProjValMeasure` with integral and diagonal measures (Analysis/InnerProductSpace/ProjValMeasure/, BorelCalculus/DiagonalMeasure.lean).
@@ -793,7 +794,7 @@ No STATUS.md coverage for this sub-roadmap (umbrella OperatorTheory/STATUS.md 0a
 - Evidence: README l.241 "### 1.1 Spectral-integral domain and action (UO-A01)", *Needs* l.245 "Tau Ceti's `TauCeti.ProjValMeasure` API ...; HilbertModules H6 graph closure".
 
 ### UO-C01, UO-C03 (§3.1, §3.3) Spectral projections and the pp/ac/sc decomposition
-- Status: NOT-STARTED.
+- Status: PARTIAL: UO-C03's scalar-measure step is in code: the unique split of an s-finite measure into atomic, absolutely continuous and singular continuous parts relative to a reference measure without atoms, `MeasureTheory.Measure.atomicPart_add_withDensity_rnDeriv_add_singularContinuousPart`, its uniqueness, and `not_isAtom_singularContinuousPart` (MeasureTheory/Measure/Decomposition/SingularContinuous.lean, on `atomicPart` in Decomposition/Atomic.lean). Missing: UO-C01, and the subspaces `H_pp`, `H_ac`, `H_sc` of a PVM with `exists_spectralType_decomposition`.
 - Ready now: no: §3.1 needs §1.1, §1.5, §1.6; §3.3 needs §1.1, §3.1, SelfAdjointSpectralTheory SA-E06–E07 (not started, after SA-E01) and VonNeumannAlgebras V2.
 - Serves defs: 35 (UO-C03 is its target), 45 (to state the paper's a.c. spectrum)
 - Evidence: README l.523 "### 3.1 Approximate eigenvectors and spectral projections (UO-C01)", l.552 "### 3.3 Pure-point/absolutely-continuous/singular decomposition (UO-C03)" (headline `exists_spectralType_decomposition`).
@@ -817,7 +818,7 @@ No STATUS.md coverage for this sub-roadmap (umbrella OperatorTheory/STATUS.md 0a
 - Evidence: README l.309 "### 1.7 Multiplier model (UO-A07)", l.983 "### 5.4 Kato–Rellich and relatively compact perturbations (UO-E04)", l.1033 "### 5.7 Three-dimensional L²+L∞ potentials (UO-E06)" ("This is an ℝ³ theorem ... the statement is not extended to ℝⁿ").
 
 ## TauCetiRoadmap/VariationalMethods
-No STATUS.md; Tau Ceti checked at c56184862, 2026-11-13 (grep `CompactFormPair`, `rayleighMinMax`: no hits).
+No STATUS.md; Tau Ceti checked at b0afcaa7e, 2026-11-15 (grep `CompactFormPair`, `rayleighMinMax`: no hits).
 
 ### §3.1, §§4.1–4.4 Compact form pairs, successive minima, Courant–Fischer on the form domain
 - Status: NOT-STARTED. Inputs present: Courant–Fischer for compact self-adjoint operators (Analysis/InnerProductSpace/CourantFischer.lean), Rayleigh quotients and variational spectrum (Analysis/InnerProductSpace/Variational/{Rayleigh,Spectrum}.lean), direct method (Analysis/Variational/DirectMethod.lean).
@@ -825,7 +826,7 @@ No STATUS.md; Tau Ceti checked at c56184862, 2026-11-13 (grep `CompactFormPair`,
 - Serves defs: 34 (min–max formula of Thm 34.2, 34.4(c); the Neumann spectrum itself is PR #1614)
 - Evidence: README l.562 "### 3.1 Compact form pairs", l.782 "### 4.4 Courant–Fischer on the form domain" (`CompactFormPair.eigenvalue_eq_rayleighMinMax`); Layer 2 Dependencies "UnboundedOperators UO-D06 (coercive solution over `𝕜`)".
 ## TauCetiRoadmap/PseudodifferentialOperators
-STATUS.md snapshot: 70caabd 2026-11-11 (to Tau Ceti 1b19ebb; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 70caabd 2026-11-11 (to Tau Ceti 1b19ebb; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### §5.4 Compact-base C^{k,α} Hölder spaces
 - Status: PARTIAL: for a fixed compact chart atlas `A : TauCeti.CompactChartAtlas I M`, the vector-valued space `TauCeti.CompactChartAtlas.CkHolderSpace A k α F` with norm = finite-atlas `C^k` norm + chart Hölder seminorms of the `k`th coordinate derivatives (`CkHolderSpace.norm_def`, `ContMDiffMap.chartHolderNorm`), and its completeness on boundaryless `M` (`CkHolderSpace.instCompleteSpace`), TauCeti/Geometry/Manifold/ContMDiffMap/Chart/Holder.lean. Missing: the comparison of two atlases (the file says it is not included), bundle `C^(k,α)` norms by connection comparisons, Zygmund `C^r_*`, the mapping theorems and the identification `C^(k+α)_* = C^(k,α)`.
@@ -841,7 +842,7 @@ STATUS.md snapshot: 70caabd 2026-11-11 (to Tau Ceti 1b19ebb; Tau Ceti checked at
 
 
 ## TauCetiRoadmap/SobolevMapsBetweenManifolds
-No STATUS.md; Tau Ceti checked at c56184862, 2026-11-13 (grep `IsSobolevMap`, `HasWeakMFDeriv`, `orientedJacobian`, `MemW1pLocM`: no hits). Its inputs in code: Euclidean `TauCeti.HasWeakFDerivOn` with chain rule and change of variables, planar `MemLpLoc`/`MemWkpLoc` (Analysis/Sobolev/Local/), chartwise null sets `TauCeti.IsNullSet`, Riemannian volume, orientations, and the two-dimensional-source class `TauCeti.MemWkpLocMap` of PseudoholomorphicCurveAnalysis PH4.1 (Geometry/Manifold/Sobolev/LocalMap.lean, chart independence for `k ≤ 1` in LocalMap/Atlas.lean).
+No STATUS.md; Tau Ceti checked at b0afcaa7e, 2026-11-15 (grep `IsSobolevMap`, `HasWeakMFDeriv`, `orientedJacobian`, `MemW1pLocM`: no hits). Its inputs in code: Euclidean `TauCeti.HasWeakFDerivOn` with chain rule and change of variables, planar `MemLpLoc`/`MemWkpLoc` (Analysis/Sobolev/Local/), chartwise null sets `TauCeti.IsNullSet`, Riemannian volume, orientations, and the two-dimensional-source class `TauCeti.MemWkpLocMap` of PseudoholomorphicCurveAnalysis PH4.1 (Geometry/Manifold/Sobolev/LocalMap.lean, chart independence for `k ≤ 1` in LocalMap/Atlas.lean).
 
 ### Layer 1 (§§1.1–1.2) `MemLpLoc`, `W^{1,p}_loc(Ω; F)` on open subsets of finite-dimensional real normed spaces
 - Status: NOT-STARTED (`MemLpLoc`, `MemWkpLoc` take `U : Set ℂ`, Analysis/Sobolev/Local/Basic.lean).
@@ -874,34 +875,34 @@ No STATUS.md; Tau Ceti checked at c56184862, 2026-11-13 (grep `IsSobolevMap`, `H
 - Evidence: README l.1009 "### 5.1 The norm `‖Df‖`" (*Needs* l.1048 "§3.2, §4.3"), l.1173 "### 6.1 The oriented Jacobian of a linear map" (*Needs* l.1197), l.1201 "### 6.2 The Jacobian of a Sobolev map" (*Needs* l.1227).
 
 ## TauCetiRoadmap/PseudoholomorphicCurveAnalysis
-STATUS.md snapshot: 4973204 2026-11-09, describing Tau Ceti to d2083f0 2026-11-08 (stale; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 1928c2e 2026-11-14, describing Tau Ceti to aa6e43e 2026-11-13 (Tau Ceti checked at b0afcaa7e, 2026-11-15; the Schottky double, which STATUS lists as remaining, is in code)
 
 ### PH6.1 Sobolev sections over compact surfaces with boundary
 - Status: PARTIAL: a generic boundaryless bundle carrier `TauCeti.SobolevSection A μ p k` (`W^{k,p}(V)` over a `FiniteBundleAtlas`, closedness/completeness, `lowerOrderL`) exists in TauCeti/Geometry/Manifold/VectorBundle/Sobolev/{Basic,ContMDiffSection,SMul}.lean, and for surfaces modelled on `ℂ` its chart readings are the local classes `MemWkpLoc` and conversely (`TauCeti.SobolevSection.memWkpLoc_coord`, `exists_ae_eq_coord_of_memWkpLoc`, Sobolev/Local.lean), in arbitrary bundle charts rather than isothermal ones, with Morrey's embedding for `p > 2` (Sobolev/Morrey.lean). For `∂Σ ≠ ∅`, `TauCeti.BorderedSobolevSection` over a half-plane `FiniteBundleAtlas` (FiniteBundleAtlas/HalfPlane.lean) is complete, contains the `Cᵏ` sections and is closed under multiplication by smooth functions (Sobolev/Bordered/{Basic,SMul}.lean). Missing: norm independence of the atlas, density of smooth sections, Rellich, Morrey up to the boundary and multiplication by `W^{k,p}` coefficients for kp>2, the totally real boundary subspace `W^{k,p}_F`, comparison with P5.2 on interior subsurfaces.
 - Ready now: no: needs PH2.4 isothermal coordinates/bordered atlas (partial: planar isothermal charts from the Beltrami solution with holomorphic transitions, Analysis/Complex/Beltrami/Transition.lean and Geometry/Manifold/Complex/Isothermal.lean, but no bordered isothermal atlas), PH1.2 Morrey/algebra/composition at higher order (partial: first-order chain rule and multiplication in Analysis/Sobolev/Local/{ChainRule,Multiplication}.lean; the half-disc higher-order reflection with its weak derivative `HasWeakFDerivOn.planarReflection` is in Local/Reflection.lean), PDE Lane A item 6 trace; the boundaryless sub-case could start against the existing carrier.
 - Serves defs: 56, 60
-- Evidence: README l.1045 "### 6.1 Sobolev sections over compact surfaces with boundary"; STATUS coverage `{"id":"Layer 6","state":"untouched"}`, Layer 1 remaining "Morrey, algebra, composition ... half-disc extension theorem"; grep `SobolevSection` hits the bundle files above (Sobolev/ and Sobolev/Bordered/).
+- Evidence: README l.1045 "### 6.1 Sobolev sections over compact surfaces with boundary"; STATUS Layer 6 remaining "Fredholm property, duality and agreement with the smooth theory for real Cauchy–Riemann operators", Layer 1 remaining "higher-order Morrey and Rellich up to the half-disc boundary; continuity of composition above order one"; grep `SobolevSection` hits the bundle files above (Sobolev/ and Sobolev/Bordered/).
 
 ### PH6.2 Real Cauchy–Riemann operators
-- Status: PARTIAL: the smooth half is in code (newer than STATUS): `TauCeti.IsRealCauchyRiemannOperator` (Leibniz-rule definition), `difference`/`isZeroOneForm_difference` (two operators differ by a zeroth-order (0,1)-form), `add_zeroOrder`, complex-linear part `sectionComplexLinearPart` + `antilinearPart` with uniqueness (MS Ex. C.1.7), and `IsCovariantDerivativeOn.isRealCauchyRiemannOperator_zeroOnePart` (a complex connection gives `(∇)^{0,1}`), in TauCeti/Geometry/Manifold/VectorBundle/CauchyRiemann/{Basic,Connection}.lean, with local-frame readings, direct sums, transport, straight lines and holomorphic frames (CauchyRiemann/{LocalFrame,Constructions,HolomorphicFrame}.lean); the boundaryless target space of Sobolev `(0,1)`-forms `TauCeti.zeroOneSobolevSections` with its projection (Sobolev/ZeroOneForm.lean); weak real CR equations with Sobolev coefficients (Analysis/Complex/CauchyRiemann/RoughCoefficients/Weak.lean). Missing: operators of class `W^{ℓ−1,p}` (`D = D₀ + α`) on bundles, their realizations `W^{ℓ,p} → W^{ℓ−1,p}` with totally real boundary condition `F`.
+- Status: PARTIAL: the smooth half is in code: `TauCeti.IsRealCauchyRiemannOperator` (Leibniz-rule definition), `difference`/`isZeroOneForm_difference` (two operators differ by a zeroth-order (0,1)-form), `add_zeroOrder`, complex-linear part `sectionComplexLinearPart` + `antilinearPart` with uniqueness (MS Ex. C.1.7), and `IsCovariantDerivativeOn.isRealCauchyRiemannOperator_zeroOnePart` (a complex connection gives `(∇)^{0,1}`), in TauCeti/Geometry/Manifold/VectorBundle/CauchyRiemann/{Basic,Connection}.lean, with local-frame readings, direct sums, transport, straight lines and holomorphic frames (CauchyRiemann/{LocalFrame,Constructions,HolomorphicFrame}.lean); the boundaryless target space of Sobolev `(0,1)`-forms `TauCeti.zeroOneSobolevSections` with its projection (Sobolev/ZeroOneForm.lean); weak real CR equations with Sobolev coefficients (Analysis/Complex/CauchyRiemann/RoughCoefficients/Weak.lean) and the formal adjoint of such an operator as a reflected real CR operator (`TauCeti.crFormalAdjoint_crReflectedAdjoint`, RoughCoefficients/Adjoint.lean). Missing: operators of class `W^{ℓ−1,p}` (`D = D₀ + α`) on bundles, their realizations `W^{ℓ,p} → W^{ℓ−1,p}` with totally real boundary condition `F`.
 - Ready now: no: the Sobolev-class part needs PH6.1.
 - Serves defs: 56, 60
-- Evidence: README l.1083 "### 6.2 Real Cauchy–Riemann operators"; STATUS (2026-11-08) Layer 6 "untouched"; grep `IsRealCauchyRiemannOperator` -> CauchyRiemann/Basic.lean (496 lines), Connection.lean.
+- Evidence: README l.1083 "### 6.2 Real Cauchy–Riemann operators"; STATUS Layer 6 "partial"; grep `IsRealCauchyRiemannOperator` -> CauchyRiemann/Basic.lean (496 lines), Connection.lean.
 
 ### PH6.3 Fredholm property, kernel and cokernel
 - Status: NOT-STARTED (generic Fredholm library exists: TauCeti/Analysis/Fredholm/*, incl. Adjoint, CompactPerturbation, DeterminantLine with its bundle and path transport of orientations; the vector similarity principle for `C¹` solutions with constant `i`, Analysis/Complex/CauchyRiemann/Similarity.lean; nothing CR-specific on bundles).
 - Ready now: no: needs PH6.1–6.2 Sobolev realizations, PH3.3–3.5 (Sobolev-coefficient and boundary estimates, the `W^{1,p}` vector similarity principle with variable `J`; only the `C¹` constant-`i` similarity principle is in code), PH4.1, PH2.4.
 - Serves defs: 56, 60
-- Evidence: README l.1128 "### 6.3 Fredholm property, kernel and cokernel"; deps l.1215 "PH1 (through PH6.1's localizations), PH2.4, PH3.3–PH3.5, PH4.1"; STATUS Layer 3 remaining "higher-order Hölder gain, W1p bound for T, Sobolev-coefficient and boundary estimates, vector similarity principle".
+- Evidence: README l.1128 "### 6.3 Fredholm property, kernel and cokernel"; deps l.1215 "PH1 (through PH6.1's localizations), PH2.4, PH3.3–PH3.5, PH4.1"; STATUS Layer 3 remaining "Sobolev-coefficient estimates (3.3), boundary estimates (3.4), vector similarity principle (3.5)".
 
 ### PH7 (7.1 Maslov index of a bundle pair, 7.2 Riemann–Roch)
-- Status: PARTIAL (ingredients only): loop Maslov index `TotallyRealLoop.maslovIndex`, `maslovIndex_map/_prod/_rotation`, loop concatenation and base-point invariance in TauCeti/LinearAlgebra/TotallyReal/Maslov/*.lean; STATUS also cites nowhere-vanishing sections in high rank and Hermitian metrics. No doubled bundle `E_F`, no `μ(E,F)`, no index formula.
-- Ready now: no: 7.1 needs PH2.4's Schottky double as a Riemann surface (only a topological double exists); 7.2 needs PH6 (incl. 6.3) and PH3.5, plus CharacteristicClasses C2.3/C3.2 and AlgebraicTopology Stage 6/7.1/8.7.
+- Status: PARTIAL (ingredients only): loop Maslov index `TotallyRealLoop.maslovIndex`, `maslovIndex_map/_prod/_rotation`, loop concatenation and base-point invariance in TauCeti/LinearAlgebra/TotallyReal/Maslov/*.lean; the Robbin–Salamon crossing-form formula for paths of Lagrangian graphs (`Matrix.UnitaryGroup.maslovIndex_eq_crossingForm_add_finsum_of_souriau_eq_cayley`, Analysis/Matrix/UnitaryGroup/Maslov/Crossing.lean); STATUS also cites nowhere-vanishing sections in high rank and Hermitian metrics. No doubled bundle `E_F`, no `μ(E,F)`, no index formula.
+- Ready now: no: 7.1 needs CharacteristicClasses C3.2's `c₁` (its other input, PH2.4's Schottky double as a compact Riemann surface with the antiholomorphic involution, is in code: `TauCeti.SchottkyDouble`, `SchottkyDouble.doubleChart`, Geometry/Manifold/Complex/BorderedHolomorphic/SchottkyDouble.lean); 7.2 needs PH6 (incl. 6.3) and PH3.5, plus CharacteristicClasses C2.3/C3.2 and AlgebraicTopology Stage 6/7.1/8.7.
 - Serves defs: 56, 60
-- Evidence: README l.1223 "### 7.1 Maslov index of a bundle pair", l.1271 "### 7.2 Riemann–Roch" ("prove `ind_ℝ D = nχ(Σ) + μ(E, F)`"); STATUS Layer 7 remaining "Maslov index of a bundle pair and Riemann–Roch; only splitting-step ingredients exist".
+- Evidence: README l.1223 "### 7.1 Maslov index of a bundle pair", l.1271 "### 7.2 Riemann–Roch" ("prove `ind_ℝ D = nχ(Σ) + μ(E, F)`"); STATUS Layer 7 remaining "Maslov index of a bundle pair and Riemann–Roch; only model-case index computations exist".
 
 ## TauCetiRoadmap/AdicEtaleGeometry
-STATUS.md snapshot: 93d1fe5 2026-10-26 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 93d1fe5 2026-10-26 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer A0 Completed tensor products and fibre products
 - Status: PARTIAL, more than STATUS says. In code: `Huber.IsCompletedPushout` and the Huber-pair `completedTensor` (RingTheory/Huber/TensorProduct/{Pushout,Pair,Plus,UniversalProperty}.lean). Ring-level associativity, symmetry and unit (TensorProduct/{Associator,Symmetry,Unit}.lean; A0.7 at ring level). Rational localisation (TensorProduct/Rational.lean; A0.4 algebra). Finite étale base change (TensorProduct/FiniteEtale.lean; A0.5 algebra). Transitivity (BaseChange.lean). Affinoid fibre products `AdicSpace.affinoid_isPullback`, `affinoid_isPullback_of_isStablySheafyRing_left/right`, and Tate point lifting `exists_ofPair_completedTensor_point` (AlgebraicGeometry/AdicSpace/Pullback/Affinoid.lean). A0.8 in full: analytic points, the analytic locus `PreAdicSpace.analyticLocus` with `analyticLocus.ι`, `analyticLocus.lift`, `analyticLocus.range_ι` (AlgebraicGeometry/AdicSpace/PreAdicSpace/Analytic.lean), the cartesian restriction square for adic morphisms `IsAdic.isPullback_analyticLocusMap` (Morphisms/AnalyticLocus.lean), and `isAdic_iff_mapsTo_analyticPoints` (Morphisms/Adic.lean). Fibre products are local on the source, `TauCeti.AdicSpace.hasPullback_of_cover` (AlgebraicGeometry/AdicSpace/Pullback/Cover.lean). Missing: global fibre products for morphisms locally of finite type, `AdicSpace.FibreProduct.lift`/`ofPairPushout`, chart independence (A0.6), and the adic-space-level A0.4/A0.5/A0.7 comparisons.
@@ -916,7 +917,7 @@ STATUS.md snapshot: 93d1fe5 2026-10-26 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.3259 "### A1.6 the étale and finite étale sites" (*etale-site*, `AdicSpace.smallEtale X`); l.3670 "### A1.7 geometric points, enough points, strict localisations"; l.5511 "### A1.14 coherence and change of base field" (*etale-descent-along-algebraic-extension* l.5539, *proetale-field-extension-slice* l.5565). STATUS remaining: "A1.0.2, object descent in A1.0.3, A1.0.4-5, A1.1, A1.2 fibres and base change, A1.3 onward".
 
 ## TauCetiRoadmap/AdicSpacesPartII
-STATUS.md snapshot: 1c6a1a4 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 1c6a1a4 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### R0.7 Fibre products (and R0.6 lft for rigid spaces)
 - Status: PARTIAL. *valuation-amalgamation* (`ValuationSpectrum.exists_amalgamation`) is done. *affinoid-fibre-product* is in code (`TauCeti.AdicSpace.affinoid_isPullback`, `isPullback_ofPair_of_isCompletedPushout`, the unconditional version when one factor is stably sheafy and the other is topologically of finite type; AlgebraicGeometry/AdicSpace/Pullback/Affinoid.lean). The reduction of existence to an affinoid source is in code: fibre products exist once they exist over the members of an open cover of the source (`TauCeti.AdicSpace.hasPullback_of_cover`, AdicSpace/Pullback/Cover.lean). Missing: *fibre-product-along-finite-type* (the non-adic ascending-union case), the reduction on the base and target, *fibre-products-existence* (`hasPullback_of_finiteType`), `exists_pullback_point` and base-change stability. For "rigid space lft" (R0.6): `IsAdic`, `LocallyOfWeaklyFiniteType`, `LocallyOfPlusWeaklyFiniteType` and `QuasiCompact` exist (AdicSpace/Morphisms/), as does `TauCeti.AdicSpace.IsLocallyHuberStandard` (AdicSpace/PreAdicSpace/LocallyHuberStandard.lean, with Huber's standing class stable under rational localisation); finite presentation is missing.
@@ -925,7 +926,7 @@ STATUS.md snapshot: 1c6a1a4 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.3557 "### R0.7 fibre products" (*affinoid-fibre-product* at ~l.3622, *fibre-products-existence* at ~l.3702). *fibre-products-existence* Needs l.3736 (*affinoid-fibre-product*, *fibre-product-along-finite-type*, *adic-iff-analytic-locus*, *noetherian-type-stably-sheafy*, ...). STATUS remaining: "non-affinoid fibre products (R0.7)", with "The Huber-pair form of the rational-localisation comparison (R0.3) is a prerequisite".
 
 ## TauCetiRoadmap/AdicSpacesPartIV
-STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### R4.1–R4.6 étale sites on analytic adic spaces, rigid comparison, geometric points
 - Status: NOT-STARTED for the site theory. Only R4.7 algebraic normal-crossings charts and the punctured-disc noncompactness check exist.
@@ -934,7 +935,7 @@ STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.562 "## Layer R4: étale and pro-étale sites"; l.583 "### R4.1 the étale site on the analytic carriers"; l.727 "### R4.4 rigid comparison"; l.827 "### R4.6 geometric points and pullback". The Checks at l.1712 have Sh(X_ét) ≃ continuous Gal(K^sep/K)-sets via ξ. STATUS remaining: "the étale and pro-étale sites, nu, rigid comparison and geometric points".
 
 ## TauCetiRoadmap/CharacteristicClasses
-STATUS.md snapshot: 2bec3fc 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 2bec3fc 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### C4 Chern–Weil forms
 - Status: NOT-STARTED (no Chern–Weil code; grep `ChernWeil`: no hits)
@@ -943,7 +944,7 @@ STATUS.md snapshot: 2bec3fc 2026-11-09 (to Tau Ceti d92acc5; Tau Ceti checked at
 - Evidence: README l.1321 "## C4. Curvature classes and their integral comparison", item 1 "Apply them to curvature using DG's value-bundle wedge/composition and SBC's principal curvature"; l.1996 "C4's invariant-form construction and line comparison use C1–C3 and the smooth suppliers"; STATUS "C3, C4, C5, C5a and C7 are untouched"
 
 ## TauCetiRoadmap/DGAInfinity
-STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer 8 Hochschild cochains (ordinary algebras, normalized, HH²)
 - Status: PARTIAL. Positive-arity Hochschild cochains of an A∞ algebra, with the Hochschild differential `[m,-]`, braces, the Gerstenhaber bracket and cohomology (Algebra/Homology/AInfinity/Algebra/Hochschild/{Basic,Complex,Cohomology}.lean). Normalized cochains for a strict unit, `PositiveHochschild.normalizedComplex` (Hochschild/Normalized.lean); whether the inclusion is a quasi-isomorphism is not addressed. Formal deformations and obstruction classes in Hochschild degree two (Deformation.lean); first-order deformations are degree-one cocycles. An ordinary or DG algebra becomes an A∞ algebra via `IsNonUnitalDGAlgebra.toAInfinityAlgebra` (DG.lean). For an ordinary algebra `A` and an `A`-bimodule `M` (so `M = A` gives Cⁿ(A,A)), the multilinear cochains `Aⁿ → M` in every arity including zero carry the Hochschild coboundary `TauCeti.hochschildBimoduleCoboundary` with `δ ∘ δ = 0`, degree-zero cocycles the centre and degree-one cocycles the derivations (RingTheory/HochschildCohomology/Coboundary.lean); the packaged cochain complex and cohomology there, `hochschildCochainComplex`/`hochschildCohomology` (Complex.lean), have coefficients in `Hom_R(A, M)`, not in `M`. Missing: the cochain complex and cohomology HHⁿ(A, M) with bimodule coefficients, HH² ↔ infinitesimal deformations and HH³ ↔ obstructions for ordinary algebras, normalization comparison, and quasi-equivalence/Morita invariance.
@@ -952,7 +953,7 @@ STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.520 "### Layer 8: Hochschild cochains, deformations, Massey products, and formality" ("For an ordinary associative algebra, recover `HH²` for infinitesimal deformations and `HH³` for obstructions"). STATUS remaining: "normalization and invariance comparisons, Deligne groupoids over Q-algebras, higher Massey products".
 
 ## TauCetiRoadmap/DifferentialGeometry
-STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer 12 (12.4 density, 12.5 divergence theorem)
 - Status: PARTIAL: `riemannianVolume`, the gradient, divergence and Laplacian, the boundaryless compactly supported divergence theorem `integral_divergence_eq_zero` (Geometry/Manifold/Riemannian/DivergenceTheorem.lean:225), and, on oriented manifolds, `measure_riemannianVolumeForm` (`|dV| = riemannianVolume`) with the agreement of `integralTopForm` of `f dV` and the integral against `riemannianVolume` for continuous compactly supported `f` (Geometry/Manifold/Riemannian/VolumeForm/Measure.lean) exist. Missing: the 12.4 Riemannian density and its `integralDensity` link, and the 12.5 boundary divergence theorem `integral_divergence_eq_boundaryFlux`
@@ -961,7 +962,7 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.2796 "### Layer 12: Riemannian metrics and the Laplace–Beltrami operator", l.2936 "**12.5 Divergence theorem and Green.**"; STATUS coverage Layer 12 remaining names the Riemannian density with its `integralDensity` comparison (12.4) and the divergence theorem with boundary (12.5); Layer 5 remaining "densities on manifolds, integralDensity and Stokes with corners (5.5)"; grep `integralDensity` in Tau Ceti: no hits
 
 ## TauCetiRoadmap/FlagVarieties
-STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c56184862, 2026-11-13; README at roadmap e1cd6a5, after PR #2114)
+STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at b0afcaa7e, 2026-11-15; README at roadmap 1a19c9f, after PR #2114)
 
 ### Layer 2 Standard algebraic parabolics P_J
 - Status: NOT-STARTED for general G. The GL_n case is done in Layer 1 (`standardWeight`, weight parabolics; Algebra/AlgebraicGroup/GeneralLinear/Weight/Parabolic/). Abstract Tits-system standard parabolics exist (GroupTheory/TitsSystem/Parabolic/).
@@ -970,7 +971,7 @@ STATUS.md snapshot: 7ca783d 2026-11-09 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.156 "## Layer 2: standard algebraic parabolics and the BN-pair bridge" (inputs: "ReductiveGroups Layer 7's actual algebraic-group Tits system on G(k)"); STATUS Layer 2 "untouched", "remaining: standard parabolics P_J and their order classification; blocked on ReductiveGroups 7/7b".
 
 ## TauCetiRoadmap/NoncommutativeIntegration
-STATUS.md snapshot: 2cc438a 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 2cc438a 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### §1.5 Finite-trace inclusions; Lp(B(H),Tr) = S_p
 - Status: NOT-STARTED (no generalized singular numbers / τ-measurable operators). Supporting: approximation numbers (TauCeti/Analysis/OperatorIdeal/ApproximationNumber/), operator-ideal Schatten families (Analysis/OperatorIdeal/Family*), finite-dimensional Schatten seminorm (Analysis/InnerProductSpace/UnitarilyInvariantSeminorm/Schatten.lean).
@@ -979,7 +980,7 @@ STATUS.md snapshot: 2cc438a 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.360 "### 1.5 Finite-trace inclusions and the commutative and Schatten identifications", *Needs* "§1.1, §1.3, §1.4; OperatorTheory/OperatorIdeals Parts A–B"; grep `generalizedSingularNumber|tauMeasurable` empty.
 
 ## TauCetiRoadmap/PerfectoidSpaces
-STATUS.md snapshot: none (no STATUS.md in this roadmap; Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: none (no STATUS.md in this roadmap; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### P4.15.2 universal prisms and perfection; P4.15.3 the affine Hodge–Tate input (Čech–Alexander Δ_{C/B})
 - Status: PARTIAL, δ-rings only: `TauCeti.DeltaRing` (a `δ`-structure for a fixed prime `p`, with the polynomial `DeltaRing.addCorrection`), its Frobenius lift `DeltaRing.frobenius`, the `δ`-structure of a Frobenius lift on a `p`-torsion-free ring `DeltaRing.ofFrobeniusLift` with uniqueness `DeltaRing.ext_of_frobenius`, and the unique `δ`-structure on `ℤ` (RingTheory/DeltaRing/Basic.lean). Missing: free `δ`-algebras, distinguished elements, prisms (bounded, perfect), rigidity, prismatic envelopes, perfection of prisms, the perfect-prism/perfectoid equivalence, `A_inf` initiality, `Δ_init`, and all of P4.15.3. The "prism" hits elsewhere in TauCeti are simplicial/cubical topology.
@@ -988,16 +989,16 @@ STATUS.md snapshot: none (no STATUS.md in this roadmap; Tau Ceti checked at c561
 - Evidence: README l.11053 "#### P4.15.2 universal prisms and perfection" (*semiperfectoid-universal-prism*); l.11090 "#### P4.15.3 the affine Hodge–Tate input" (*semiperfectoid-affine-hodge-tate*, which states "No global prismatic-cohomology output is required"). l.10959 "#### P4.15.1 derived completion and complete flat descent" is the prerequisite.
 
 ## TauCetiRoadmap/SpinGeometry
-STATUS.md snapshot: 8f0def6 2026-11-11 (describes Tau Ceti to a6027b1; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 8f0def6 2026-11-11 (describes Tau Ceti to a6027b1; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### G4.2 Principal spin lifts
-- Status: NOT-STARTED (G4.1a–b frame adapters done; no `SpinStructure` in Tau Ceti). The carriers the section names exist: `TauCeti.PrincipalBundle` with `PrincipalBundle.pullback` (Topology/FiberBundle/Principal/Basic.lean, Geometry/Manifold/FiberBundle/Pullback.lean), cocycle gluing `TauCeti.fiberBundleCoreOfGroupCocycle` (Geometry/Manifold/FiberBundle/GroupCocycle.lean), `TauCeti.OrthonormalFrameBundle` with `toOrientationCover` (Topology/VectorBundle/Orientation/OrthonormalFrame.lean) and its presentation as a principal `O(n)`-bundle `TauCeti.OrthonormalFrameBundle.Fiber` with proper projection (Topology/VectorBundle/OrthonormalFrame/Principal.lean), the structure group `CliffordAlgebra.realCliffordSpinGroupZero` (LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean).
-- Ready now: no as specified: needs TopologicalKTheory T6.4's numerable principal-bundle category and CharacteristicClasses C1.0's oriented frames and metric-change transport (neither in code). The `SpinStructure` structure for n ≥ 1 (a `PrincipalBundle` for `realCliffordSpinGroupZero n` with an equivariant map to `OrthonormalFrameBundle`) uses only existing carriers and could be stated now. G4 has no Spin^c content; it is only the Spin analogue for def 64.
+- Status: PARTIAL: the structure, its equivalences and pullback are in code: `TauCeti.SpinStructure` for rank `n ≥ 1` (a `TauCeti.PrincipalBundle` for `realCliffordSpinGroupZero n` with a continuous frame map to `TauCeti.OrthonormalFrameBundle`, equivariant along `CliffordAlgebra.spinVectorAction`, no numerability field, as the README's `Suggested.lean` specifies), `SpinStructure.Equiv` (`refl`, `symm`, `trans`, `toHomeomorph`), `SpinStructure.pullback`, `Equiv.pullback` (Topology/VectorBundle/SpinStructure.lean). Missing: descent, metric-change independence, smooth structures on lifts, and G4.3 onward. G4.1a–b frame adapters are done. The carriers the section names exist: `TauCeti.PrincipalBundle` with `PrincipalBundle.pullback` (Topology/FiberBundle/Principal/Basic.lean, Geometry/Manifold/FiberBundle/Pullback.lean), cocycle gluing `TauCeti.fiberBundleCoreOfGroupCocycle` (Geometry/Manifold/FiberBundle/GroupCocycle.lean), `TauCeti.OrthonormalFrameBundle` with `toOrientationCover` (Topology/VectorBundle/Orientation/OrthonormalFrame.lean) and its presentation as a principal `O(n)`-bundle `TauCeti.OrthonormalFrameBundle.Fiber` with proper projection (Topology/VectorBundle/OrthonormalFrame/Principal.lean), the structure group `CliffordAlgebra.realCliffordSpinGroupZero` (LinearAlgebra/CliffordAlgebra/Spin/Real/Basic.lean).
+- Ready now: no for the rest: descent and metric-change independence need TopologicalKTheory T6.4's numerable principal-bundle category and CharacteristicClasses C1.0's oriented frames and metric-change transport (neither in code). G4 has no Spin^c content; it is only the Spin analogue for def 64.
 - Serves defs: 64
-- Evidence: README l.1461 "## Layer 4: Spin lifts, obstruction and classification", l.1585 "### 4.2 Principal spin lifts (G4.2)" ("A spin structure on an oriented metric V of rank n is a numerable principal Spin(n)-bundle P with an equivariant map P→Fr⁺_SO(V)"), *Needs* l.1652; STATUS "The topological and smooth frame adapters of G4.1 are done ... there are no Clifford bundles (G3), spin structures (G4.2–G4.4)"; grep `SpinStructure` empty.
+- Evidence: README l.1461 "## Layer 4: Spin lifts, obstruction and classification", l.1585 "### 4.2 Principal spin lifts (G4.2)" ("A spin structure on an oriented metric V of rank n is a numerable principal Spin(n)-bundle P with an equivariant map P→Fr⁺_SO(V)"), *Needs* l.1652; STATUS "The topological and smooth frame adapters of G4.1 are done ... there are no Clifford bundles (G3), spin structures (G4.2–G4.4)", which predates Topology/VectorBundle/SpinStructure.lean.
 
 ## TauCetiRoadmap/StableReduction
-STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
+STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### Layer 10 PrestableMap, IsStableMap, openness
 - Status: PARTIAL: `PrestableMap`, isomorphisms/category, automorphisms with `infinitesimalAut`, contracted components with the closed-point, dimension and field-extension characterizations (TauCeti/AlgebraicGeometry/Curves/StableMaps/{Basic,Category,Automorphism,Contracted}.lean). Missing: `IsStableMap`, base-change invariance, openness for projective targets, the finite-automorphism and ampleness characterizations, and the constant-map/source-stability theorem.
@@ -1012,16 +1013,16 @@ STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c561848, 2026-11-13)
 - Evidence: README l.778 "### Layer 11: basic stable-map API and map-aware stabilization"; STATUS l.32 "Layer 11 has evaluation maps, the polarization degree of a map over a field, and decorated dual graphs".
 
 ## TauCetiRoadmap/SymplecticGeometry/CotangentLagrangian
-STATUS.md snapshot: 83769e4 2026-11-10 (umbrella SymplecticGeometry/STATUS.md; Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 83769e4 2026-11-10 (umbrella SymplecticGeometry/STATUS.md; Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### C3.1 Discrete action, iterates and convex billiards
-- Status: PARTIAL. Exists: the lifted next-collision map β̃ on `ℝ × (−1, 1)`, `TauCeti.StrictConvexBilliardTable.nextCollision`, with existence and uniqueness of the exit parameter (`exists_collision`, `eq_nextParam_of_areaForm_eq_zero`), `nextTangential_mem_Ioo`, the reflection law `outgoingDir_nextCollision` and τ-equivariance `nextCollision_add_period`, for any unit-speed table, not only smooth ones (TauCeti/Dynamics/Billiard/NextCollision.lean, Tau Ceti PR #37195); periodic billiard polygons `TauCeti.exists_billiard_periodic_reflection` by perimeter maximization (Dynamics/Billiard/PeriodicPolygon.lean). Missing: smoothness and the smooth inverse of β̃, the descent to a homeomorphism β of `AddCircle L × (−1, 1)`, the generating function `S` with `v = ∂_sS`, twist and the primitive identity, measure preservation, the chain dictionary `exists_equiv_periodic_of_generating`, and the circular formula.
+- Status: PARTIAL. Exists: the lifted next-collision map β̃ on `ℝ × (−1, 1)`, `TauCeti.StrictConvexBilliardTable.nextCollision`, with existence and uniqueness of the exit parameter (`exists_collision`, `eq_nextParam_of_areaForm_eq_zero`), `nextTangential_mem_Ioo`, the reflection law `outgoingDir_nextCollision` and τ-equivariance `nextCollision_add_period`, for any unit-speed table, not only smooth ones (TauCeti/Dynamics/Billiard/NextCollision.lean, Tau Ceti PR #37195); periodic billiard polygons `TauCeti.exists_billiard_periodic_reflection` by perimeter maximization (Dynamics/Billiard/PeriodicPolygon.lean); the inverse of β̃ by time reversal, `nextCollisionEquiv`, and its descent to a bijection β of `AddCircle L × (−1, 1)`, `TauCeti.StrictConvexBilliardTable.billiardMap` with `billiardMap_symm_coe` (Dynamics/Billiard/Inverse.lean); the chain dictionary `TauCeti.CotangentBundle.exists_equiv_periodic_of_generating` with the cyclic action `TauCeti.cyclicAction` (Geometry/Symplectic/Cotangent/GeneratingFunction/Chain.lean). Missing: continuity and smoothness of β̃ and its inverse (so β as a homeomorphism), the generating function `S` with `v = ∂_sS`, twist and the primitive identity, measure preservation, the application of the chain dictionary to billiards, and the circular formula.
 - Ready now: yes: consumes C3's generating relations, which exist (TauCeti/Geometry/Symplectic/Cotangent/GeneratingFunction/{Correspondence,Composition,MixedHessian,Family,...}.lean), the carrier and β̃ above, plus Mathlib `AddCircle` measure and recurrence. Open roadmap PR #2255 (MathematicalBilliards) restates these properties at regularity `C^k` on its own carrier `ConvexTable` and does not cite the Tau Ceti carrier.
 - Serves defs: 92
 - Evidence: CotangentLagrangian/README l.471 "### C3.1. Discrete action, iterates and convex billiards", l.727 "C3.1 consumes C3's generating relations, Mathlib's `AddCircle` measure ... it consumes nothing from the later roadmaps"; STATUS "C3 is partial: generating functions give canonical transformations".
 
 ## TauCetiRoadmap/TaubesGromov
-STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13)
+STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15)
 
 ### TG1 Embedded normal operators and application regularity
 - Status: NOT-STARTED (only the local normal linearization of HF, Geometry/Symplectic/JHolomorphic/Normal/Linearization.lean, the normal rescaling of J along a curve, Normal/Rescaling.lean, and the generic Fredholm determinant line bundle with orientation transport, Analysis/Fredholm/DeterminantLine/).
@@ -1030,7 +1031,7 @@ STATUS.md snapshot: 1b19ebb 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-1
 - Evidence: README l.40 "## TG1. Embedded normal operators and application regularity"; STATUS prose "TG1, TG6.1, TG6.3, TG7–TG9, TG10.1, TG10.3, TG11.3 and TG11.4 are untouched", frontier "This needs TG1's embedded normal operator".
 
 ## TauCetiRoadmap/VonNeumannAlgebras
-STATUS.md snapshot: 5be5068 2026-11-11 (Tau Ceti checked at c56184862, 2026-11-13; open PR #2242 revises Layers on Jones 2015 and bounded Tomita–Takesaki, not Layer 13)
+STATUS.md snapshot: 5be5068 2026-11-11 (Tau Ceti checked at b0afcaa7e, 2026-11-15; open PR #2242 revises Layers on Jones 2015 and bounded Tomita–Takesaki, not Layer 13)
 
 ### Layer 13 (V13b) injective = hyperfinite
 - Status: NOT-STARTED.

@@ -87,7 +87,7 @@ Papers are grouped by the least-advanced status among their listed definitions (
 - <a id="202419921"></a>**[2024·199(2)·1]** On the generic part of the cohomology of non-compact unitary Shimura varieties, Caraiani, Scholze. https://doi.org/10.4007/annals.2024.199.2.1  
   #82 The quasi-split unitary group of a self-dual hermitian lattice (Roadmap PR)
 - <a id="202419926"></a>**[2024·199(2)·6]** Canonical representations of surface groups, Landesman, Litt. https://doi.org/10.4007/annals.2024.199.2.6  
-  #58 MCG-finite representation of a surface group (Roadmap PR), #59 Mapping class group of a punctured surface (Roadmap PR), #61 Outer action of the mapping class group on the fundamental group (Roadmap PR)
+  #58 MCG-finite representation of a surface group (Roadmap PR), #59 Mapping class group of a punctured surface (Partly in code), #61 Outer action of the mapping class group on the fundamental group (Roadmap PR)
 - <a id="202420032"></a>**[2024·200(3)·2]** Doubling constructions: Global functoriality for non-generic cuspidal representations, Cai, Friedberg, Kaplan. https://doi.org/10.4007/annals.2024.200.3.2  
   #5 Infinitesimal character (and Casimir eigenvalue) of a representation of a real reductive group (Partly in code), #11 Split classical groups $\mathrm{Sp}_{2n}$, $\mathrm{SO}_l$ and general spin groups $\mathrm{GSpin}_l$ (Partly in code), #67 Local components of an automorphic representation (restricted tensor product) (Roadmap PR), #73 Central character of an automorphic representation (Roadmap PR), #88 Weak functorial transfer to $\mathrm{GL}_N$ (Roadmap PR)
 - <a id="202520111"></a>**[2025·201(1)·1]** Grid diagrams and Heegaard Floer invariants, Manolescu, Ozsváth, Thurston. https://doi.org/10.4007/annals.2025.201.1.1  

@@ -1,6 +1,6 @@
 # Needs roadmap written
 
-Snapshot 2026-11-14 (Tau Ceti `c56184862`, Mathlib `e8ba86fa9744`, roadmaps `e1cd6a508`, 467 open roadmap PRs).
+Snapshot 2026-11-15 (Tau Ceti `b0afcaa7e`, Mathlib `e8ba86fa9744`, roadmaps `1a19c9fca`, 517 open roadmap PRs).
 
 Every one of the 100 definitions is in exactly one of four files: [ready-to-write-statements.md](ready-to-write-statements.md), [ready-to-formalize-in-tau-ceti.md](ready-to-formalize-in-tau-ceti.md), [needs-roadmap-review.md](needs-roadmap-review.md), [needs-roadmap-written.md](needs-roadmap-written.md). A definition is placed in the furthest-along file whose condition holds for the definition as Kevin Buzzard's text states it; gaps that matter only for a particular paper are noted on the entry.
 
@@ -10,7 +10,7 @@ Order: hyperbolic PDE builds on open PR [#2232](https://github.com/TauCetiProjec
 
 ## Extend an existing roadmap or PR
 
-18 definitions.
+17 definitions.
 
 
 ### Block theory (extension of PR #1775)
@@ -35,13 +35,6 @@ Sources: Loday, *Cyclic Homology*, §§1.3, 3.4; Weibel, Ch. 9.
 
 - **#10 Hochschild--Kostant--Rosenberg antisymmetrisation map.** [DGAInfinity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DGAInfinity/README.md) L8 (Hochschild cochains); homological HKR in PR [#1493](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1493) §1.9.  
   Papers: [2020·191(2)·3] A $k$-linear triangulated category without a model. [census](../census/010.md)
-
-### Spectral sequences: general convergence
-
-Sources: Weibel, Ch. 5; Boardman, *Conditionally convergent spectral sequences*.
-
-- **#6 Convergence of a spectral sequence.** Code: spectral sequence of a filtered complex, convergence for finite filtrations.  
-  Papers: [2020·191(3)·4] A geometric version of the circle method. [census](../census/006.md)
 
 ### Classical split groups (ReductiveGroups or ChevalleyGroups)
 

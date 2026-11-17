@@ -35,7 +35,7 @@ paper are noted on the entry.
 | --- | --- |
 | [ready-to-write-statements.md](tasks/ready-to-write-statements.md) | The definition is in Mathlib or Tau Ceti code, in the generality its papers need, with basic API. Also lists the papers all of whose listed definitions are here. |
 | [ready-to-formalize-in-tau-ceti.md](tasks/ready-to-formalize-in-tau-ceti.md) | A merged roadmap names the definition as a target, so implementation can be dispatched against it. |
-| [needs-roadmap-review.md](tasks/needs-roadmap-review.md) | Only open roadmap PRs specify the definition. Listed by PR and by definition. |
+| [needs-roadmap-review.md](tasks/needs-roadmap-review.md) | Open roadmap PRs specify the definition, and no merged roadmap specifies all of it. Listed by PR and by definition. |
 | [needs-roadmap-written.md](tasks/needs-roadmap-written.md) | No roadmap or PR specifies the definition (or those that do cover only part of it). Grouped by the roadmap section or new roadmap that should cover it, with standard sources, a suggested order, and the further theory the papers need beyond the 100. |
 
 ### Supporting files
@@ -66,9 +66,9 @@ paper are noted on the entry.
   to titles through Crossref. Only the papers named in each definition's "use in the Annals papers"
   remarks are linked, 71 in all. The full definition-to-paper map (`definitions_100_v2.md`) is not
   public, so [papers.md](papers.md) undercounts.
-- **Snapshot.** The census describes Tau Ceti `main` at `b0afcaa7e`, Mathlib at Tau Ceti's pinned
-  revision `e8ba86fa9744`, TauCetiRoadmap `main` at `1a19c9fca`, and the 517 roadmap PRs open on
-  2026-11-15. It was carried out by Claude agents reading the code and the roadmaps. Every status is
+- **Snapshot.** The census describes Tau Ceti `main` at `7cbfff3ef`, Mathlib at Tau Ceti's pinned
+  revision `e8ba86fa9744`, TauCetiRoadmap `main` at `c6ef57656`, and the 450 roadmap PRs open on
+  2026-11-16. It was carried out by Claude agents reading the code and the roadmaps. Every status is
   a judgment, and borderline calls are flagged in the census files.
 
 See [AGENTS.md](AGENTS.md) for how to bring the repository up to date.

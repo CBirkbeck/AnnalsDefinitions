@@ -1,40 +1,17 @@
 # Needs roadmap written
 
-Snapshot 2026-11-15 (Tau Ceti `b0afcaa7e`, Mathlib `e8ba86fa9744`, roadmaps `1a19c9fca`, 517 open roadmap PRs).
+Snapshot 2026-11-16 (Tau Ceti `7cbfff3ef`, Mathlib `e8ba86fa9744`, roadmaps `c6ef57656`, 450 open roadmap PRs).
 
 Every one of the 100 definitions is in exactly one of four files: [ready-to-write-statements.md](ready-to-write-statements.md), [ready-to-formalize-in-tau-ceti.md](ready-to-formalize-in-tau-ceti.md), [needs-roadmap-review.md](needs-roadmap-review.md), [needs-roadmap-written.md](needs-roadmap-written.md). A definition is placed in the furthest-along file whose condition holds for the definition as Kevin Buzzard's text states it; gaps that matter only for a particular paper are noted on the entry.
 
 **Condition:** neither a merged roadmap nor an open PR names the definition as a target (or the ones that do cover only part of it). Something has to be written: a section of an existing roadmap or PR, or a new roadmap. Either way the unit of work is the theory the definition belongs to, not the definition. The groupings are proposals; each census file's "Library-scale gap" describes the theory in more detail.
 
-Order: hyperbolic PDE builds on open PR [#2232](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2232) (LorentzianGeometry), hyperbolic dynamics and billiards build on open PR [#2231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2231) (ClassicalErgodicTheory), and the Gibbs/DLR formalism serves both lattice spin systems and dimers.
+Order: the extensions are independent of one another. The one new roadmap, filling invariants, consumes merged GeometricCurrents.
 
 ## Extend an existing roadmap or PR
 
-17 definitions.
+5 definitions.
 
-
-### Block theory (extension of PR #1775)
-
-Sources: Navarro, *Characters and Blocks of Finite Groups*, Ch. 3–4.
-
-- **#9 Height zero characters of a block.** PR [#1775](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1775) (blocks, defect groups, Brauer correspondent).  
-  Papers: [2024·200(2)·4] Brauer's Height Zero Conjecture; [2025·201(2)·2] The Alperin--McKay and Brauer's height zero conjecture for the prime 2. [census](../census/009.md)
-
-### Coprime action on characters (beside InductionRestriction)
-
-Sources: Isaacs, *Character Theory of Finite Groups*, Ch. 13; Navarro, *Character Theory and the McKay Conjecture*.
-
-The cited paper also needs Deligne–Lusztig theory.
-
-- **#8 Glauberman correspondence.** Code: Clifford theory; Mathlib: Schur–Zassenhaus; coprime action in PR [#1634](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1634) L3.  
-  Papers: [2020·192(1)·4] Green functions and Glauberman degree-divisibility. [census](../census/008.md)
-
-### Hochschild theory (DGAInfinity Layer 8 or PR #1493)
-
-Sources: Loday, *Cyclic Homology*, §§1.3, 3.4; Weibel, Ch. 9.
-
-- **#10 Hochschild--Kostant--Rosenberg antisymmetrisation map.** [DGAInfinity](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DGAInfinity/README.md) L8 (Hochschild cochains); homological HKR in PR [#1493](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1493) §1.9.  
-  Papers: [2020·191(2)·3] A $k$-linear triangulated category without a model. [census](../census/010.md)
 
 ### Classical split groups (ReductiveGroups or ChevalleyGroups)
 
@@ -45,140 +22,42 @@ Sources: Knus–Merkurjev–Rost–Tignol, *The Book of Involutions*, §§12–1
 
 ### Stacks and moduli (SchemeAndStackFoundations)
 
-Sources: Stacks Project, Properties of Algebraic Stacks §11 and Morphisms of Stacks §§28–31; Alper, *Good moduli spaces for Artin stacks*; Nobile, *Some properties of the Nash blowing-up*; Cox–Little–Schenck, *Toric Varieties*.
+Sources: Alper, *Good moduli spaces for Artin stacks*.
 
-Residual gerbes after §1.20; cohomologically affine morphisms and good moduli spaces after §§1.22–1.23; Nash blowups beside §4.11. #26's paper also needs algebraic toric varieties.
+Cohomologically affine morphisms and good moduli spaces after §§1.22–1.23.
 
 - **#17 Cohomologically affine morphisms of algebraic stacks.** [SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md) §1.22 (`QCoh.pushforward`), §1.23.  
   Papers: [2020·191(3)·1] A Luna étale slice theorem for algebraic stacks. [census](../census/017.md)
-- **#29 Residual gerbe at a point of an algebraic stack.** [SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md) §§1.18–1.22 (stacks, BG, QCoh).  
-  Papers: [2020·191(3)·1] A Luna étale slice theorem for algebraic stacks. [census](../census/029.md)
-- **#25 Nash blowup of a variety.** Code: `Scheme.relativeDifferentials`, `Module.Grassmannian.scheme`; [SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md) §4.14 (coherent Grassmannian).  
-  Papers: [2026·203(2)·7] Nash blowup fails to resolve singularities in dimensions four and higher. [census](../census/025.md)
-- **#26 Normalized Nash blowup.** = #25 then Mathlib `Scheme.Hom.normalization`.  
-  Papers: [2026·203(2)·7] Nash blowup fails to resolve singularities in dimensions four and higher. [census](../census/026.md)
 
+### Singular minimal hypersurfaces and minimal cones (RiemannianGeometry R5b, on PR #2443)
 
-### Operator algebras (CStarAlgebras; beside OperatorIdeals)
+Sources: Simon, *Introduction to Geometric Measure Theory*; Hardt–Simon 1985.
 
-Sources: Brown–Ozawa, *C\*-Algebras and Finite-Dimensional Approximations*, Ch. 6; Pisier, *Similarity Problems and Completely Bounded Maps*, Ch. 5.
+PR [#2443](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2443) (Varifolds) specifies the stationary varifold of a smooth hypersurface, its singular set and tangent cones, and states Simon's theorem without its strict-stability clause.
 
-- **#46 Schur multiplier on Schatten classes.** Code: Schatten classes; [CStarAlgebras](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/CStarAlgebras/README.md) C3.2 (completely bounded maps).  
-  Papers: [2023·198(3)·5] Schur multipliers in Schatten-von Neumann classes. [census](../census/046.md)
-
-### Riemannian geometry: boundaries, non-compact L² analysis, singular minimal hypersurfaces; varifolds (RiemannianGeometry, GeometricCurrents)
-
-Sources: Simon, *Introduction to Geometric Measure Theory*; Grigor'yan, *Heat Kernel and Analysis on Manifolds*, Ch. 11; Paternain–Salo–Uhlmann, *Geometric Inverse Problems*, Ch. 3.
-
-- **#40 The Laplace–Beltrami operator on $L^2$ of a complete Riemannian manifold.** Code: `laplaceBeltrami`; closed case [ComplexKahlerGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ComplexKahlerGeometry/README.md) K5a, [PseudodifferentialOperators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/PseudodifferentialOperators/README.md) P7, RiemannianGeometry R5c; Friedrichs extension and essential spectrum [UnboundedOperators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/OperatorTheory/UnboundedOperators/README.md) UO-D06, UO-C02.  
-  Papers: [2023·198(2)·6] Near optimal spectral gaps for hyperbolic surfaces. [census](../census/040.md)
-- **#53 Stationary varifold.** [GeometricCurrents](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricCurrents/README.md) G6 (varifolds induced by currents).  
-  Papers: [2023·197(3)·4] Stable minimal hypersurfaces in ℝ^N+1+ℓ with singular set an arbitrary closed K⊂{0}×ℝ^ℓ; [2023·198(3)·2] Regularity of minimal surfaces near quadratic cones. [census](../census/053.md)
-- **#65 Strict stability of a minimal cone/hypersurface (Simon's inequality).** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a.2, R5b.  
+- **#65 Strict stability of a minimal cone/hypersurface (Simon's inequality).** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a.2, R5b; PR [#2443](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2443) (Varifolds) §§2.3, 4.3, 9.1, 9.4 for the stationary varifold and singular set (strict stability not restated).  
   Papers: [2023·197(3)·4] Stable minimal hypersurfaces in ℝ^N+1+ℓ with singular set an arbitrary closed K⊂{0}×ℝ^ℓ. [census](../census/065.md)
-- **#66 Strictly convex boundary of a Riemannian manifold.** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a (applied to ∂M).  
-  Papers: [2021·194(1)·1] Local and global boundary rigidity and the geodesic X-ray transform in the normal gauge. [census](../census/066.md)
 
-### Pseudoholomorphic curves (PseudoholomorphicCurveAnalysis, TaubesGromov)
+### Normal operators of pseudoholomorphic curves (TaubesGromov, HeegaardFloer)
 
 Sources: McDuff–Salamon, *J-holomorphic Curves and Symplectic Topology*, Ch. 3; Wendl, *Lectures on Holomorphic Curves*, §3.4.
 
-[HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) F2.4/F2.6d and [PseudoholomorphicCurveAnalysis](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/PseudoholomorphicCurveAnalysis/README.md) PH6–PH7 use #56 implicitly.
-
-- **#56 Linearized Cauchy–Riemann operator at a J-holomorphic curve.** [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) F2.4/F2.6d, [PseudoholomorphicCurveAnalysis](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/PseudoholomorphicCurveAnalysis/README.md) PH6–PH7 (implicit).  
-  Papers: [2023·198(1)·2] Transversality and super-rigidity for multiply covered holomorphic curves. [census](../census/056.md)
-- **#60 Normal Cauchy–Riemann operator of a J-holomorphic curve.** [TaubesGromov](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/TaubesGromov/README.md) TG1, [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) F2.6e (embedded case).  
+- **#60 Normal Cauchy–Riemann operator of a J-holomorphic curve.** [TaubesGromov](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/TaubesGromov/README.md) TG1, [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) F2.6e (embedded case); finite critical sets in HeegaardFloer F2.2a and [AnalyticStableMaps](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AnalyticStableMaps/README.md) §0.4. Code: the local normal linearization, covariant under target and source coordinate changes. Missing: the generalised normal bundle through critical points.  
   Papers: [2023·198(1)·2] Transversality and super-rigidity for multiply covered holomorphic curves. [census](../census/060.md)
 
+### Characteristic data for compressible Euler (Part II of PR #2442)
 
-### Borel reducibility of countable structures (sequel to BorelEquivalenceRelations and PR #1316)
+Sources: Christodoulou–Miao, *Compressible Flow and Euler's Equations*; Christodoulou, *The Formation of Shocks in 3-Dimensional Fluids*; Luo–Yu 2023, Definition 2.13.
 
-Sources: Gao, *Invariant Descriptive Set Theory*, Ch. 13; Becker–Kechris, *The Descriptive Set Theory of Polish Group Actions*.
+PR [#2442](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2442) (CompressibleEulerEquations) specifies the Euler systems, `Hᵏ` well-posedness, developments of data on open subsets of a slice, maximal developments and the nullity of their regular boundary, on PR [#2232](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2232) and PR [#2246](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2246). It shows that Proposition 33.4's uniqueness claim fails in general, and leaves characteristic data and the null-geodesic ruling of the boundary to a Part II.
 
-Needs #98.
-
-- **#94 Borel complete class of countable structures.** Code: `Setoid.BorelReducible`, `RelationalConfiguration`, `isoSetoid`; PR [#1316](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1316).  
-  Papers: [2024·199(3)·4] Torsion-free abelian groups are Borel complete. [census](../census/094.md)
-
-### Unbounded operators (extend merged UnboundedOperators §5.7 to ℝ^d)
-
-Sources: Reed–Simon, *Methods of Modern Mathematical Physics* II, §X.2; Kato, *Perturbation Theory for Linear Operators*, §V.4.
-
-Merged [UnboundedOperators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/OperatorTheory/UnboundedOperators/README.md) UO-E06 specifies −Δ + V on L²(ℝ³) and is not extended to ℝⁿ; the definition is for all d.
-
-- **#45 Schrödinger operator $-\Delta+V$ on $L^2(\mathbb{R}^d)$.** [UnboundedOperators](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/OperatorTheory/UnboundedOperators/README.md) UO-E06 (d = 3), UO-A07 (maximal multipliers); Kato–Rellich in code.  
-  Papers: [2026·203(2)·1] Bethe–Sommerfeld Conjecture and absolutely continuous spectrum of multi-dimensional quasi-periodic Schrödinger operators. [census](../census/045.md)
+- **#33 Domain of dependence and development of initial data for the compressible Euler equations.** PR [#2442](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2442) §§1.2, 3.1–3.3 (33.1–33.2), §8.1 (developments of type (i) data), §8.2 (maximal developments; uniqueness only under its criterion), §8.4 (null regular boundary); acoustical metric and `D⁺_D(S)` also PR [#2232](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2232) §7.3, §12.6. Characteristic data (33.3 (ii)) and the ruling of the characteristic boundary by null geodesics remain.  
+  Papers: [2025·202(2)·2] On the stability of multi-dimensional rarefaction waves I: the energy estimates; [2025·202(2)·3] On the stability of multi-dimensional rarefaction waves II: existence of solutions and applications to the Riemann problem. [census](../census/033.md)
 
 ## New roadmaps
 
-14 definitions.
+1 definition.
 
-
-### Hyperbolic PDE: energy methods, symmetric hyperbolic systems, domains of dependence
-
-Sources: Taylor, *PDE III*, Ch. 16; Majda, *Compressible Fluid Flow and Systems of Conservation Laws*; Bär–Ginoux–Pfäffle, *Wave Equations on Lorentzian Manifolds*. Neighbours: PDE, LocalVariationalFieldTheory.
-
-Builds on PR [#2232](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2232) (LorentzianGeometry), which specifies #50, #51, the acoustical metric on `ℝ × Σ` (§C1.3), domains of dependence inside arbitrary subsets with boundary for continuous metrics (§C6.6) and Cauchy horizons of `C¹` metrics (§C6.7), and names this roadmap as the owner of the Euler equations, their states, developments and maximal developments.
-
-- **#33 Domain of dependence and development of initial data for the compressible Euler equations.** Lorentzian side in PR [#2232](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2232) §C1.3 (acoustical metric), §C6.6 (`D^+_D(S)` in subsets, 33.1–33.2), §C6.7 (`C¹` Cauchy horizons and characteristic boundaries on open sets); developments, Proposition 33.4 and `D_max` remain.  
-  Papers: [2025·202(2)·2] On the stability of multi-dimensional rarefaction waves I: the energy estimates; [2025·202(2)·3] On the stability of multi-dimensional rarefaction waves II: existence of solutions and applications to the Riemann problem. [census](../census/033.md)
-
-### Pluripotential theory, complex Monge–Ampère and Hessian equations
-
-Sources: Guedj–Zeriahi, *Degenerate Complex Monge–Ampère Equations*; Székelyhidi, *An Introduction to Extremal Kähler Metrics*. Neighbour: ComplexKahlerGeometry.
-
-- **#38 Fully nonlinear complex Hessian-type equations on a compact Hermitian manifold.** [ComplexKahlerGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ComplexKahlerGeometry/README.md) K1/K2/K5b/K6 (Hermitian and Kähler calculus).  
-  Papers: [2023·198(1)·4] On $L^\infty$ estimates for complex Monge-Ampère equations. [census](../census/038.md)
-
-### Complex hyperbolic geometry and ball quotients
-
-Sources: Goldman, *Complex Hyperbolic Geometry*; Mok, on projective algebraicity of ball quotients; Borel–Ji. Builds on PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) (RealSemisimpleLieGroups), whose §5.7 specifies complex hyperbolic space `PU(1,n)/K` in the ball model with its invariant Kähler metric and its complex and totally real totally geodesic submanifolds (Proposition 31.3), and whose §5.6 treats quotients by discrete subgroups; it leaves Selberg's lemma, non-arithmetic ball quotients and their Siu–Yau–Mok compactification outside. Lattices and arithmetic lattices are merged [AdelicAlgebraicGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AdelicAlgebraicGroups/README.md) AA.3.4.
-
-PR [#933](https://github.com/TauCetiProject/TauCetiRoadmap/pull/933) §2.7 specifies arithmetic ball quotients.
-
-- **#15 Ball quotients as quasi-projective varieties.** Ball and `PU(1,n)` in PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) §5.7; PR [#933](https://github.com/TauCetiProject/TauCetiRoadmap/pull/933) §2.7 (arithmetic quotients); analytification PR [#848](https://github.com/TauCetiProject/TauCetiRoadmap/pull/848); Hermitian domains PR [#1038](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1038).  
-  Papers: [2023·197(1)·3] Special subvarieties of non-arithmetic ball quotients and Hodge theory. [census](../census/015.md)
-- **#31 Totally geodesic subvariety of a ball quotient.** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a (total geodesicity); ball model and Proposition 31.3 in PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) §5.7.  
-  Papers: [2023·197(1)·3] Special subvarieties of non-arithmetic ball quotients and Hodge theory. [census](../census/031.md)
-
-### Canonical systems and nonlinear Fourier analysis
-
-Sources: Remling, *Spectral Theory of Canonical Systems*; de Branges, *Hilbert Spaces of Entire Functions*; Garnett, *Bounded Analytic Functions*. Neighbour: OperatorTheory.
-
-- **#43 SU(1,1) non-linear Fourier transform of an $L^2$ function on the half-line.**  
-  Papers: [2024·199(2)·4] Pointwise convergence of the non-linear Fourier transform. [census](../census/043.md)
-- **#44 Scattering functions of a real Dirac system.**  
-  Papers: [2024·199(2)·4] Pointwise convergence of the non-linear Fourier transform. [census](../census/044.md)
-
-### Uniformly hyperbolic dynamics and thermodynamic formalism
-
-Sources: Katok–Hasselblatt, *Introduction to the Modern Theory of Dynamical Systems*; Fisher–Hasselblatt, *Hyperbolic Flows*; Bowen, *Equilibrium States*. Builds on PR [#2231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2231) (ClassicalErgodicTheory), which specifies flow pressure, the variational principle, equilibrium states (#96), exponential mixing (§3.6), and Bowen's uniqueness theorem for expansive flows with specification and for suspension flows over subshifts of finite type (§§8.4–8.6); it names Anosov and Axiom A dynamics as outside it, consuming those sections.
-
-- **#91 Anosov flow.** Code: `flowOf`, continuous distributions, Riemannian metrics; exponential mixing in PR [#2231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2231) §3.6.  
-  Papers: [2023·197(1)·2] Smooth mixing Anosov flows in dimension three are exponentially mixing. [census](../census/091.md)
-
-### Billiards and kinetic limits
-
-Sources: Tabachnikov, *Geometry and Billiards*; Chernov–Markarian, *Chaotic Billiards*; Gallagher–Saint-Raymond–Texier, *From Newton to Boltzmann*. Builds on PR [#2231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2231) (ClassicalErgodicTheory), whose Layer 9 constructs polygonal billiard flows with their Liouville measure (#93) and whose §3.5 specifies flows defined off a null set, their realization from an almost-everywhere group law, disjoint unions and transport of densities; it names the hard-sphere flow as outside it, consuming §3.5.
-
-- **#39 Hard sphere dynamics on the torus.** Almost-everywhere flows in PR [#2231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2231) §3.5.  
-  Papers: [2023·198(3)·3] Statistical dynamics of a hard sphere gas: fluctuating Boltzmann equation and large deviations. [census](../census/039.md)
-
-### Classical statistical mechanics: Gibbs measures, lattice spin systems, dimers
-
-Sources: Georgii, *Gibbs Measures and Phase Transitions*; Friedli–Velenik, *Statistical Mechanics of Lattice Systems*; Gorin, *Lectures on Random Lozenge Tilings*. Neighbour: RandomMatrices.
-
-- **#99 Scaling limit of lattice $\phi^4$ fields (reachable random field).** Ingredients in Mathlib (product measures, densities, convergence in distribution).  
-  Papers: [2021·194(1)·3] Marginal triviality of the scaling limits of critical 4D Ising and $\lambda\phi_4^4$ models. [census](../census/099.md)
-- **#100 Translation-invariant ergodic Gibbs measure on lozenge tilings of given slope.** Ingredients in Mathlib (perfect matchings, conditional expectation, ergodicity).  
-  Papers: [2023·198(3)·1] Universality for lozenge tiling local statistics. [census](../census/100.md)
-
-### Weighted and Gaussian isoperimetry
-
-Sources: Maggi, *Sets of Finite Perimeter and Geometric Variational Problems*; Bakry–Gentil–Ledoux. Neighbours: Isoperimetry, GeometricMeasureTheory.
-
-- **#55 Gaussian $q$-cluster.** [GeometricMeasureTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricMeasureTheory/README.md) G5 (Euclidean perimeter); Mathlib `stdGaussian`.  
-  Papers: [2022·195(1)·2] The Gaussian Double-Bubble and Multi-Bubble Conjectures. [census](../census/055.md)
 
 ### Filling invariants
 
@@ -186,24 +65,6 @@ Sources: Gromov, *Filling Riemannian Manifolds*; Bridson, *The Geometry of the W
 
 - **#57 Lipschitz singular chains and their mass.** [GeometricCurrents](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricCurrents/README.md) G1–G3; [GeometricMeasureTheory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricMeasureTheory/README.md) G2.  
   Papers: [2021·193(3)·2] Filling functions of arithmetic groups. [census](../census/057.md)
-
-### Surface group representations and character varieties
-
-Sources: Goldman, *The Symplectic Nature of Fundamental Groups of Surfaces*; Labourie, *Lectures on Representations of Surface Groups*; Simpson, *Higgs Bundles and Local Systems*.
-
-Cartan involutions and maximal compact subgroups of real reductive groups are in PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) Layer 0, §2.2 and §5.4, and real forms of complex reductive groups with their Cartan involutions (Definition 54.1) in its §2.5; it names representation and character varieties of surface groups as outside it.
-
-- **#54 Character variety of a surface group in a real reductive group.** [LieGroups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieGroups/README.md) L7, L9; real forms and Cartan involutions in PR [#2229](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2229) §2.5; PR [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169) (PSL₂(ℝ)); complex GL_r character varieties in PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §1.4.  
-  Papers: [2024·200(3)·1] A general Cayley correspondence and higher rank Teichmüller spaces. [census](../census/054.md)
-
-### Degree growth of rational maps
-
-Sources: Lazarsfeld, *Positivity in Algebraic Geometry I*, Ch. 1–2; Dinh–Sibony; Guedj's survey on ergodic properties of rational maps.
-
-Numerical classes and intersection numbers are in PR [#545](https://github.com/TauCetiProject/TauCetiRoadmap/pull/545).
-
-- **#95 Dynamical degree of a dominant rational self-map.** PR [#545](https://github.com/TauCetiProject/TauCetiRoadmap/pull/545) (N¹, nef classes, intersection numbers); Mathlib rational maps.  
-  Papers: [2021·194(1)·5] Spectral interpretations of dynamical degrees and applications. [census](../census/095.md)
 
 ## Beyond the 100
 

@@ -1136,7 +1136,7 @@ STATUS.md snapshot: 7bb61fc 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 
 ### Layer 1.1 Smooth collars
 - Status: PARTIAL: `TauCeti.SmoothCollar` (a `C^k` injective local diffeomorphism `∂M × [0, 1) → M` with zero slice the boundary inclusion) with `isOpenEmbedding`, `opensRange`, `diffeomorphOpensRange`, `reparam`, `isCollar`/`isCollared`, `ofIsEmpty` (Geometry/Manifold/Boundary/Collar/Smooth.lean); local smooth product collars `IsProductCollarChart.diffeomorphProd` (Collar/Diffeomorph.lean); topological collars. Missing: the existence theorem (Collar/Diffeomorph.lean's docstring: the global theorem "still requires patching these local diffeomorphisms along the whole boundary"), uniqueness up to isotopy, the interior as a boundaryless manifold.
-- Ready now: yes (existence by patching the local `diffeomorphProd`, or by flowing an inward field).
+- Ready now: no for existence: the flow route needs semiflows starting at boundary points (Mathlib integral curves exist only at interior points), which open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/40499 (forward semiflow of strictly inward vector fields in convex sets) supplies in charts. Open PRs https://github.com/TauCetiProject/TauCeti/pull/43621 (`SmoothCollar.shrink` to depth ε) and https://github.com/TauCetiProject/TauCeti/pull/38769 (the interior as a boundaryless manifold) cover two other 1.1 items.
 - Serves defs: 66 (through RiemannianManifoldsWithConvexBoundary §§3.3–3.5, 4.4)
 - Evidence: README l.788 "### 1.1 Smooth collars"; STATUS coverage Layer 1 remaining "general boundary collars, gluing along boundary pieces, handle attachment and embeddings of all compact surfaces in R^4"; grep `SmoothCollar`: only Collar/Smooth.lean, no existence statement.
 

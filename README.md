@@ -67,7 +67,7 @@ paper are noted on the entry.
   remarks are linked, 71 in all. The full definition-to-paper map (`definitions_100_v2.md`) is not
   public, so [papers.md](papers.md) undercounts.
 - **Snapshot.** The census describes Tau Ceti `main` at `0642eae29`, Mathlib at Tau Ceti's pinned
-  revision `048fffa1dbcd`, TauCetiRoadmap `main` at `b0bef9b45`, and the 419 roadmap PRs open on
+  revision `048fffa1dbcd`, TauCetiRoadmap `main` at `e058b23a9`, and the 404 roadmap PRs open on
   2026-11-17. It was carried out by Claude agents reading the code and the roadmaps. Every status is
   a judgment, and borderline calls are flagged in the census files.
 

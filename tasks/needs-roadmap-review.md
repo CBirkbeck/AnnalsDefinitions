@@ -1,6 +1,6 @@
 # Needs roadmap review
 
-Snapshot 2026-11-17 (Tau Ceti `0642eae29`, Mathlib `048fffa1dbcd`, roadmaps `b0bef9b45`, 419 open roadmap PRs).
+Snapshot 2026-11-17 (Tau Ceti `0642eae29`, Mathlib `048fffa1dbcd`, roadmaps `e058b23a9`, 404 open roadmap PRs).
 
 Every one of the 100 definitions is in exactly one of four files: [ready-to-write-statements.md](ready-to-write-statements.md), [ready-to-formalize-in-tau-ceti.md](ready-to-formalize-in-tau-ceti.md), [needs-roadmap-review.md](needs-roadmap-review.md), [needs-roadmap-written.md](needs-roadmap-written.md). A definition is placed in the furthest-along file whose condition holds for the definition as Kevin Buzzard's text states it; gaps that matter only for a particular paper are noted on the entry.
 
@@ -29,7 +29,6 @@ A definition appears under every PR that specifies it.
 - HyperbolicDynamicsAndThermodynamicFormalism: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2441: #91, #96
 - DiracScatteringAndNonlinearFourierTransform: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2444: #43, #44
 - Add roadmap: planar and surface topology, https://github.com/TauCetiProject/TauCetiRoadmap/pull/271: #59
-- Selmer groups, Selmer complexes and Iwasawa cohomology, https://github.com/TauCetiProject/TauCetiRoadmap/pull/869: #87
 - Roadmap: GL₂ automorphic representations and transfer, https://github.com/TauCetiProject/TauCetiRoadmap/pull/931: #72
 - PELModuli: Siegel and PEL moduli problems, https://github.com/TauCetiProject/TauCetiRoadmap/pull/966: #82
 - Roadmap: Arakelov geometry and heights of abelian varieties, https://github.com/TauCetiProject/TauCetiRoadmap/pull/1000: #85
@@ -51,7 +50,6 @@ A definition appears under every PR that specifies it.
 - PurityForFlatCohomology: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/1840: #21
 - FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/1843: #21
 - roadmap: develop algebraic Gromov-Witten theory and quantum cohomology, https://github.com/TauCetiProject/TauCetiRoadmap/pull/1998: #24
-- InverseGaloisAndArithmeticFundamentalGroupsPartII: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2263: #59
 - GaloisActionOnEtaleCohomology: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2271: #22
 - SchattenClassesAndSchurMultipliers: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2421: #46
 - DynamicalDegreesOfRationalMaps: roadmap, https://github.com/TauCetiProject/TauCetiRoadmap/pull/2431: #95
@@ -62,7 +60,7 @@ A definition appears under every PR that specifies it.
 
 ## By definition
 
-50 definitions.
+49 definitions.
 
 
 ### Algebra, representation theory & homotopy theory
@@ -130,7 +128,7 @@ A definition appears under every PR that specifies it.
   Papers: [2024·200(3)·1] A general Cayley correspondence and higher rank Teichmüller spaces. [census](../census/054.md)
 - **#58 MCG-finite representation of a surface group.** PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §2.1 (`HasFiniteConjugacyOrbitUnder`, MCG-finite), §0.2 (PMod and its based action on π₁); PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9 supplies `Mod(S)`; PR [#2430](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2430) §§3.3, 3.5 supply only the orbit action (the action of `Mod_{g,n}` on `Hom(π₁, H)/H`) and do not define MCG-finiteness.  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/058.md)
-- **#59 Mapping class group of a punctured surface.** Code: the smooth `TauCeti.MappingClassGroup` = π₀ Diff(M, ∂M) of a compact manifold, with `Mod⁺`. Partly in code (compact surfaces with boundary fixed, not punctures); PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9; PR [#2430](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2430) §§2.1–2.3 (`Mod^±(X)`, extension of homeomorphisms and isotopies over punctures, permutation of punctures); PRs [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169), [#1728](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1728), [#271](https://github.com/TauCetiProject/TauCetiRoadmap/pull/271); merged [GeometricTopology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md) 1.7.2 (compact case); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §0.2 (PMod); PR [#2263](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2263) §2.1 (marked disc).  
+- **#59 Mapping class group of a punctured surface.** Code: the smooth `TauCeti.MappingClassGroup` = π₀ Diff(M, ∂M) of a compact manifold, with `Mod⁺`. Partly in code (compact surfaces with boundary fixed, not punctures); PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9; PR [#2430](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2430) §§2.1–2.3 (`Mod^±(X)`, extension of homeomorphisms and isotopies over punctures, permutation of punctures); PRs [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169), [#1728](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1728), [#271](https://github.com/TauCetiProject/TauCetiRoadmap/pull/271); merged [GeometricTopology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md) 1.7.2 (compact case); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §0.2 (PMod); merged [InverseGaloisAndArithmeticFundamentalGroupsPartII](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/InverseGaloisAndArithmeticFundamentalGroupsPartII/README.md) §2.1 (marked disc).  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/059.md)
 - **#61 Outer action of the mapping class group on the fundamental group.** PR [#2430](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2430) §1.3 (action of `Out(Γ)` on `Hom(Γ, H)/H`), §§3.1–3.3 (`Ψ_x` with its laws and basepoint change), §3.5 (action on conjugacy classes of representations); PR [#1169](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1169) §4.2 (`OuterAut`, Dehn–Nielsen–Baer); PR [#2266](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2266) §§0.1–0.2 (based and outer action of PMod, `pureMappingClassAut`); `Mod_{g,n}` from PR [#1231](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1231) §5.9, which names the action on coverings through `Out(π₁ S)` but defines neither `Out(Γ)` nor `Ψ`.  
   Papers: [2024·199(2)·6] Canonical representations of surface groups. [census](../census/061.md)
@@ -157,8 +155,6 @@ A definition appears under every PR that specifies it.
   Papers: [2025·201(1)·2] Galois sections and p-adic period mappings. [census](../census/084.md)
 - **#85 Stable Faltings height of an abelian variety.** PR [#1000](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1000) §§1.3, 2.1, 3.1, 3.4; PR [#1833](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1833) §13.1. Néron models, the Hodge line `det` of §1.11 and semistable reduction (§§3.3, 3.10) are merged [NeronModelsAndSemistableAbelianVarieties](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NeronModelsAndSemistableAbelianVarieties/README.md); no merged roadmap has the Faltings metric or `h_Fal`.  
   Papers: [2026·203(1)·2] Arithmetic bigness and a uniform Bogomolov-type result. [census](../census/085.md)
-- **#87 Tate--Shafarevich group of an abelian variety over a number field.** PR [#869](https://github.com/TauCetiProject/TauCetiRoadmap/pull/869) §2.12a (code has elliptic-curve `sha` and its isogeny invariance, `TauCeti.Isogeny.Hom.shafarevichTateMap`). Merged [NeronModelsAndSemistableAbelianVarieties](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/NeronModelsAndSemistableAbelianVarieties/README.md) §6.4b defines `Ш(A/F)` for abelian varieties over number fields as a localization kernel, without `Sel^φ` or finiteness (87.2–87.4).  
-  Papers: [2020·191(2)·1] A converse to a theorem of Gross, Zagier, and Kolyvagin. [census](../census/087.md)
 - **#88 Weak functorial transfer to $\mathrm{GL}_N$.** PR [#1756](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1756) §10.1; PR [#1180](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1180) §1.6.  
   Papers: [2024·200(3)·2] Doubling constructions: Global functoriality for non-generic cuspidal representations. [census](../census/088.md)
 - **#89 $\ell$-adic Galois representation with values in the Mumford--Tate group.** PR [#933](https://github.com/TauCetiProject/TauCetiRoadmap/pull/933) §7.0i.1. The conjugacy quotient `Conj_G`, `χ_G` is merged [ArithmeticGaloisRepresentations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ArithmeticGaloisRepresentations/README.md) §1.11.  

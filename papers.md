@@ -31,10 +31,12 @@ Papers are grouped by the least-advanced status among their listed definitions (
 
 ## Bottleneck: merged roadmap
 
-22 papers.
+23 papers.
 
 - <a id="202019114"></a>**[2020·191(1)·4]** Minimal surfaces and the Allen--Cahn equation on 3-manifolds: index, multiplicity, and curvature estimates, Chodosh, Mantoulidis. https://doi.org/10.4007/annals.2020.191.1.4  
   #49 Second fundamental form, principal curvatures and mean curvature of a hypersurface (Merged roadmap), #52 Minimal hypersurface in a Riemannian manifold (Merged roadmap)
+- <a id="202019121"></a>**[2020·191(2)·1]** A converse to a theorem of Gross, Zagier, and Kolyvagin, Skinner. https://doi.org/10.4007/annals.2020.191.2.1  
+  #67 Local components of an automorphic representation (restricted tensor product) (Merged roadmap), #69 Galois representation attached to a cuspidal Hecke eigenform (Merged roadmap), #71 Abelian variety $A_f$ attached to a weight-2 newform (Merged roadmap), #76 The cuspidal automorphic representation $\pi_f$ attached to a newform (Merged roadmap), #87 Tate--Shafarevich group of an abelian variety over a number field (Merged roadmap)
 - <a id="202019221"></a>**[2020·192(2)·1]** Subalgebras of simple AF-algebras, Schafhauser. https://doi.org/10.4007/annals.2020.192.2.1  
   #36 Amenable trace on a C\*-algebra (Merged roadmap)
 - <a id="202019222"></a>**[2020·192(2)·2]** Uniqueness of two-convex closed ancient solutions to the mean curvature flow, Angenent, Daskalopoulos, Sesum. https://doi.org/10.4007/annals.2020.192.2.2  
@@ -80,12 +82,10 @@ Papers are grouped by the least-advanced status among their listed definitions (
 
 ## Bottleneck: open roadmap PR
 
-38 papers.
+37 papers.
 
 - <a id="202019113"></a>**[2020·191(1)·3]** Euclidean triangles have no hot spots, Judge, Mondal. https://doi.org/10.4007/annals.2020.191.1.3  
   #34 Neumann eigenvalues and eigenfunctions of the Laplacian on a bounded domain (Roadmap PR)
-- <a id="202019121"></a>**[2020·191(2)·1]** A converse to a theorem of Gross, Zagier, and Kolyvagin, Skinner. https://doi.org/10.4007/annals.2020.191.2.1  
-  #67 Local components of an automorphic representation (restricted tensor product) (Merged roadmap), #69 Galois representation attached to a cuspidal Hecke eigenform (Merged roadmap), #71 Abelian variety $A_f$ attached to a weight-2 newform (Merged roadmap), #76 The cuspidal automorphic representation $\pi_f$ attached to a newform (Merged roadmap), #87 Tate--Shafarevich group of an abelian variety over a number field (Roadmap PR)
 - <a id="202019123"></a>**[2020·191(2)·3]** A $k$-linear triangulated category without a model, Rizzardo, Van den Bergh. https://doi.org/10.4007/annals.2020.191.2.3  
   #10 Hochschild--Kostant--Rosenberg antisymmetrisation map (Roadmap PR)
 - <a id="202019127"></a>**[2020·191(2)·7]** Abelian varieties isogenous to no Jacobian, Masser, Zannier. https://doi.org/10.4007/annals.2020.191.2.7  

@@ -291,7 +291,7 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 
 ### §5.9–§5.10 surface pairing Chow.intersectionNumber, numerical equivalence, Num
 - Status: PARTIAL: the definitions are in code: `Chow.intersectionNumber k S L M` (`χ(𝒪) − χ(L⁻¹) − χ(M⁻¹) + χ(L⁻¹ ⊗ M⁻¹)`, symmetric, invariant under isomorphism), its descent `Chow.classIntersectionNumber` to `LineBundleClass S`, `Chow.NumericallyEquivalent` and the quotient type `Chow.Num` with the descended pairing (AlgebraicGeometry/Chow/SurfaceIntersection.lean). Missing: bilinearity of the pairing and the group structure on `Num` (from the numerical polynomial, Stacks 0BEM), the comparison with intersection of curves, adjunction, Riemann–Roch on surfaces, Noether's formula, Hodge index.
-- Ready now: yes for bilinearity and the group structure on `Num`. The theorems (Hodge index, Riemann–Roch on surfaces) need §2.20, §3.3, §5.3, §5.6.
+- Ready now: no. Bilinearity (and with it the group structure on `Num`) is the numerical-polynomial lemma (Stacks 0BEM), which needs §2.6 finiteness of coherent cohomology on proper (at least projective) schemes (open Tau Ceti PRs https://github.com/TauCetiProject/TauCeti/pull/41909, https://github.com/TauCetiProject/TauCeti/pull/43063, https://github.com/TauCetiProject/TauCeti/pull/43068 for the projective case) and `proper_fibreDimension_vanishing` (Stacks 02UZ), neither in code. The theorems (Hodge index, Riemann–Roch on surfaces) need §2.20, §3.3, §5.3, §5.6.
 - Serves defs: 19
 - Evidence: README l.8519 "### 5.9 Surfaces: the relative intersection pairing ...", l.8625 "### 5.10 ...", l.8639 "**Numerical equivalence.** *Chow.NumericallyEquivalent* / *Num*".
 

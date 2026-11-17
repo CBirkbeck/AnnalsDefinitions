@@ -101,7 +101,7 @@ Papers are grouped by the least-advanced status among their listed definitions (
 - <a id="202119425"></a>**[2021·194(2)·5]** Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture, Beuzart-Plessis, Liu, Zhang, Zhu. https://doi.org/10.4007/annals.2021.194.2.5  
   #67 Local components of an automorphic representation (restricted tensor product) (Merged roadmap), #73 Central character of an automorphic representation (Merged roadmap), #83 Schwartz (Hecke) algebra of an adelic reductive group (Merged roadmap), #90 The $\pi$-nearly isotypic cuspidal subspace (Roadmap PR)
 - <a id="202119431"></a>**[2021·194(3)·1]** Polynomial structure of Gromov–Witten potential of quintic 3-folds, Chang, Guo, Li. https://doi.org/10.4007/annals.2021.194.3.1  
-  #16 Rational Chow groups of a Deligne--Mumford stack and the degree of zero-cycles (Roadmap PR), #24 Moduli stack of stable maps $\overline{\mathcal{M}}_{g,n}(X,\beta)$ (Roadmap PR), #27 Perfect obstruction theory and virtual fundamental class (Roadmap PR)
+  #16 Rational Chow groups of a Deligne--Mumford stack and the degree of zero-cycles (Merged roadmap), #24 Moduli stack of stable maps $\overline{\mathcal{M}}_{g,n}(X,\beta)$ (Roadmap PR), #27 Perfect obstruction theory and virtual fundamental class (Merged roadmap)
 - <a id="202219522"></a>**[2022·195(2)·2]** Measures of maximal entropy for surface diffeomorphisms, Buzzi, Crovisier, Sarig. https://doi.org/10.4007/annals.2022.195.2.2  
   #97 Measure of maximal entropy (Roadmap PR)
 - <a id="202219634"></a>**[2022·196(3)·4]** One can hear the shape of ellipses of small eccentricity, Hezari, Zelditch. https://doi.org/10.4007/annals.2022.196.3.4  
@@ -116,7 +116,7 @@ Papers are grouped by the least-advanced status among their listed definitions (
   #15 Ball quotients as quasi-projective varieties (Roadmap PR), #31 Totally geodesic subvariety of a ball quotient (Roadmap PR), #68 Arithmetic lattice in a semisimple Lie group (Merged roadmap)
 - <a id="202319826"></a>**[2023·198(2)·6]** Near optimal spectral gaps for hyperbolic surfaces, Hide, Magee. https://doi.org/10.4007/annals.2023.198.2.6  
   #40 The Laplace–Beltrami operator on $L^2$ of a complete Riemannian manifold (Roadmap PR)
-- <a id="202319833"></a>**[2023·198(3)·3]** Statistical dynamics of a hard sphere gas: fluctuating Boltzmann equation and large deviations, Bodineau, Gallagher, Saint-Raymond, Sergio. https://doi.org/10.4007/annals.2023.198.3.3  
+- <a id="202319833"></a>**[2023·198(3)·3]** Statistical dynamics of a hard sphere gas: fluctuating Boltzmann equation and large deviations, Bodineau, Gallagher, Saint-Raymond, Simonella. https://doi.org/10.4007/annals.2023.198.3.3  
   #39 Hard sphere dynamics on the torus (Roadmap PR)
 - <a id="202319835"></a>**[2023·198(3)·5]** Schur multipliers in Schatten-von Neumann classes, Conde-Alonso, González-Pérez, Parcet, Tablate. https://doi.org/10.4007/annals.2023.198.3.5  
   #46 Schur multiplier on Schatten classes (Roadmap PR)

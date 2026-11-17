@@ -13,7 +13,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 
 | Roadmap | # defs served | Items (not-started / partial) | Ready now | Definitions served |
 |---|---|---|---|---|
-| SchemeAndStackFoundations | 16 | 28 (15 / 13) | 12 | 16, 17, 19, 20, 21, 24, 25, 26, 27, 28, 29, 30, 71, 80, 84, 85 |
+| SchemeAndStackFoundations | 16 | 29 (16 / 13) | 12 | 16, 17, 19, 20, 21, 24, 25, 26, 27, 28, 29, 30, 71, 80, 84, 85 |
 | AutomorphicFormsOnReductiveGroups | 13 | 7 (7 / 0) | 4 | 1, 4, 5, 7, 67, 72, 73, 76, 79, 83, 86, 88, 90 |
 | ArithmeticLocallySymmetricSpaces | 12 | 3 (3 / 0) | 0 | 1, 4, 7, 62, 67, 72, 73, 76, 77, 79, 88, 90 |
 | AbelianSchemesAndArithmeticModuli | 10 | 6 (6 / 0) | 1 | 12, 13, 23, 70, 71, 74, 78, 80, 85, 89 |
@@ -50,7 +50,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | CountableStructureSpaces | 2 | 4 (1 / 3) | 3 | 94, 98 |
 | CStarAlgebras | 2 | 9 (5 / 4) | 5 | 36, 46 |
 | DerivedModuleAlgebra | 2 | 2 (2 / 0) | 0 | 27, 81 |
-| EnhancedDerivedSheaves | 2 | 2 (1 / 1) | 0 | 18, 27 |
+| EnhancedDerivedSheaves | 2 | 1 (0 / 1) | 0 | 18, 27 |
 | GeometricTopology | 2 | 3 (1 / 2) | 1 | 59, 66 |
 | MathematicalBilliards | 2 | 5 (5 / 0) | 4 | 92, 93 |
 | NashBlowups | 2 | 12 (12 / 0) | 4 | 25, 26 |
@@ -58,6 +58,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | PseudodifferentialOperators | 2 | 2 (1 / 1) | 1 | 32, 40 |
 | PseudoholomorphicCurveAnalysis | 2 | 4 (1 / 3) | 1 | 56, 60 |
 | RiemannianManifoldsWithConvexBoundary | 2 | 6 (6 / 0) | 1 | 49, 66 |
+| VirtualFundamentalClass | 2 | 8 (8 / 0) | 0 | 16, 27 |
 | YangMillsConnectionsAndCaloricGauge | 2 | 5 (4 / 1) | 0 | 37, 48 |
 | AdicEtaleGeometry | 1 | 2 (1 / 1) | 1 | 22 |
 | AdicSpacesPartII | 1 | 1 (0 / 1) | 1 | 22 |
@@ -67,6 +68,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | AmenableTracesOnCStarAlgebras | 1 | 7 (7 / 0) | 2 | 36 |
 | ComplexHessianEquations | 1 | 6 (6 / 0) | 2 | 38 |
 | CyclotomicClassGroupsAndStickelberger | 1 | 1 (1 / 0) | 0 | 71 |
+| DerivedDeRhamCohomology | 1 | 1 (1 / 0) | 0 | 27 |
 | DGAInfinity | 1 | 1 (0 / 1) | 1 | 10 |
 | DifferentialGeometry | 1 | 1 (0 / 1) | 0 | 52 |
 | DimerModelsAndLozengeTilings | 1 | 8 (8 / 0) | 3 | 100 |
@@ -121,6 +123,10 @@ Distinct definitions served: 82. Items: see per-roadmap sections.
 - SchemeAndStackFoundations §§1.19–1.20 (`IsAlgebraicStack`, points of a stack) head all of
   StackPointsAndResidualGerbes (defs 16, 17, 28, 29), none of whose items can start before them;
   they sit at the end of the SSF Layer 1 chain above.
+- VirtualFundamentalClass (defs 16, 27) starts at Layer 0 (stack dimension), which needs SSF Layer 1
+  through §1.19 (DM stacks) and §1.21 (quotient stacks); its Layer 1 also needs SSF §§1.10, 1.22 and
+  §5.5, and its Layer 3 the cotangent-complex chain DerivedModuleAlgebra §0.4, then
+  DerivedDeRhamCohomology §5.8. No item can start now.
 - AlgebraicModuliForArithmeticGeometry §1.3 `coherentGrassmannian` (needing ModularCurves §0.7 over
   a non-affine base) blocks NashBlowups §0.4 and §§1.2–1.5, hence Layers 2, 6 and 7 (defs 25, 26).
   NashBlowups §§0.1–0.3, 0.6, 0.7 can start now.
@@ -157,6 +163,12 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 - Serves defs: 16, 20, 28 (§1.7 `points F` for 28; §1.9 `IsProperSpace` for 16/20)
 - Evidence: README l.2955 "### 1.6 Quotients by étale equivalence relations and presentations" (Needs §1.3, §1.5; `etaleQuotientTheorem` is about "the quotient sheaf `U/R`"), l.2969 "### 1.7 Points of an algebraic space" (Needs §1.3, §1.6), l.2996 "### 1.8 Fibre products and étale-local properties of morphisms" (Needs §1.3, §1.6), l.3064 "### 1.9 Separation and properness" (Needs §1.3, §1.7, §1.8); every named declaration greps empty.
 
+### §1.10 smallEtale, the small étale site of an algebraic space
+- Status: NOT-STARTED (grep `smallEtale` in TauCeti/AlgebraicGeometry/AlgebraicSpace/ empty)
+- Ready now: no: needs §1.4 (partial), §1.8, §1.9 (not started)
+- Serves defs: 27 (VirtualFundamentalClass §1.1 ringed sites of DM stacks and §3.3 cotangent complexes of algebraic spaces)
+- Evidence: README l.3085 "### 1.10 The small étale site of an algebraic space" (`smallEtale F`, `structureSheaf F`; *Needs* §1.4, §1.8, §1.9); VirtualFundamentalClass README §1.1 *Needs* "SchemeAndStackFoundations §§1.10, 1.22", §3.3 *Needs* "SchemeAndStackFoundations §1.10".
+
 ### §1.14 groupoids in algebraic spaces, stabilizer, stabilizerAt
 - Status: NOT-STARTED (TauCeti/AlgebraicGeometry/Inertia/Basic.lean is decomposition/inertia groups of a point under a group acting on a scheme, unrelated)
 - Ready now: no: needs §1.5, §1.8, §1.13 (group spaces, which needs §1.4, §1.8)
@@ -184,7 +196,7 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 ### §1.21 quotient stacks, BG, root stacks
 - Status: NOT-STARTED
 - Ready now: no: needs §1.13, §1.14, §1.15, §1.19, §1.20
-- Serves defs: 17, 29
+- Serves defs: 16, 17, 27, 29 (16 and 27 through VirtualFundamentalClass §0.3 and Layer 4)
 - Evidence: README l.3744 "### 1.21 Quotient stacks, line bundles with a section, root stacks", Needs l.3770; grep `QuotientStack|classifyingStack` empty.
 
 ### §1.22 Stacks.QCoh, QCoh.pushforward
@@ -1116,20 +1128,23 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at 0642eae29e, 2026-11-
 - Serves defs: 81
 - Evidence: README l.2024 "### 1.2 Derived ideal completeness", l.2064 "### 1.3 The derived completion reflector", l.2359 "### 1.7 Complete flatness and complete faithful flatness". STATUS Layer 3 remaining (stale on the cohomology criterion, which is in code): "exactness of the derived limit, tensor–Hom adjunction, cohomology criterion for completeness, §§1.3–1.9".
 
+## TauCetiRoadmap/DerivedDeRhamCohomology
+Checked against the README at roadmap e058b23 (Tau Ceti checked at 0642eae29e, 2026-11-17).
+
+### §5.8 the scheme cotangent complex `L_(X/A)` and derived de Rham on schemes
+- Status: NOT-STARTED (grep `DerivedDeRham|deRhamSheaves` in TauCeti empty)
+- Ready now: no: needs DerivedModuleAlgebra §0.4 (the full cotangent complex, not started), §0.11 and §0.2, and Layers 1–2 of this roadmap
+- Serves defs: 27 (VirtualFundamentalClass §§3.1–3.4 consume it)
+- Evidence: README l.4513 "### 5.8 Derived de Rham on schemes and formal schemes" ("let `L_(X/A)` be the complex of quasi-coherent sheaves with value `L_(B/A)` on affine opens"); VirtualFundamentalClass README "DerivedDeRhamCohomology §5.8 supplies the scheme cotangent complex".
+
 ## TauCetiRoadmap/EnhancedDerivedSheaves
 STATUS.md snapshot: 385ec2d 2026-11-06 (Tau Ceti checked at 0642eae29e, 2026-11-17)
 
 ### §0.3 Derived tensor and internal Hom `ClassicalDerived.tensorHom` (with §0.4 functorCoherence)
 - Status: PARTIAL, inputs only. The K-flat half of §0.2 exists: every unbounded complex of sheaves of modules has a K-flat resolution by flat terms (`CochainComplex.exists_quasiIso_isKFlat_sheafOfModules`, Algebra/Category/ModuleCat/Sheaf/TensorProduct/KFlat.lean). Tensoring with a fixed K-flat complex descends to the derived category (`CochainComplex.kFlatTensor`, Algebra/Homology/Monoidal/KFlat/DerivedTensor.lean). Missing: the derived tensor bifunctor on sheaves, internal RHom, the tensor–Hom adjunction, K-injective replacement on ringed sites, the enhanced category (§0.1) and all of §0.4.
 - Ready now: no, as the README specifies it. §0.3 needs §§0.1–0.2, i.e. the enhanced category via the dg nerve, which needs E0.6 shift/cone comparison and E0.8 presentability, both remaining. A homotopy-category-level ⊗ᴸ on `DerivedCategory (SheafOfModules R)` from the existing K-flat resolutions could start now as a substep.
-- Serves defs: 18
+- Serves defs: 18, 27 (VirtualFundamentalClass §3.1 instantiates the ringed-site tensor and internal Hom on stack sites)
 - Evidence: README l.455 "### 0.3 Tensor, internal Hom and derived limits" ("provide `ClassicalDerived.tensorHom`: K-flat replacement defines `⊗ᴸ_R` ..."). README l.492 "### 0.4 Coherent derived functors". STATUS Layer 0 remaining: "K-injective replacement on ringed sites, the enhanced module-sheaf category, derived tensor-Hom, derived limits, completion comparison, functor coherence".
-
-### Layer E5:cotangent-export The cotangent complex of animated rings
-- Status: NOT-STARTED. No `squareZeroExtension` (animated), `derivedDerivations` or animated `cotangentComplex`.
-- Ready now: no. Needs E5:animation (`animatedAlgebras`, `animatedModules`, `animationExtension`, `animatedPushout`; untouched) and DerivedModuleAlgebra §§0.4–0.13 (not started).
-- Serves defs: 27
-- Evidence: README l.2865 "## Layer E5:cotangent-export: The cotangent complex of animated rings". STATUS coverage: "Layer E5 ... untouched".
 
 ## TauCetiRoadmap/GeometricTopology
 STATUS.md snapshot: 7bb61fc 2026-11-16, generated against Tau Ceti aa6e43e (Tau Ceti checked at 0642eae29e, 2026-11-17)
@@ -1651,6 +1666,57 @@ No STATUS.md (merged as roadmap PR #2429; Tau Ceti checked at 0642eae29e, 2026-1
 - Ready now: no: §7.1 needs §§0.4, 3.4, 4.5 and SSF §4.8 (in code); §7.2 needs §§0.1, 0.4, 1.3, 4.5, 6.4, SSF §1.22 `Stacks.QCoh` (NOT-STARTED), Tau Ceti `TauCeti.Comodule` (in code) and ReductiveGroups Layer 1; §7.3 needs §§7.1–7.2, 2.2, 2.3, 6.4, AlgebraicModuliForArithmeticGeometry §§8.1, 8.3 (not started) and SSF §1.21; §7.4 needs §§7.2–7.3, SSF §§1.20–1.22
 - Serves defs: 29 (target: 29.5, `N_x`), 17 (census 017 chain step 6: the local data `N_x`, `G_x` and the tangent comparison of the Luna slice statement)
 - Evidence: README l.1915 "## Layer 7: infinitesimal neighbourhoods, normal and tangent spaces"; l.1926 "### 7.1" (Needs l.1930), l.1949 "### 7.2 The normal space" (Needs l.1956), l.1987 "### 7.3 The tangent space and the comparison map" (Needs l.2031), l.2063 "### 7.4 Quotient stacks" (Needs l.2094).
+
+## TauCetiRoadmap/VirtualFundamentalClass
+No STATUS.md (merged as roadmap PR #1996 at roadmap e058b23; Tau Ceti checked at 0642eae29e, 2026-11-17). No target of the roadmap exists in Tau Ceti: grep `normalCone|IsDeligneMumford|ObstructionTheory|virtualClass|intrinsicNormal` in TauCeti empty, and TauCeti/AlgebraicGeometry/Stack/ has only `SchPseudofunctor` and `StackInGroupoids`. Its Tau Ceti suppliers are in code: `Chow.ChowGroup.pushforward` (Chow/ClosedImmersion.lean), `relativeSpec`, `relativeSpecHomIso`, `relativeSpecBaseChangeIso`, `gradedRelativeSpecEquiv` (RelativeSpec/), `gradedSymmetricAlgebra`, `FiniteLocallyFreeSheaf`, `GeometricVectorBundle`, `Scheme.IdealSheafData.blowup`. Every layer rests on SchemeAndStackFoundations Layer 1 (DM stacks §1.19, quotient stacks §1.21, `QCoh` §1.22, not started), so no item is ready.
+
+### Layer 0 (§§0.2–0.3) dimension of algebraic stacks, `dim [U/G] = dim U − dim G`
+- Status: NOT-STARTED
+- Ready now: no: §0.2 needs SSF Layer 1 (algebraic stacks, §1.19, not started); §0.3 needs §0.2 and SSF §1.21 quotient stacks (not started)
+- Serves defs: 16 (§2.1 needs §§0.2–0.3), 27
+- Evidence: README l.266 "## Layer 0: shared stack foundations and stack dimension", l.277 "### 0.2 Dimension and pure dimension" (*Needs* "SchemeAndStackFoundations Layer 1").
+
+### Layer 1 (§§1.1–1.6) ringed sites of DM stacks, locally free sheaves, relative spectra, cones, normal cones and deformation to the normal cone over stacks
+- Status: NOT-STARTED (the scheme-level `relativeSpec` and `gradedSymmetricAlgebra` suppliers are in code)
+- Ready now: no: §1.1 needs §0.1 and SSF §§1.10, 1.22 (not started); §1.5 needs SSF §5.5 (not started)
+- Serves defs: 27
+- Evidence: README l.324 "## Layer 1: stack sites, representable cones, and normal cones"; l.326 "### 1.1 Ringed sites and comparison" (*Needs* "§0.1, SchemeAndStackFoundations §§1.10, 1.22 and AlgebraicVectorBundles L1A–L2B"); l.409 "### 1.5 Normal cones and deformation" (*Needs* "§§1.1–1.4 and SchemeAndStackFoundations §5.5").
+
+### §§2.1–2.2 Vistoli's rational Chow groups of separated DM stacks, degree of proper zero-cycles, flat pullback and proper pushforward
+- Status: NOT-STARTED
+- Ready now: no: §2.1 needs §§0.2–0.3 (not started) and SSF §5.1 (partial: `Chow.ChowGroup` in code); §2.2 needs §2.1 and SSF Layer 5 (§5.2 partial)
+- Serves defs: 16 (target: 16.1–16.3, degree of 16.6), 27
+- Evidence: README l.464 "## Layer 2: rational Chow theory and Gysin maps for Deligne–Mumford stacks"; l.469 "### 2.1 Rational Chow groups" ("Build Vistoli's dimension-graded rational Chow groups for separated Deligne–Mumford stacks ..."; API "Compute degrees of proper zero-cycles, with the generic stabilizer weight"); l.497 "### 2.2 Chow operations".
+
+### §§2.3–2.5 Chern classes, refined Gysin maps, bivariant orientations for DM stacks
+- Status: NOT-STARTED
+- Ready now: no: needs §§1.2, 1.5, 2.1–2.2 and SSF Layer 5 (§§5.4–5.5 not started)
+- Serves defs: 27 (the zero-section Gysin map `0_E^!` of the Layer 2 milestone)
+- Evidence: README l.519 "### 2.3 Homotopy invariance and Chern classes", l.555 "### 2.4 Refined Gysin maps" (*Needs* "§§1.5, 2.2–2.3 and SchemeAndStackFoundations Layer 5"), l.573 "### 2.5 Bivariant orientations and comparison".
+
+### Layer 3 (§§3.1–3.4) derived operations on stack sites, perfect complexes and global resolutions, cotangent complexes of morphisms of stacks, local presentation
+- Status: NOT-STARTED
+- Ready now: no: §3.1 needs Layer 1, DerivedModuleAlgebra, EnhancedDerivedSheaves (§0.3 partial) and DerivedDeRhamCohomology §5.8 (not started); §3.3 also needs SSF §1.10 (not started)
+- Serves defs: 27
+- Evidence: README l.622 "## Layer 3: geometric cotangent complexes and perfect complexes on stacks"; l.659 "### 3.3 Relative cotangent complexes" ("Consume the scheme cotangent complex from DerivedDeRhamCohomology §5.8 ...").
+
+### Layers 4–5 cone stacks, `h¹/h⁰`, the intrinsic normal sheaf and cone
+- Status: NOT-STARTED
+- Ready now: no: §4.1 needs §§0.1, 1.4; §4.3 needs §§3.1–3.2; §5.1 needs §§1.5–1.6, 3.3–3.4, 4.4
+- Serves defs: 27 (27.2, 27.3)
+- Evidence: README l.731 "## Layer 4: cone stacks and the `h¹/h⁰` construction", l.846 "## Layer 5: the intrinsic normal sheaf and cone", l.882 "### 5.3 Intrinsic normal cone".
+
+### Layers 6–7 obstruction theories, perfect obstruction theories, global resolutions, the virtual class and its degree
+- Status: NOT-STARTED
+- Ready now: no: §6.1 needs §§3.1–3.4, 4.4–4.5, 5.1; §7.4 needs §§7.1–7.3, which need Layer 2 Gysin maps (§2.4) and §6.5
+- Serves defs: 27 (target: 27.4–27.6)
+- Evidence: README l.944 "### 6.1 Obstruction theories", l.997 "### 6.4 Perfect obstruction theories", l.1018 "### 6.5 Global two-term resolutions", l.1141 "### 7.4 Public construction", l.1187 "### 7.7 Virtual degree".
+
+### Layer 9 (§§9.1–9.2) relative intrinsic cone and relative virtual class over a pure-dimensional algebraic stack
+- Status: NOT-STARTED
+- Ready now: no: §9.1 needs §§0.2, 1.5–1.6, 3.3, 4.4, 5.1–5.3; §9.2 needs §§6.1–6.5, 7.1–7.4, 9.1
+- Serves defs: 27 (27.3–27.6 relative; open roadmap PR #1998 Layer 4 builds 27.7 on §9.2)
+- Evidence: README l.1325 "## Layer 9: the relative intrinsic cone and virtual class", l.1327 "### 9.1 Relative intrinsic cone", l.1348 "### 9.2 Relative virtual class".
 
 ## TauCetiRoadmap/ComplexHessianEquations
 No STATUS.md (merged as roadmap PR #2440; Tau Ceti checked at 0642eae29e, 2026-11-17). Grep `spectralFunction`, `eigenvalueVector`, `gardingCone`, `hessianCone`, `AdmissiblePair`, `IsHyperbolic`, `ddbarHermitianForm`, `formPow`, `IsNormalizedSolution`, `Maclaurin`: no hits. Its Tau Ceti suppliers are in code: Courant–Fischer `LinearMap.IsSymmetric.eigenvalue_mono`, `abs_eigenvalue_sub_eigenvalue_le` (Analysis/InnerProductSpace/CourantFischer.lean), von Neumann's trace inequality `re_trace_comp_le_sum_eigenvalues_mul_eigenvalues` (HoffmanWielandt/Basic.lean), Ky Fan `sum_re_inner_apply_self_le_sum_eigenvalues` (KyFan.lean), `Convex.robinHood_mem` and `TauCeti.mem_of_prefixSum_le_of_sum_eq` (Analysis/Convex/Majorization.lean), `Real.prod_rpow_add_prod_rpow_le_prod_add_rpow` (Analysis/MeanInequalities.lean), the Levi form `TauCeti.manifoldLeviForm` with `isSymm_manifoldLeviForm`, `leviForm_comp_symm_apply_of_mem_maximalAtlas`, `toMatrix₂_leviForm`, `re_leviForm_nonpos_of_isLocalMax`, `integralTopForm_mextDeriv_eq_zero` (DifferentialForm/Integration/BoundarylessStokes.lean), `riemannianVolume`, and ComplexManifolds Milestone 2's canonical orientation (Geometry/Manifold/Complex/Orientation.lean).

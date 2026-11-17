@@ -1060,8 +1060,8 @@ STATUS.md snapshot: 3930ad9 2026-11-11 (Tau Ceti checked at 0642eae29e, 2026-11-
 No STATUS.md (merged as roadmap PR #2260; Tau Ceti checked at 0642eae29e, 2026-11-17). Grep `IsTracialState`, `matrixTwoNorm`, `IsAmenableTrace`, `IsHypertrace` in Tau Ceti: no hits.
 
 ### §§1.1–1.2 Tracial states, `T(A)`, the trace kernel and faithfulness
-- Status: NOT-STARTED. Inputs present: `TauCeti.CStarAction.trivial`, `isKMSState_zero_iff`, `kmsStates` with `convex_kmsStates`, `isCompact_kmsStates` (TauCeti/Analysis/CStarAlgebra/Action/{Basic,KMS/Basic,KMS/StateSpace}.lean), `LinearMap.traceRadical`, Mathlib `PositiveLinearMap.GNS`.
-- Ready now: yes (*Needs* VonNeumannAlgebras V0 states, whose state space and GNS are in code).
+- Status: NOT-STARTED. Inputs present: `TauCeti.CStarAction.trivial`, `isKMSState_zero_iff`, `kmsStates` with `convex_kmsStates`, `isCompact_kmsStates` (TauCeti/Analysis/CStarAlgebra/Action/{Basic,KMS/Basic,KMS/StateSpace}.lean), `LinearMap.traceRadical`, Mathlib `PositiveLinearMap.GNS`. Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43146 implements §§1.1–1.2 (`PositiveContinuousLinearMap.IsTracialState`, `TauCeti.tracialStateSpace`, `traceKernel`, `IsFaithful`, State/Tracial/).
+- Ready now: yes (*Needs* VonNeumannAlgebras V0 states, whose state space and GNS are in code); §1.3 follows #43146.
 - Serves defs: 36
 - Evidence: README l.503 "### 1.1 Tracial states and the tracial state space" (`IsTracialState` as the `0`-KMS condition of the trivial action), l.562 "### 1.2 The trace kernel, faithfulness and simplicity".
 

@@ -728,8 +728,8 @@ STATUS.md snapshot: d9fbe7b 2026-11-11 (Tau Ceti checked at 0642eae29e, 2026-11-
 - Evidence: README l.2565 "4. Cartan–Hadamard (`cartanHadamard_isCoveringMap`)", *Needs* l.2577 "R4.3 (covering criterion), HopfRinow (Completed) Layer 4"; STATUS "R4 has its models, the nonpositive-curvature exponential bound ... but no comparison theorem"
 
 ### R6 Euclidean ε-tube inversion and nearest-point retraction
-- Status: NOT-STARTED: the Euclidean normal tube of a `C²` embedding of a compact manifold `TauCeti.exists_isTubularNeighborhood_normalBundle` (`TubularNeighborhood/Euclidean.lean`) and the squared-distance Hessian declarations R6 consumes are in code; no nearest-point retraction.
-- Ready now: yes (its *Needs* are Tau Ceti declarations).
+- Status: NOT-STARTED: the Euclidean normal tube of a `C²` embedding of a compact manifold `TauCeti.exists_isTubularNeighborhood_normalBundle` (`TubularNeighborhood/Euclidean.lean`) and the squared-distance Hessian declarations R6 consumes are in code; no nearest-point retraction on main. Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43523 (TubularNeighborhood/NearestPoint.lean) adds `TauCeti.nearestPointRetraction`, `image_normalTube_eq_thickening`, the inversion below the injectivity radius and a uniform radius for compact `C²` embedded submanifolds.
+- Ready now: yes after #43523 for the `C¹`/smooth regularity of the retraction; the rest of R6 needs R5a.
 - Serves defs: 37, 48 (through YangMillsConnectionsAndCaloricGauge §1.2)
 - Evidence: README l.4081 "### R6. Focal geometry and squared-distance Morse functions", l.4199–4203 "R6 owns the ε-tube inversion for closed-image Euclidean embeddings ... a nearest-point retraction".
 

@@ -52,6 +52,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | DerivedModuleAlgebra | 2 | 2 (2 / 0) | 0 | 27, 81 |
 | EnhancedDerivedSheaves | 2 | 1 (0 / 1) | 0 | 18, 27 |
 | GeometricTopology | 2 | 3 (1 / 2) | 1 | 59, 66 |
+| IntegralHeckeAndGaloisDeterminants | 2 | 1 (1 / 0) | 0 | 69, 88 |
 | MathematicalBilliards | 2 | 5 (5 / 0) | 4 | 92, 93 |
 | NashBlowups | 2 | 12 (12 / 0) | 4 | 25, 26 |
 | OperatorTheory/SelfAdjointSpectralTheory | 2 | 1 (1 / 0) | 1 | 35, 45 |
@@ -67,17 +68,19 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 | AlgebraicModuliForArithmeticGeometryPartII | 1 | 1 (1 / 0) | 0 | 95 |
 | AmenableTracesOnCStarAlgebras | 1 | 7 (7 / 0) | 2 | 36 |
 | ArithmeticGaloisDuality | 1 | 1 (1 / 0) | 1 | 87 |
+| AutomorphicLFunctionsAndLocalFactors | 1 | 2 (2 / 0) | 0 | 88 |
 | ComplexHessianEquations | 1 | 6 (6 / 0) | 2 | 38 |
 | CyclotomicClassGroupsAndStickelberger | 1 | 1 (1 / 0) | 0 | 71 |
 | DerivedDeRhamCohomology | 1 | 1 (1 / 0) | 0 | 27 |
 | DGAInfinity | 1 | 1 (0 / 1) | 1 | 10 |
 | DifferentialGeometry | 1 | 1 (0 / 1) | 0 | 52 |
 | DimerModelsAndLozengeTilings | 1 | 8 (8 / 0) | 3 | 100 |
+| EulerSystemsAndKolyvaginSystems | 1 | 1 (1 / 0) | 0 | 10 |
 | FlagVarieties | 1 | 1 (1 / 0) | 0 | 79 |
 | FourManifolds | 1 | 2 (1 / 1) | 1 | 64 |
 | FukayaTheory | 1 | 1 (1 / 0) | 0 | 56 |
 | GaussianIsoperimetryAndClusters | 1 | 5 (5 / 0) | 2 | 55 |
-| IntegralHeckeAndGaloisDeterminants | 1 | 1 (1 / 0) | 0 | 69 |
+| KTheoryFiniteLocalFields | 1 | 1 (1 / 0) | 0 | 10 |
 | NoncommutativeIntegration | 1 | 1 (1 / 0) | 0 | 46 |
 | PerfectoidSpaces | 1 | 1 (0 / 1) | 0 | 81 |
 | RiemannianGeometry/MinimalSurfaces | 1 | 1 (1 / 0) | 0 | 52 |
@@ -186,7 +189,7 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 ### §1.19 IsRepresentableBySpaces, IsAlgebraicStack, IsDeligneMumford
 - Status: NOT-STARTED
 - Ready now: no: needs §1.4 (partial), §1.9, §1.18 (partial: 2-fibre products missing)
-- Serves defs: 16, 17, 20, 24, 27, 28, 29
+- Serves defs: 16, 17, 24, 27, 28, 29
 - Evidence: README l.3612 "### 1.19 Representable morphisms, algebraic stacks and Deligne–Mumford stacks" (Needs §1.4, §1.9, §1.18); grep `AlgebraicStack|DeligneMumford` empty.
 
 ### §1.20 inertia, automorphismGroup, Stacks.points, IsProperStack
@@ -231,10 +234,10 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 - Serves defs: 21 (20 also cites it)
 - Evidence: README l.4643 "### 2.10 Comparison morphisms between the topologies of a scheme", Needs "§2.1, §2.6, §2.9, §2.12"; grep `epsilonFppfEtale|nisnevichToZariski|quasiCoherent_topology_comparison|toProEt` empty.
 
-### §2.20 relative dualising complexes, Serre duality (cited for 20)
+### §2.20 relative dualising complexes, Serre duality (cited for 19, 20)
 - Status: NOT-STARTED
 - Ready now: no: needs §0.18, §2.18, §2.19, §2.21
-- Serves defs: 20
+- Serves defs: 19 (`relativeDualizingModule_smooth`, `ω ≅ ⋀^d Ω`, gives the canonical sheaf of a smooth surface), 20
 - Evidence: README l.5380 "### 2.20 Relative dualising complexes and modules, Serre duality, curve comparison"; grep `relativeDualizingModule|RelativeDualizingComplex|cm_serre_duality` empty.
 
 ### §4.1 thickenings and formally smooth/étale morphisms (cited for 20)
@@ -828,7 +831,7 @@ No STATUS.md (merged; Tau Ceti checked at 0642eae29e, 2026-11-17).
 ### §3a.1 GLₙ Hecke polynomials, Frobenius conventions and the rank-two modular-form normalization
 - Status: NOT-STARTED (grep `heckePolynomial` in Tau Ceti: no hits; the rank-two input `HeckeRing.GL2.Newform.satakeParameters` is in code).
 - Ready now: no: the integral GLₙ Hecke polynomial needs IHG.0 and SmoothRepresentationsOfLocalGroups SR.4.3 *gln-generators* (not started); the rank-two normalization needs it.
-- Serves defs: 69 (the Frobenius-polynomial normalization of `ρ_{f,λ}`)
+- Serves defs: 69 (the Frobenius-polynomial normalization of `ρ_{f,λ}`), 88 (through AutomorphicLFunctionsAndLocalFactors AL.4.1.1 and AL.R.4)
 - Evidence: README l.1730 "### 3a.1 GLₙ Hecke polynomials and Frobenius conventions", l.1833 "**Rank-two classical modular-form normalization.**" (*Needs* "Integral GLn Hecke polynomial, Arithmetic and geometric Frobenius conversion, Tau Ceti `HeckeRing.GL2.Newform.satakeParameters`").
 
 ## TauCetiRoadmap/ComplexKahlerGeometry
@@ -2041,7 +2044,7 @@ No STATUS.md (merged as roadmap PR #852; Tau Ceti checked at 0642eae29e, 2026-11
 ### §§3.1, 3.3, 3.10 Semistable reduction predicate, semistable identity models and finite base change, semistable reduction after a finite separable extension
 - Status: NOT-STARTED.
 - Ready now: no: §3.1 needs §§1.10, 2.1, 2.3, 2.4, SchemeAndStackFoundations §§0.12–0.14 (STATUS remaining) and AbelianSchemesAndArithmeticModuli A2.2; §3.3 needs §§2.1, 3.1 and SchemeAndStackFoundations §0.14; §3.10 needs §§3.1, 3.2, 3.8, 3.9, StableReduction Layers 4 and 7, JacobianChallenge Layers D–F (partial) and AbelianSchemesAndArithmeticModuli A3, A6.5.
-- Serves defs: 85 (85.4 and the stable height's base change)
+- Serves defs: 85 (the local form of 85.4 over a discrete valuation ring, and the stable height's base change; the global choice of `K'` is open PR #1000 §3.4, through §3.12)
 - Evidence: README l.1528 "## Layer 3: semistable reduction and uniformisation"; l.1539 "### 3.1 The semistable reduction predicate" (*Needs* l.1562), l.1606 "### 3.3 Semistable identity models and finite base change" (`SemistableIdentityBasechange`; *Needs* l.1623), l.1895 "### 3.10 Semistable reduction after a finite separable extension" (`FiniteSeparableSemistableExtension`; *Needs* l.1924).
 
 ### §5.1 Néron–Ogg–Shafarevich for abelian varieties
@@ -2199,3 +2202,36 @@ No STATUS.md (merged as roadmap PR #1316; Tau Ceti checked at 0642eae29e, 2026-1
 - Ready now: no: §§5.2–5.3 need Layer 0's `queryCode` and Layer 3's `body` and `exists_tree_of_analyticSet` (both partial, those parts not in code); §5.4 also needs §1.2's invariant σ-algebra (in Mathlib and code). §5.1 alone is ready.
 - Serves defs: 98 (98.5)
 - Evidence: README l.743 "## Layer 5: The López–Escobar theorem", l.754 "### 5.2 The PC sentence of a tree", l.792 "### 5.3 The hard direction", l.838 "### 5.4 Packaging"; *Needs* l.752, l.789, l.832, l.869; grep `lopezEscobar`, `lopez_escobar`, `pcSentence`: no hits.
+
+## TauCetiRoadmap/AutomorphicLFunctionsAndLocalFactors
+No STATUS.md (merged as roadmap PR #924; Tau Ceti checked at 0642eae29e, 2026-11-17). No target is in Tau Ceti (grep `isobaric`, `charpolyRev` against an L-group in TauCeti/: no hits).
+
+### AL.4.1.1 The unramified L-group Euler factor `det(1 − T r(t))`
+- Status: NOT-STARTED.
+- Ready now: no: needs ReductiveGroupsPartII RG2.5.2 (the L-group; not started), IntegralHeckeAndGaloisDeterminants §3a.1 (not started) and SmoothRepresentationsOfLocalGroups SR.4 (not started); the polynomial itself is Mathlib `Matrix.charpolyRev`.
+- Serves defs: 88 (the Euler factor of the unramified transfer along an arbitrary L-representation `r`, 88.1)
+- Evidence: README l.2282 "#### AL.4.1.1 The unramified L-group Euler factor" (*Needs* l.2303 "**IntegralHeckeAndGaloisDeterminants**, §3a.1 ...; Mathlib `Matrix.charpolyRev`; ... **ReductiveGroupsPartII**, RG2.5.2 ...; **SmoothRepresentationsOfLocalGroups**, SR.4").
+
+### AL.R.4, AL.3.7.2 `GLₙ` isobaric sums and strong multiplicity one for isobaric sums
+- Status: NOT-STARTED.
+- Ready now: no: AL.R.4 needs AL.R.1, AL.R.3, SmoothRepresentationsOfLocalGroups SR.2–SR.4 and IntegralHeckeAndGaloisDeterminants §3a.1 (not started); AL.3.7.2 needs AL.3.7.1, AL.3.6.1, AL.R.4 and ArithmeticLocallySymmetricSpaces ALS.F.6–F.7 (not started).
+- Serves defs: 88 (open PR #1756 §10.1 imports AL.R.4 for weak transfers, §10.6 imports AL.3.7.2)
+- Evidence: README l.625 "### AL.R.4 `GLₙ` isobaric sums" (*Needs* l.633), l.1794 "#### AL.3.7.2 Strong multiplicity one for isobaric sums" (*Needs* l.1802).
+
+## TauCetiRoadmap/KTheoryFiniteLocalFields
+No STATUS.md (merged as roadmap PR #1281; Tau Ceti checked at 0642eae29e, 2026-11-17).
+
+### §4.0 Cyclic homology foundations (`HH_n(A/k)`, Connes mixed complex, smooth HKR comparison)
+- Status: NOT-STARTED (grep `cyclicBar`, `CyclicHomology`, `connesOperator` in TauCeti/: no hits; the Hochschild cochains of DGAInfinity Layer 8 are in code, the derived Hochschild chains are not).
+- Ready now: no: needs DGAInfinity Layer 8's derived Hochschild chains, normalized comparison and derived Morita invariance (partial), and derived tensor products and realization from GeneralizedCohomology and DerivedModuleAlgebra.
+- Serves defs: 10 (open PR #2447 consumes `HH_n(A/k)` and the smooth HKR comparison; its §6.4(d), on which Theorem 10.5 rests, needs the comparison realized by antisymmetrisation)
+- Evidence: README l.662 "### 4.0 Genuine equivariant and cyclic foundations", l.674 "**Cyclic homology foundations.**" ("the HKR comparison HHₙ(A/k)≃Ωⁿ_(A/k) for smooth commutative k-algebras"), *Needs* l.682.
+
+## TauCetiRoadmap/EulerSystemsAndKolyvaginSystems
+No STATUS.md (merged as roadmap PR #1272; Tau Ceti checked at 0642eae29e, 2026-11-17).
+
+### §6.1 Exterior biduals (evaluation `⋀^r X → Hom_R(⋀^r Hom_R(X,R), R)` an isomorphism for finite projective `X`)
+- Status: NOT-STARTED (grep `toExteriorBidual`, `exteriorBidual` in TauCeti/: no hits).
+- Ready now: no: needs IntegralIwasawaTheory §12.6 (the carrier `TauCeti.StarkSystems.toExteriorBidual`), PadicMeasuresIwasawaAlgebras Layer 6 and SelmerIwasawaCohomology Layer 2; the finite-projective statement that PR #2447 uses needs only the §12.6 carrier.
+- Serves defs: 10 (open PR #2447 Layer 7 uses it for `τ_n : T^n_{R/k} → Hom_R(Ω^n_{R/k}, R)`)
+- Evidence: README l.3942 "### 6.1 Exterior biduals of Selmer modules", *Needs* l.3978 "`IntegralIwasawaTheory §12.6`; `PadicMeasuresIwasawaAlgebras Layer 6`; `SelmerIwasawaCohomology Layer 2`".

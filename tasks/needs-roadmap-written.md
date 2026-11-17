@@ -40,7 +40,7 @@ Merged [Varifolds](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/Ta
 
 ### Normal operators of pseudoholomorphic curves (TaubesGromov, HeegaardFloer)
 
-Sources: McDuff–Salamon, *J-holomorphic Curves and Symplectic Topology*, Ch. 3; Wendl, *Lectures on Holomorphic Curves*, §3.4.
+Sources: McDuff–Salamon, *J-holomorphic Curves and Symplectic Topology*, Ch. 3; Wendl, *Automatic transversality and orbifolds of punctured holomorphic curves in dimension four* (Comment. Math. Helv. 85 (2010)), §3.3.
 
 - **#60 Normal Cauchy–Riemann operator of a J-holomorphic curve.** [TaubesGromov](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/TaubesGromov/README.md) TG1, [HeegaardFloer](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/HeegaardFloer/README.md) F2.6e (embedded case); finite critical sets in HeegaardFloer F2.2a and [AnalyticStableMaps](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AnalyticStableMaps/README.md) §0.4. Code: the local normal linearization, covariant under target and source coordinate changes. Missing: the generalised normal bundle through critical points.  
   Papers: [2023·198(1)·2] Transversality and super-rigidity for multiply covered holomorphic curves. [census](../census/060.md)

@@ -1,6 +1,6 @@
 # Needs roadmap written
 
-Snapshot 2026-11-16 (Tau Ceti `7cbfff3ef`, Mathlib `e8ba86fa9744`, roadmaps `c6ef57656`, 450 open roadmap PRs).
+Snapshot 2026-11-17 (Tau Ceti `0642eae29`, Mathlib `048fffa1dbcd`, roadmaps `b0bef9b45`, 419 open roadmap PRs).
 
 Every one of the 100 definitions is in exactly one of four files: [ready-to-write-statements.md](ready-to-write-statements.md), [ready-to-formalize-in-tau-ceti.md](ready-to-formalize-in-tau-ceti.md), [needs-roadmap-review.md](needs-roadmap-review.md), [needs-roadmap-written.md](needs-roadmap-written.md). A definition is placed in the furthest-along file whose condition holds for the definition as Kevin Buzzard's text states it; gaps that matter only for a particular paper are noted on the entry.
 
@@ -26,16 +26,16 @@ Sources: Alper, *Good moduli spaces for Artin stacks*.
 
 Cohomologically affine morphisms and good moduli spaces after §§1.22–1.23.
 
-- **#17 Cohomologically affine morphisms of algebraic stacks.** [SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md) §1.22 (`QCoh.pushforward`), §1.23.  
+- **#17 Cohomologically affine morphisms of algebraic stacks.** [SchemeAndStackFoundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md) §1.22 (`QCoh.pushforward`), §1.23; the Luna-slice local data (normal spaces `N_x`) in merged [StackPointsAndResidualGerbes](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/StackPointsAndResidualGerbes/README.md) Layer 7.  
   Papers: [2020·191(3)·1] A Luna étale slice theorem for algebraic stacks. [census](../census/017.md)
 
-### Singular minimal hypersurfaces and minimal cones (RiemannianGeometry R5b, on PR #2443)
+### Singular minimal hypersurfaces and minimal cones (RiemannianGeometry R5b, on Varifolds)
 
 Sources: Simon, *Introduction to Geometric Measure Theory*; Hardt–Simon 1985.
 
-PR [#2443](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2443) (Varifolds) specifies the stationary varifold of a smooth hypersurface, its singular set and tangent cones, and states Simon's theorem without its strict-stability clause.
+Merged [Varifolds](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/Varifolds/README.md) specifies the stationary varifold of a smooth hypersurface, its singular set and tangent cones, and states Simon's theorem without its strict-stability clause.
 
-- **#65 Strict stability of a minimal cone/hypersurface (Simon's inequality).** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a.2, R5b; PR [#2443](https://github.com/TauCetiProject/TauCetiRoadmap/pull/2443) (Varifolds) §§2.3, 4.3, 9.1, 9.4 for the stationary varifold and singular set (strict stability not restated).  
+- **#65 Strict stability of a minimal cone/hypersurface (Simon's inequality).** [RiemannianGeometry](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RiemannianGeometry/README.md) R5a.2, R5b; [Varifolds](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/Varifolds/README.md) §§2.3, 4.3, 9.1, 9.4 for the stationary varifold and singular set (strict stability not restated).  
   Papers: [2023·197(3)·4] Stable minimal hypersurfaces in ℝ^N+1+ℓ with singular set an arbitrary closed K⊂{0}×ℝ^ℓ. [census](../census/065.md)
 
 ### Normal operators of pseudoholomorphic curves (TaubesGromov, HeegaardFloer)

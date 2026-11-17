@@ -141,7 +141,7 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 
 ### §1.2 fppf descent of quasi-finite morphisms and of algebraic spaces
 - Status: NOT-STARTED
-- Ready now: yes (needs §1.3, done, including `isAlgebraicSpace_of_etale_cover`)
+- Ready now: no. `quasiFiniteDescent` (Stacks 02W8) needs effective fpqc descent of quasi-affine morphisms (Stacks 0247; Mathlib has only `Scheme.IsQuasiAffine`, Tau Ceti has effective descent of affine morphisms in Descent/AffineMorphism.lean) and gluing over stable quasi-compact opens; Mathlib's Zariski's Main Theorem supplies quasi-finite separated implies quasi-affine. `spaceFppfDescent` (Stacks 04SK) and 0ADV need §1.17 `artinBootstrap` (not started). The README's *Needs* line lists only §1.3.
 - Serves defs: 20 ("fppf descent for alg spaces")
 - Evidence: README l.2819 "### 1.2 Fppf descent of quasi-finite morphisms and of algebraic spaces" (Needs §1.3; Mathlib `Presheaf.IsSheaf`, `MorphismProperty.presheaf`, `LocallyQuasiFinite`); no matching declarations in Tau Ceti.
 

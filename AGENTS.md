@@ -61,6 +61,9 @@ The census describes a snapshot, recorded in [README.md](README.md#sources). To 
    - Move the definition to the right `tasks/` file, by the placement rule in
      [README.md](README.md#tasks).
    - Update its row in [definitions.md](definitions.md).
+   - Add or revise the entry in [roadmap-descriptions.md](roadmap-descriptions.md) for each newly
+     cited roadmap or roadmap PR, then run `python3 scripts/build_roadmaps.py` to regenerate
+     [roadmaps.md](roadmaps.md). Run it again after step 5: the file repeats the snapshot.
    - Update [prerequisites.md](prerequisites.md): drop finished items, update the status and
      readiness of the others, and add items for newly merged roadmaps.
    - Regroup [papers.md](papers.md) if a paper's least-advanced definition changed.

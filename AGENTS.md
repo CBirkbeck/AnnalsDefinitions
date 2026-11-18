@@ -67,6 +67,8 @@ The census describes a snapshot, recorded in [README.md](README.md#sources). To 
    - Update [prerequisites.md](prerequisites.md): drop finished items, update the status and
      readiness of the others, and add items for newly merged roadmaps.
    - Regroup [papers.md](papers.md) if a paper's least-advanced definition changed.
+   - Run `python3 scripts/build_site.py` to regenerate [docs/index.html](docs/index.html), and
+     again after step 5.
 5. **Update the snapshot** in [README.md](README.md#sources).
 
 Write every file as a description of the current state. Do not record history: no "previously",

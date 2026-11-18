@@ -26,7 +26,8 @@ prerequisites.md   merged-roadmap work on the path to the definitions
 papers.md          the Annals papers and the definitions each needs
 census/NNN.md      the evidence, one file per definition
 sources/           Kevin Buzzard's definition texts (markdown and PDF)
-scripts/           the script that generates roadmaps.md
+scripts/           the scripts that generate roadmaps.md and docs/index.html
+docs/index.html    definitions.md and roadmaps.md as one web page
 ```
 
 ### `tasks/`
@@ -53,6 +54,10 @@ paper are noted on the entry.
   definitions.md, the census files and [roadmap-descriptions.md](roadmap-descriptions.md), which
   holds the descriptions; with `--check` it reports a stale file or a cited roadmap without a
   description.
+- [docs/index.html](docs/index.html) shows definitions.md and roadmaps.md as one web page, by
+  definition and by roadmap, with filters by text, area and status. `python3 scripts/build_site.py`
+  generates it (`--check` reports a stale page), and GitHub Pages can serve it from the `docs/`
+  folder.
 - [prerequisites.md](prerequisites.md) lists the items that merged roadmaps specify, that Tau Ceti
   has not yet implemented, and that lie on the prerequisite chain of at least one definition. Each
   item gives its status, whether it can start now, and the definitions it serves.

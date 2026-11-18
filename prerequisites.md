@@ -1733,7 +1733,7 @@ No STATUS.md (merged as roadmap PR #1996; Tau Ceti checked at 08ee344996, 2026-1
 
 ### §§2.1–2.2 Vistoli's rational Chow groups of separated DM stacks, degree of proper zero-cycles, flat pullback and proper pushforward
 - Status: NOT-STARTED
-- Ready now: no: §2.1 needs §§0.2–0.3 (not started) and SSF §5.1 (partial: `Chow.ChowGroup` in code); §2.2 needs §2.1 and SSF Layer 5 (§5.2 partial)
+- Ready now: no: §2.1 needs §§0.2–0.3 (not started) and SSF §5.1 (partial: `Chow.ChowGroup` in code); §2.2 needs §2.1 and SSF Layer 5 (§5.2 partial). §2.1's cycles are "on integral closed substacks", which no merged roadmap defines (PR #2446's `gap:closed-substacks-of-stacks`; closed and reduced closed substacks are StackPointsAndResidualGerbes §§0.3–0.5, not started)
 - Serves defs: 16 (target: 16.1–16.3, degree of 16.6), 27
 - Evidence: README l.464 "## Layer 2: rational Chow theory and Gysin maps for Deligne–Mumford stacks"; l.469 "### 2.1 Rational Chow groups" ("Build Vistoli's dimension-graded rational Chow groups for separated Deligne–Mumford stacks ..."; API "Compute degrees of proper zero-cycles, with the generic stabilizer weight"); l.497 "### 2.2 Chow operations".
 
@@ -2317,7 +2317,7 @@ No STATUS.md (merged as roadmap PR #933; Tau Ceti checked at 08ee344996, 2026-11
 - Evidence: README l.189 "### P.3a Mumford–Tate groups of rational Hodge structures", l.210 "This uses ... `TauCeti.HopfIdeal.sSup_toIdeal`; `TauCeti.Hodge.exists_isCompl_of_isPolarizable`".
 
 ### §5.1 CM types, reflex fields and reflex norms
-- Status: NOT-STARTED (no `CMType` in Tau Ceti; `Suggested.lean` states `CMType`, `CMType.typeTrace`, `CMType.reflexField`, `CMType.reflexField_isCMField`, `CMType.reflexField_representation`).
+- Status: NOT-STARTED (no `CMType` on Tau Ceti `main`; open Tau Ceti PR #43696 "feat: CM types, type traces and reflex fields" adds `CMType`, `typeTrace`, `reflexField`; `Suggested.lean` states `CMType`, `CMType.typeTrace`, `CMType.reflexField`, `CMType.reflexField_isCMField`, `CMType.reflexField_representation`).
 - Ready now: yes for `CMType`, induced and primitive types, `typeTrace`, `reflexField` and the reflex norm `N_{k,Φ}` with identities (a)–(d) (Mathlib `NumberField.IsCMField`, `ComplexEmbedding.conjugate`, `IntermediateField.adjoin`, `LinearMap.det`). `TauCeti.Shimura.ReflexNorm.cm_type` needs §4.2 and §§P.1–P.4.
 - Serves defs: 70 (70.1(a); §5.3 `CMAbelianVariety` over `ℂ`), 75 (75.1)
 - Evidence: README l.1445 "### 5.1 CM types, reflex fields and reflex norms", l.1504 "This uses `NumberField.IsCMField`; ...", l.1525 "### 5.3 CM abelian varieties with their algebra action".

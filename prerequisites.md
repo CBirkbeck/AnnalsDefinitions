@@ -13,7 +13,7 @@ Counts exclude items found DONE. "Ready now" counts items whose verdict begins "
 
 | Roadmap | # defs served | Items (not-started / partial) | Ready now | Definitions served |
 |---|---|---|---|---|
-| SchemeAndStackFoundations | 16 | 35 (20 / 15) | 16 | 16, 17, 19, 20, 21, 24, 25, 26, 27, 28, 29, 30, 71, 80, 84, 85 |
+| SchemeAndStackFoundations | 16 | 35 (20 / 15) | 15 | 16, 17, 19, 20, 21, 24, 25, 26, 27, 28, 29, 30, 71, 80, 84, 85 |
 | AutomorphicFormsOnReductiveGroups | 13 | 7 (7 / 0) | 4 | 1, 4, 5, 7, 67, 72, 73, 76, 79, 83, 86, 88, 90 |
 | ArithmeticLocallySymmetricSpaces | 12 | 3 (3 / 0) | 0 | 1, 4, 7, 62, 67, 72, 73, 76, 77, 79, 88, 90 |
 | AbelianSchemesAndArithmeticModuli | 11 | 6 (6 / 0) | 1 | 12, 13, 23, 70, 71, 74, 78, 80, 85, 87, 89 |
@@ -279,8 +279,8 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 - Evidence: README l.6824 "### 4.11 Modifications and strict transforms"; STATUS Layer 4 remaining "strict transforms (4.11)"; grep `functionField_equiv|isAlteration|strictTransformModule` empty.
 
 ### §0.20 Japanese/Nagata rings, finiteness of normalization
-- Status: PARTIAL: `TauCeti.Ring.IsN1`, `IsJapanese`, `IsUniversallyJapanese`, `IsNagata` and their API (RingTheory/Japanese.lean, Nagata.lean, UniversallyJapanese.lean), `IsJapanese.polynomial`, `IsJapanese.of_quasiFinite` (the README's *IsJapanese.of_quasiFinite_extension*, RingTheory/Japanese/QuasiFinite.lean), `IsUniversallyJapanese.isNagata_of_finiteType`, and `isFinite_fromNormalization_of_isJapanese` (AlgebraicGeometry/Normalization/Finite.lean). Missing: Nagata's theorem, i.e. `IsNagata.polynomial`, `IsNagata.of_finiteType`, `isNagata_iff_isUniversallyJapanese`, `IsNagata.integralClosure_finite`, and the complete-local cases.
-- Ready now: yes (Needs only existing Tau Ceti files)
+- Status: PARTIAL: `TauCeti.Ring.IsN1`, `IsJapanese`, `IsUniversallyJapanese`, `IsNagata` and their API (RingTheory/Japanese.lean, Nagata.lean, UniversallyJapanese.lean), `IsJapanese.polynomial`, `IsJapanese.of_quasiFinite` (the README's *IsJapanese.of_quasiFinite_extension*, RingTheory/Japanese/QuasiFinite.lean), `IsUniversallyJapanese.isNagata_of_finiteType`, the README's *IsNagata.integralClosure_finite* as `TauCeti.Ring.IsNagata.finite_integralClosure` (Stacks 03GH, RingTheory/Nagata.lean), and `isFinite_fromNormalization_of_isJapanese` (AlgebraicGeometry/Normalization/Finite.lean). Missing: Nagata's theorem, i.e. `IsNagata.polynomial`, `IsNagata.of_finiteType`, `isNagata_iff_isUniversallyJapanese`; the complete-local cases `IsJapanese.of_complete_local`, `IsNagata.of_complete_local`; `IsNagata.not_nonJapaneseDVR`; `IsQuasiExcellentRing.isNagata`.
+- Ready now: no: the complete-local cases (Stacks 032W) are proved from the Cohen structure theorem (Stacks 032A, 032D), and Nagata's theorem ("Nagata implies universally Japanese", 0334, with `IsNagata.polynomial` and `IsNagata.of_finiteType`) rests on 032W; the Cohen structure theorem is in neither Tau Ceti nor Mathlib (grep `Cohen` finds nothing; it is a target of DeformationAndDerivedPatchingAlgebra §1.10). `IsNagata.not_nonJapaneseDVR` needs §0.22's non-Japanese discrete valuation ring and `IsQuasiExcellentRing.isNagata` needs excellence, neither in code. The README's *Needs* line lists only the existing Japanese/Nagata files
 - Serves defs: 26
 - Evidence: README l.1930 "### 0.20 Japanese and Nagata rings"; STATUS Layer 0 remaining "0.20-0.21", which understates §0.20: grep shows none of the missing names. 26's finiteness does not wait on this item: finite-type algebras over a field are Japanese and Nagata (`IsUniversallyJapanese.of_field`, `.isJapanese`, `.isNagata_of_finiteType`), and `isFinite_fromNormalization_of_isJapanese` turns that into finiteness of normalization for integral schemes of finite type over `k`.
 
@@ -327,19 +327,19 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 - Evidence: README l.8649 "**Numerical Néron–Severi finiteness.** *Num.free_finiteRank*". It is stated only for smooth projective surfaces over algebraically closed fields.
 
 ### §2.2 Leray and Čech spectral sequences (cited for 20)
-- Status: PARTIAL: the Leray edge map and acyclicity: `Sheaf.H.lerayEdge_sheafAdjunctionContinuous_bijective` (CategoryTheory/Sites/SheafCohomology/Leray/Edge.lean); Čech computation of quasi-coherent cohomology `homologyCechComplexIsoCohomology` (AlgebraicGeometry/Cohomology/Cech/Basic.lean). Missing: `leray_spectral_sequence` itself, its relative form, `cech_to_cohomology` (STATUS frontier: "What remains is `H^p(D, R^q f_* F) ⇒ H^{p+q}(C, F)` itself, its relative form, and the Čech-to-cohomology spectral sequence").
+- Status: PARTIAL: the Leray edge map and acyclicity: `Sheaf.H.lerayEdge_sheafAdjunctionContinuous_bijective` (CategoryTheory/Sites/SheafCohomology/Leray/Edge.lean); Čech computation of quasi-coherent cohomology `homologyCechComplexIsoCohomology` (AlgebraicGeometry/Cohomology/Cech/Basic.lean). Missing: `leray_spectral_sequence` itself, its relative form, `cech_to_cohomology` (STATUS frontier: "What remains is `H^p(D, R^q f_* F) ⇒ H^{p+q}(C, F)` itself, its relative form, and the Čech-to-cohomology spectral sequence"). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/39141 (Leray's acyclicity theorem for a covering of a site, `homologyCechComplexIsoH`, CategoryTheory/Sites/SheafCohomology/Cech/Leray.lean, an input to `cech_to_cohomology`; neither spectral sequence).
 - Ready now: yes (needs §2.1, not in STATUS's Layer 2 remaining list, and Mathlib `SpectralObject`, `HasSpectralSequence`, `Arrow.cechNerve`)
 - Serves defs: 20
 - Evidence: README l.4184 "### 2.2 Leray and Čech spectral sequences" (*Needs:* §2.1; Mathlib `SpectralObject`, `HasSpectralSequence`, `Arrow.cechNerve`).
 
 ### §2.3 Torsors and NonabelianH1 (cited for 20)
-- Status: PARTIAL: `Torsor`, `NonabelianH1` (CategoryTheory/Sites/NonabelianCohomology/Torsor.lean), `NonabelianH1.map` (Map.lean), `connecting` (Connecting.lean), the exact sequence `map_eq_one_iff_mem_range_connecting`, `map_eq_one_iff_mem_range_map` (ExactSequence.lean), `equivSheafH` with `equivSheafH_connecting`, `equivSheafH_map` (SheafH.lean). Missing: `pullback` of torsor classes along a morphism of sites (STATUS: "most of §2.3, though pullback of torsor classes along morphisms of sites is missing").
+- Status: PARTIAL: `Torsor`, `NonabelianH1` (CategoryTheory/Sites/NonabelianCohomology/Torsor.lean), `NonabelianH1.map` (Map.lean), `connecting` (Connecting.lean), the exact sequence `map_eq_one_iff_mem_range_connecting`, `map_eq_one_iff_mem_range_map` (ExactSequence.lean), `equivSheafH` with `equivSheafH_connecting`, `equivSheafH_map` (SheafH.lean). Missing: `pullback` of torsor classes along a morphism of sites (STATUS: "most of §2.3, though pullback of torsor classes along morphisms of sites is missing"). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/42463 (pullback of torsors and torsor classes along a morphism of sites, CategoryTheory/Sites/NonabelianCohomology/Pullback.lean).
 - Ready now: yes (needs only Tau Ceti's torsor file and Mathlib `Sheaf.H`)
 - Serves defs: 20
 - Evidence: README l.4206 "### 2.3 Torsors and the first cohomology: the carrier of torsor classes".
 
 ### §2.4 abelian-extension boundaries `abelianBoundary` (cited for 20)
-- Status: NOT-STARTED (grep `abelianBoundary` empty); its inputs `NonabelianH1.equivSheafH` and `equivSheafH_symm_δ` are in code (CategoryTheory/Sites/NonabelianCohomology/SheafH.lean).
+- Status: NOT-STARTED (grep `abelianBoundary` empty); its inputs `NonabelianH1.equivSheafH` and `equivSheafH_symm_δ` are in code (CategoryTheory/Sites/NonabelianCohomology/SheafH.lean). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43698 (`NonabelianH1.abelianBoundary`, CategoryTheory/Sites/NonabelianCohomology/AbelianBoundary.lean).
 - Ready now: yes (needs §2.3, whose `equivSheafH` is in code, and Mathlib `Sheaf.H.δ`, `HasExt`)
 - Serves defs: 20
 - Evidence: README l.4247 "### 2.4 Abelian-extension boundaries" (*Needs:* §2.3; Mathlib `Sheaf.H`, `HasExt`, `ShortComplex.ShortExact`).
@@ -357,7 +357,7 @@ STATUS.md snapshot: a5cae7f 2026-11-16, generated against Tau Ceti aa6e43e (Tau 
 - Evidence: README l.4913 "### 2.15 Étale cohomology: Gabber, fields, limits, Hochschild–Serre" (*Needs* l.4929: §0.9, §0.14, §2.1, §2.2, §2.11).
 
 ### §2.22 sheaves of algebras, Azumaya algebras, Brauer group of a scheme (cited for 20)
-- Status: NOT-STARTED: no `SheafAlgebra`, `Azumaya`, `IsAzumaya.exists_etale_matrix_splitting` or `isAzumaya_iff_positive_fibres_mulLeftRight`. Brauer groups of fields are in code (`brauerCohomologyEquiv`, Algebra/CrossedProduct/).
+- Status: NOT-STARTED: no `SheafAlgebra`, `Azumaya`, `IsAzumaya.exists_etale_matrix_splitting` or `isAzumaya_iff_positive_fibres_mulLeftRight`. Brauer groups of fields are in code (`brauerCohomologyEquiv`, Algebra/CrossedProduct/). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43705 (the finite-cover adapter `IsAzumaya.etale_matrix_splitting_of_finite_cover`, Algebra/Azumaya/EtaleSplitting.lean; not `IsAzumaya.exists_etale_matrix_splitting` or `isAzumaya_iff_positive_fibres_mulLeftRight`).
 - Ready now: yes for the ring-level splitting theorems the README places in Suggested.lean (`IsAzumaya.exists_etale_matrix_splitting`, `isAzumaya_iff_positive_fibres_mulLeftRight`, on Mathlib `IsAzumaya`, `Algebra.Etale`); the sheaf-level part needs §1.1 (partial), §§2.4, 2.11, 2.15 (not started) and §2.9 (partial)
 - Serves defs: 20
 - Evidence: README l.5543 "### 2.22 Sheaves of algebras, Azumaya algebras and the Brauer group of a scheme" (*Needs* l.5606: §1.1, §2.4, §2.9, §2.11, §2.15; Mathlib `IsAzumaya`, `BrauerGroup`).
@@ -438,7 +438,7 @@ No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at 08ee344996, 2026-11
 No STATUS.md (roadmap merged 2026-11-13; Tau Ceti checked at 08ee344996, 2026-11-18). None of the Suggested.lean declarations (`SmoothRep`, `smoothVectors`, `IsAdmissible`, `HeckeAlgebraLevel`, `isAdmissible_of_isIrreducible`, `WeilDeligneParameter`) exists in Tau Ceti for this purpose.
 
 ### SR.0.1–SR.0.4 The smooth category over any ring: smoothness, the abelian category, invariants and averaging, admissibility, smooth characters, the centre
-- Status: NOT-STARTED. Suppliers in code: the smooth discrete carrier `TauCeti.SmoothDiscreteTopRep` and `discreteRepEquivSmoothTopRep` (RepresentationTheory/Homological/ContCohomology/SmoothDiscrete/Basic.lean). Open Tau Ceti PRs https://github.com/TauCetiProject/TauCeti/pull/43075 (SR.0.1: van Dantzig's theorem, `Representation.IsSmooth`, `Representation.smoothVectors`), https://github.com/TauCetiProject/TauCeti/pull/40280, https://github.com/TauCetiProject/TauCeti/pull/40494 and https://github.com/TauCetiProject/TauCeti/pull/40590 (overlapping parts of SR.0.1), and https://github.com/TauCetiProject/TauCeti/pull/43540 and https://github.com/TauCetiProject/TauCeti/pull/41359 (*unit-pro-order*, `TauCeti.HasUnitProOrder`).
+- Status: NOT-STARTED. Suppliers in code: the smooth discrete carrier `TauCeti.SmoothDiscreteTopRep` and `discreteRepEquivSmoothTopRep` (RepresentationTheory/Homological/ContCohomology/SmoothDiscrete/Basic.lean). Open Tau Ceti PRs https://github.com/TauCetiProject/TauCeti/pull/43075 (SR.0.1: van Dantzig's theorem, `Representation.IsSmooth`, `Representation.smoothVectors`), https://github.com/TauCetiProject/TauCeti/pull/40280, https://github.com/TauCetiProject/TauCeti/pull/40494 and https://github.com/TauCetiProject/TauCeti/pull/40590 (overlapping parts of SR.0.1), and https://github.com/TauCetiProject/TauCeti/pull/41359 (*unit-pro-order*, `TauCeti.HasUnitProOrder`).
 - Ready now: yes. Its suppliers are Mathlib's `Representation`, `Rep`, invariants and `CatCenter`, and Tau Ceti's discrete carrier and profinite exhaustion (ProfiniteCohomology layers 0–1, Completed/ProfiniteProPGroups layer 1).
 - Serves defs: 67, 73, 83, 88, 90
 - Evidence: README l.581 "## Layer SR.0: the smooth category and its basic API", l.869 "### SR.0.4 Admissibility, characters, duals, coefficients and the centre", l.1037 Dependencies.
@@ -2305,7 +2305,7 @@ No STATUS.md (merged as roadmap PR #931; Tau Ceti checked at 08ee344996, 2026-11
 No STATUS.md (merged as roadmap PR #933; Tau Ceti checked at 08ee344996, 2026-11-18). Grep `CMType`, `mumfordTate`, `MumfordTate`, `PureDatum`, `Shimura.`: no hits.
 
 ### §P.3 Hodge filtrations and reflex fields (the representation–Hodge dictionary)
-- Status: NOT-STARTED. Inputs in code: `TauCeti.DeligneTorus.S` with `complexSplitting`, `mu`, `characterGroup` (Algebra/AlgebraicGroup/DeligneTorus/{Basic,Splitting}.lean), `TauCeti.Hodge.HodgeStructureOn` with tensor products, duals and Tate twists (Geometry/Hodge/).
+- Status: NOT-STARTED. Inputs in code: `TauCeti.DeligneTorus.S` with `complexSplitting`, `mu`, `characterGroup` (Algebra/AlgebraicGroup/DeligneTorus/{Basic,Splitting}.lean), `TauCeti.Hodge.HodgeStructureOn` with tensor products, duals and Tate twists (Geometry/Hodge/). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43695 (the action of the Deligne torus on a pure Hodge structure, the first slice of the representation–Hodge dictionary, Geometry/Hodge/DeligneTorus.lean).
 - Ready now: yes for the dictionary between rational Hodge structures and homomorphisms `h : S → GL(V)_ℝ` with its tensor, dual and Tate compatibilities (split `S`-characters in code). The datum-dependent parts (holomorphic variations, Borel embedding, reflex field `E(D)`) need §§P.1–P.2.
 - Serves defs: 13, 23, 89
 - Evidence: README l.151 "## Prerequisites constructed here", l.177 "### P.3 Hodge filtrations and reflex fields".
@@ -2317,7 +2317,7 @@ No STATUS.md (merged as roadmap PR #933; Tau Ceti checked at 08ee344996, 2026-11
 - Evidence: README l.189 "### P.3a Mumford–Tate groups of rational Hodge structures", l.210 "This uses ... `TauCeti.HopfIdeal.sSup_toIdeal`; `TauCeti.Hodge.exists_isCompl_of_isPolarizable`".
 
 ### §5.1 CM types, reflex fields and reflex norms
-- Status: NOT-STARTED (no `CMType` on Tau Ceti `main`; open Tau Ceti PR #43696 "feat: CM types, type traces and reflex fields" adds `CMType`, `typeTrace`, `reflexField`; `Suggested.lean` states `CMType`, `CMType.typeTrace`, `CMType.reflexField`, `CMType.reflexField_isCMField`, `CMType.reflexField_representation`).
+- Status: NOT-STARTED (no `CMType` on Tau Ceti `main`; `Suggested.lean` states `CMType`, `CMType.typeTrace`, `CMType.reflexField`, `CMType.reflexField_isCMField`, `CMType.reflexField_representation`). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43696 (`TauCeti.CMType` with `typeTrace` and `reflexField`, NumberTheory/NumberField/CMType/Basic.lean; not the reflex norm).
 - Ready now: yes for `CMType`, induced and primitive types, `typeTrace`, `reflexField` and the reflex norm `N_{k,Φ}` with identities (a)–(d) (Mathlib `NumberField.IsCMField`, `ComplexEmbedding.conjugate`, `IntermediateField.adjoin`, `LinearMap.det`). `TauCeti.Shimura.ReflexNorm.cm_type` needs §4.2 and §§P.1–P.4.
 - Serves defs: 70 (70.1(a); §5.3 `CMAbelianVariety` over `ℂ`), 75 (75.1)
 - Evidence: README l.1445 "### 5.1 CM types, reflex fields and reflex norms", l.1504 "This uses `NumberField.IsCMField`; ...", l.1525 "### 5.3 CM abelian varieties with their algebra action".
@@ -2338,7 +2338,7 @@ No STATUS.md (merged as roadmap PR #933; Tau Ceti checked at 08ee344996, 2026-11
 No STATUS.md (merged as roadmap PR #966; Tau Ceti checked at 08ee344996, 2026-11-18). Grep `PositiveInvolution`, `SymplecticOLattice`, `IntegralPELDatum`, `PELDatum`: no hits. Its cited Tau Ceti inputs are in code: `TauCeti.ConstantForm.groupScheme`, `Symplectic.groupScheme`, `Matrix.transpose_mul_J_mul_eq_det_smul`, `LinearMap.BilinForm.dualSubmodule_dualSubmodule_flip`, `TauCeti.IntegralOrder.IsOrder`/`IsMaximalOrder`, `SymplecticForm.Compatible`.
 
 ### M0.1 Positive involutions and star orders
-- Status: NOT-STARTED.
+- Status: NOT-STARTED. Open Tau Ceti PRs https://github.com/TauCetiProject/TauCeti/pull/43701 (`TauCeti.StarOrder`, star-orders in a `ℚ`-algebra with involution, RingTheory/IntegralOrder/StarOrder.lean) and https://github.com/TauCetiProject/TauCeti/pull/43709 (the reduced trace `TauCeti.Algebra.reducedTrace` of a semisimple algebra, the `Trd_{B/ℚ}` input of `PositiveInvolution`, RingTheory/Semisimple/Trace/Reduced.lean).
 - Ready now: yes (Mathlib `StarRing`, `IsSemisimpleRing.exists_algEquiv_pi_matrix_divisionRing`, `Algebra.trace`, `Submodule.IsLattice`; ClassicalArithmeticCompletion §7.4's `IntegralOrder.IsOrder`, in code at RingTheory/IntegralOrder/Basic.lean)
 - Serves defs: 82
 - Evidence: README l.430 "### M0.1 Positive involutions", *Needs* l.468.
@@ -2365,13 +2365,13 @@ No STATUS.md (merged as roadmap PR #966; Tau Ceti checked at 08ee344996, 2026-11
 No STATUS.md (merged as roadmap PR #2444; Tau Ceti checked at 08ee344996, 2026-11-18). Grep `DiracFundamentalSystem`, `diracCoeff`, `scatteringA`, `nonlinearFourier`, `PoissonFinite` in TauCeti/: no hits.
 
 ### Layer 1 (§§1.1–1.6) Integral Grönwall, the linear Carathéodory theorem with an integrable coefficient, the propagator, Liouville's formula, continuous and holomorphic dependence on a parameter
-- Status: NOT-STARTED. Inputs in code: Carathéodory existence and uniqueness for essentially bounded coefficients `TauCeti.exists_continuousOn_eq_forall_mem_Icc_eq_picard`, `TauCeti.eqOn_of_forall_mem_Icc_eq_picard` (Analysis/ODE/Caratheodory.lean), the constant-kernel Grönwall `TauCeti.le_mul_exp_of_le_add_mul_integral` (Analysis/ODE/Gronwall.lean), Jacobi's formula (Analysis/Calculus/FDeriv/Det.lean).
+- Status: NOT-STARTED. Inputs in code: Carathéodory existence and uniqueness for essentially bounded coefficients `TauCeti.exists_continuousOn_eq_forall_mem_Icc_eq_picard`, `TauCeti.eqOn_of_forall_mem_Icc_eq_picard` (Analysis/ODE/Caratheodory.lean), the constant-kernel Grönwall `TauCeti.le_mul_exp_of_le_add_mul_integral` (Analysis/ODE/Gronwall.lean), Jacobi's formula (Analysis/Calculus/FDeriv/Det.lean). Open Tau Ceti PRs https://github.com/TauCetiProject/TauCeti/pull/43694 (§1.1 integral Grönwall with a nonnegative integrable kernel, `TauCeti.le_mul_exp_integral_of_le_add_integral_mul`, Analysis/ODE/Gronwall/Integrable.lean) and https://github.com/TauCetiProject/TauCeti/pull/43702 (§1.2 `linear_caratheodory` with an integrable coefficient, Analysis/ODE/Caratheodory/Integrable.lean).
 - Ready now: yes (Layer 1 *Needs* only Mathlib and Tau Ceti: absolute continuity, Lebesgue differentiation, `ContractingWith`, parametric integrals).
 - Serves defs: 44 (target: Prop 44.1, §1.6), 43
 - Evidence: README l.509 "## Layer 1: Carathéodory linear systems with a holomorphic parameter", l.515 "### 1.1", l.539 "### 1.2 The linear Carathéodory theorem" (`linear_caratheodory` in Suggested.lean), l.581 "### 1.3 The propagator", l.610 "### 1.4 Liouville's formula", l.647 "### 1.5", l.663 "### 1.6 Holomorphic dependence on a parameter"; Dependencies l.743.
 
 ### Layer 2 (§§2.1–2.8) Function theory of the upper half-plane: Poisson integrals, positive harmonic functions, Fatou, bounded holomorphic functions, H^p(ℂ₊), Paley–Wiener, outer functions
-- Status: NOT-STARTED. Inputs in code: `TauCeti.halfSpacePoissonKernel`, `halfSpacePoissonKernel_pos`, `integral_halfSpacePoissonKernel` (Analysis/PDE/GreenFunction/HalfSpace.lean, PoissonIntegral/HalfSpace.lean), `TauCeti.boundaryCayley` (Analysis/Complex/Pick/Nevanlinna.lean), `DifferentiableOn.hasDerivAt_wedgeIntegral_upperHalfPlane`.
+- Status: NOT-STARTED. Inputs in code: `TauCeti.halfSpacePoissonKernel`, `halfSpacePoissonKernel_pos`, `integral_halfSpacePoissonKernel` (Analysis/PDE/GreenFunction/HalfSpace.lean, PoissonIntegral/HalfSpace.lean), `TauCeti.boundaryCayley` (Analysis/Complex/Pick/Nevanlinna.lean), `DifferentiableOn.hasDerivAt_wedgeIntegral_upperHalfPlane`. Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43708 (§2.1 Poisson and Schwarz integrals of measures on the upper half-plane, `TauCeti.upperHalfPlanePoissonKernel`, Analysis/Complex/UpperHalfPlane/Poisson.lean).
 - Ready now: yes for §2.1 (Mathlib and the Tau Ceti half-space Poisson kernel); §2.2 needs AutomorphicSpectralTheory §0.5 (ready, not started); §§2.3–2.8 follow §§2.1–2.2.
 - Serves defs: 43
 - Evidence: README l.755 "## Layer 2: Function theory of the upper half-plane", l.757 "### 2.1" (*Needs* l.789), l.815 "### 2.2 Positive harmonic functions on the half-plane" (*Needs* l.836 "§2.1; AutomorphicSpectralTheory §0.5"), l.937 "### 2.5", l.990 "### 2.6", l.1087 "### 2.8 Outer functions"; Dependencies l.1139.
@@ -2392,7 +2392,7 @@ No STATUS.md (merged as roadmap PR #2444; Tau Ceti checked at 08ee344996, 2026-1
 No STATUS.md (Tau Ceti checked at 08ee344996, 2026-11-18).
 
 ### §0.5 Herglotz representation on the upper half-plane
-- Status: NOT-STARTED. Input in code: the finite-measure Nevanlinna representation `TauCeti.exists_isFiniteMeasure_eq_nevanlinnaKernel_add` (Analysis/Complex/Pick/), disc Herglotz `exists_isFiniteMeasure_eq_herglotzTransform_add` (Analysis/Complex/Herglotz.lean); the density conversion `dν = (1+t²)dρ` and uniqueness are not in code.
+- Status: NOT-STARTED. Input in code: the finite-measure Nevanlinna representation `TauCeti.exists_isFiniteMeasure_eq_nevanlinnaKernel_add` (Analysis/Complex/Pick/), disc Herglotz `exists_isFiniteMeasure_eq_herglotzTransform_add` (Analysis/Complex/Herglotz.lean); the density conversion `dν = (1+t²)dρ` and uniqueness are not in code. Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43704 (the Herglotz representation of Pick functions in the resolvent convention, `TauCeti.exists_eq_subtractedResolventKernel_add`, Analysis/Complex/Pick/Herglotz.lean).
 - Ready now: yes (*Needs*: Tau Ceti `Analysis.Complex.Pick.Nevanlinna`, Mathlib `Measure.withDensity`)
 - Serves defs: 43 (through DiracScatteringAndNonlinearFourierTransform §2.2)
 - Evidence: README l.181 "### 0.5 Herglotz representation", *Needs* l.197.
@@ -2401,7 +2401,7 @@ No STATUS.md (Tau Ceti checked at 08ee344996, 2026-11-18).
 No STATUS.md (merged as roadmap PR #1000; Tau Ceti checked at 08ee344996, 2026-11-18). Grep `HermitianVectorBundle`, `arakelovDegree`, `faltingsHeight`, `weilClass` in TauCeti/: no hits (Tau Ceti's `arakelovMulHeight` is a Euclidean point height).
 
 ### §§1.1–1.6 Hermitian vector bundles over O_K, their operations, the Arakelov degree, the product formula, additivity, finite extension
-- Status: NOT-STARTED.
+- Status: NOT-STARTED. Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43697 (§1.1 `HermitianVectorBundle K` over `𝓞 K` and the §1.3 degree computed with a chosen section, NumberTheory/Arakelov/HermitianVectorBundle.lean).
 - Ready now: yes (*Needs* of §§1.1–1.6 are Mathlib only: `NumberField.RingOfIntegers`, `Module.Projective`, `InnerProductSpace`, `NumberField.InfinitePlace.mult`, `FractionalIdeal.absNorm`, `NumberField.prod_abs_eq_one`, `Algebra.norm`, `Ideal.absNorm_algebraMap`)
 - Serves defs: 85 (target: 85.1–85.2), 80 (through §1.12)
 - Evidence: README l.167 "## Layer 1", l.171 "### 1.1 Hermitian vector bundles over the ring of integers", l.243 "### 1.3 The Arakelov degree of a hermitian bundle", l.281 "### 1.4 Independence of the section: the product formula", l.327 "### 1.6 Arakelov degree under finite extension"; *Needs* after each.
@@ -2428,7 +2428,7 @@ No STATUS.md (merged as roadmap PR #1000; Tau Ceti checked at 08ee344996, 2026-1
 No STATUS.md (merged as roadmap PR #1002; Tau Ceti checked at 08ee344996, 2026-11-18).
 
 ### §RD.0.33 The completion of an algebraically closed nonarchimedean field is algebraically closed, in every characteristic
-- Status: NOT-STARTED (no `IsAlgClosed` instance for a completion in TauCeti/; Mathlib's `IsAlgClosed.of_denseRange` is characteristic 0 only).
+- Status: NOT-STARTED (no `IsAlgClosed` instance for a completion in TauCeti/; Mathlib's `IsAlgClosed.of_denseRange` is characteristic 0 only). Open Tau Ceti PR https://github.com/TauCetiProject/TauCeti/pull/43699 (`IsAlgClosed.of_isAlgClosed_of_denseRange` in every characteristic, Analysis/Normed/Field/IsAlgClosed.lean).
 - Ready now: yes (*Needs* are Mathlib only: `IsAlgClosed.of_exists_root`, `Polynomial.exists_monic_and_natDegree_eq_and_norm_map_algebraMap_coeff_sub_lt`, `Polynomial.exists_aroots_norm_sub_lt_of_norm_coeff_sub_lt`, `spectralNorm.normedField`, `UniformSpace.Completion`, all present)
 - Serves defs: 22 (open PR #2271 §0.1, characteristic `p`)
 - Evidence: README l.1578 "### RD.0.33", Mathlib supplier list l.328–412.
